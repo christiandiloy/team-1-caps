@@ -1,7 +1,7 @@
 import "./store.css";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const logout = () => {
     localStorage.clear()
     window.location.reload()
@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav className="navbar ">
       <div>
-        <Link to="/store" className="navbar-logo">
+        <Link to="/store" onClick={() => {props.setCurrentLink("/store");}} className="navbar-logo">
           <img
             className="sh-img"
             src="/assets/images/goods.jpg"
