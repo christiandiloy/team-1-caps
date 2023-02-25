@@ -1,0 +1,53 @@
+#dots:active {
+    color: orange;
+}
+/* Vapes */
+.cards {
+    border: none;
+}
+.cards-body {
+    text-align: center;
+}
+
+.card-image {
+    width: 100%;
+    transition: 0.2s all ease-in-out;
+}
+  
+.card-image:hover {
+    transform: scale(1.1);
+}
+
+/* embed */
+.container-embed {
+    position: relative;
+  }
+  
+.container-embed .fa-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  
+.container-embed .fa-play:hover {
+    background-color: orange;
+    color: black;
+  }
+
+.embed-img {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    padding: 20px;
+    border-radius: 30px;
+}

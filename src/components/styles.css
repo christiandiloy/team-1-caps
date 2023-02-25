@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+    
+
+.article {
+    height: 58vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
+.img-header {
+    font-size: 50px;
+    color: orange;
+    text-align: center;
+    padding: 0 auto;
+    font-family: 'Notable', sans-serif;
+}
+.img-text{
+    width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+.row {
+    margin: 30px 150px;
+}
+
+.aegis-col {
+    padding: 30px 20px;
+    
+}
+.aegis-cards {
+    height: auto;
+    min-height: 17vh;
+    max-height: 50vh;
+    border: none;
+}
+.card-img-top, .card-img {
+    margin: 0 auto ;
+    max-width: 250px;
+    transition: 0.2s all ease-in-out;
+}
+.card-img-top:hover, .card-img:hover {
+    transform: scale(1.1);
+}
