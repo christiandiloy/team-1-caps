@@ -37,38 +37,38 @@ function Login() {
       });
   };
   return !isUserLoggedIn ? (
-    <div className="">
-      <input
-        id="username"
-        className="input100"
-        type="text"
-        placeholder="Username"
-      />
-
-      <input
-        id="password"
-        className="input100"
-        type="password"
-        placeholder="Password"
-      />
-
-      <input className="" id="ckb1" type="checkbox" name="remember-me" />
-      <label className="label-checkbox100" htmlFor="ckb1">
-        Remember me
-      </label>
-
-      <a href="#" className="">
-        Forgot Password?
-      </a>
-
-      <button className="login100-form-btn" onClick={login}>
+    <form className="justify-content-center align-items-center">
+      <div className="form-group ">
+        <input
+          type="email"
+          className="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+      </div>
+      <div className="form-group my-3">
+        <input
+          type="password"
+          className="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+        />
+      </div>
+      <div className="form-check mb-3">
+        <input
+          type="checkbox"
+          className="form-check-input"
+          id="exampleCheck1"
+        />
+        <label className="form-check-label" htmlFor="exampleCheck1">
+          Remember me
+        </label>
+      </div>
+      <button type="submit" className="btn btn-lg w-75 btn-primary">
         Login
       </button>
-
-      <Link to="/Register" className="">
-        Sign-up
-      </Link>
-    </div>
+    </form>
   ) : (
     <></>
   );
