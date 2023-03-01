@@ -2,15 +2,6 @@ import { Link } from "react-router-dom";
 import { LoginAPI } from "../Utils/fetch";
 
 import React from "react";
-import {
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBBtn,
-  MDBIcon,
-  MDBInput,
-  MDBCheckbox,
-} from "mdb-react-ui-kit";
 
 function Login() {
   let isUserLoggedIn = false;
@@ -46,70 +37,38 @@ function Login() {
       });
   };
   return !isUserLoggedIn ? (
-    <MDBContainer fluid className="p-3 my-5">
-      <MDBRow>
-        <MDBCol col="10" md="6">
-          <img
-            src="./assets/images/background/banner-wenax.jpg"
-            class="img-fluid"
-            alt="Phone image"
-          />
-        </MDBCol>
+    <div className="">
+      <input
+        id="username"
+        className="input100"
+        type="text"
+        placeholder="Username"
+      />
 
-        <MDBCol col="4" md="6">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Username"
-            id="username"
-            type="text"
-            size="lg"
-          />
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Password"
-            id="password"
-            type="password"
-            size="lg"
-          />
+      <input
+        id="password"
+        className="input100"
+        type="password"
+        placeholder="Password"
+      />
 
-          <div className="d-flex justify-content-between mx-4 mb-4">
-            <MDBCheckbox
-              name="flexCheck"
-              value=""
-              id="flexCheckDefault"
-              label="Remember me"
-            />
-            <a href="!#">Forgot password?</a>
-          </div>
+      <input className="" id="ckb1" type="checkbox" name="remember-me" />
+      <label className="label-checkbox100" htmlFor="ckb1">
+        Remember me
+      </label>
 
-          <MDBBtn className="mb-4 w-100" size="lg" onClick={login}>
-            Sign in
-          </MDBBtn>
+      <a href="#" className="">
+        Forgot Password?
+      </a>
 
-          <div className="divider d-flex align-items-center my-4">
-            <p className="text-center fw-bold mx-3 mb-0">OR</p>
-          </div>
+      <button className="login100-form-btn" onClick={login}>
+        Login
+      </button>
 
-          <MDBBtn
-            className="mb-4 w-100"
-            size="lg"
-            style={{ backgroundColor: "#3b5998" }}
-          >
-            <MDBIcon fab icon="facebook-f" className="mx-2" />
-            Continue with facebook
-          </MDBBtn>
-
-          <MDBBtn
-            className="mb-4 w-100"
-            size="lg"
-            style={{ backgroundColor: "#55acee" }}
-          >
-            <MDBIcon fab icon="twitter" className="mx-2" />
-            Continue with twitter
-          </MDBBtn>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+      <Link to="/Register" className="">
+        Sign-up
+      </Link>
+    </div>
   ) : (
     <></>
   );
