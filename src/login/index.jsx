@@ -42,7 +42,7 @@ function Login() {
         <input
           type="email"
           className="form-control"
-          id="exampleInputEmail1"
+          id="username"
           aria-describedby="emailHelp"
           placeholder="Enter email"
         />
@@ -51,7 +51,7 @@ function Login() {
         <input
           type="password"
           className="form-control"
-          id="exampleInputPassword1"
+          id="password"
           placeholder="Password"
         />
       </div>
@@ -65,7 +65,11 @@ function Login() {
           Remember me
         </label>
       </div>
-      <button type="submit" className="btn btn-lg w-75 btn-primary">
+      <button
+        type="submit"
+        className="btn btn-lg w-75 btn-primary"
+        onClick={login}
+      >
         Login
       </button>
     </form>
