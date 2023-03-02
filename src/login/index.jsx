@@ -41,7 +41,7 @@ function Login() {
       <div className="col">
         <img src="./assets/images/Vape-hub.svg" alt="Vapehub-Logo" />
       </div>
-      <form className="justify-content-center align-items-center">
+      <div className="justify-content-center align-items-center">
         <div className="form-group ">
           <input
             type="text"
@@ -75,7 +75,7 @@ function Login() {
         >
           Login
         </button>
-      </form>
+      </div>
     </div>
   ) : (
     <></>
