@@ -29,7 +29,7 @@ function Login() {
           localStorage.setItem("user", JSON.stringify(result.userData));
           window.location.href = "http://localhost:3000/store";
         } else {
-          // alert user that credentials is invalid
+          alert("Invalid Username or Password");
         }
       })
       .catch((error) => {
@@ -37,11 +37,11 @@ function Login() {
       });
   };
   return !isUserLoggedIn ? (
-    <div className="row row-cols-2">
+    <div className="row row-cols-2 justify-content-center align-items-center">
       <div className="col">
         <img src="./assets/images/Vape-hub.svg" alt="Vapehub-Logo" />
       </div>
-      <div className="justify-content-center align-items-center">
+      <div className="col">
         <div className="form-group ">
           <input
             type="text"
