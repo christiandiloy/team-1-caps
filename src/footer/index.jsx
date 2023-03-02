@@ -46,7 +46,7 @@ export default function Footer() {
             <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
                 <MDBIcon icon="gem" className="me-3" />
-                GOOD SOURCE
+                VAPE HUB
               </h6>
               <p>
                 We provide the best vape experience for our clients.
@@ -103,7 +103,7 @@ export default function Footer() {
       >
         © 2020 Copyright:&nbsp;
         <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-          GOOD SOURCE ALL RIGHTS RESERVED.
+          VAPE HUB ALL RIGHTS RESERVED.
         </a>
       </div>
     </MDBFooter>

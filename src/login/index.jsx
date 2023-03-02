@@ -1,7 +1,7 @@
 import { LoginAPI } from "../Utils/fetch";
 import React from "react";
 import "./login.css";
-import NavBar from "../home/navbar";
+import LoginNav from "./loginNavbar";
 import Footer from "../footer/index";
 
 function Login() {
@@ -39,7 +39,7 @@ function Login() {
   };
   return !isUserLoggedIn ? (
     <>
-      <NavBar></NavBar>
+      <LoginNav />
       <div className="row row-cols-2 justify-content-center align-items-center">
         <div className="col-5">
           <img
@@ -77,14 +77,14 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="btn btn-lg w-75 btn-primary"
+            className="btn btn-lg w-100 btn-warning text-light"
             onClick={login}
           >
             Login
           </button>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </>
   ) : (
     <></>
