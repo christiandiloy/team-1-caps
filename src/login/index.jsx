@@ -2,6 +2,7 @@ import { LoginAPI } from "../Utils/fetch";
 import React from "react";
 import "./login.css";
 import NavBar from "../home/navbar";
+import Footer from "../footer/index";
 
 function Login() {
   let isUserLoggedIn = false;
@@ -83,6 +84,7 @@ function Login() {
           </button>
         </div>
       </div>
+      <Footer></Footer>
     </>
   ) : (
     <></>
