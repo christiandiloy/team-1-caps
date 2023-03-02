@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { LoginAPI } from "../Utils/fetch";
-
 import React from "react";
+import "./login.css";
+import NavBar from "../home/navbar";
 
 function Login() {
   let isUserLoggedIn = false;
@@ -37,46 +37,53 @@ function Login() {
       });
   };
   return !isUserLoggedIn ? (
-    <div className="row row-cols-2 justify-content-center align-items-center">
-      <div className="col">
-        <img src="./assets/images/Vape-hub.svg" alt="Vapehub-Logo" />
+    <>
+      <NavBar></NavBar>
+      <div className="row row-cols-2 justify-content-center align-items-center">
+        <div className="col-5">
+          <img
+            className="login-logo"
+            src="./assets/images/Vape-hub.svg"
+            alt="Vapehub-Logo"
+          />
+        </div>
+        <div className="col-5">
+          <div className="form-group ">
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              placeholder="Enter Username"
+            />
+          </div>
+          <div className="form-group my-3">
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
+          <div className="form-check mb-3">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="exampleCheck1"
+            />
+            <label className="form-check-label" htmlFor="exampleCheck1">
+              Remember me
+            </label>
+          </div>
+          <button
+            type="submit"
+            className="btn btn-lg w-75 btn-primary"
+            onClick={login}
+          >
+            Login
+          </button>
+        </div>
       </div>
-      <div className="col">
-        <div className="form-group ">
-          <input
-            type="text"
-            className="form-control"
-            id="username"
-            placeholder="Enter Username"
-          />
-        </div>
-        <div className="form-group my-3">
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="Password"
-          />
-        </div>
-        <div className="form-check mb-3">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Remember me
-          </label>
-        </div>
-        <button
-          type="submit"
-          className="btn btn-lg w-75 btn-primary"
-          onClick={login}
-        >
-          Login
-        </button>
-      </div>
-    </div>
+    </>
   ) : (
     <></>
   );
