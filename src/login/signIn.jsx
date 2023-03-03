@@ -42,7 +42,10 @@ function SignIn() {
           <h2 className="lead display-6 text-center text-muted mb-5">
             Login to your account.
           </h2>
-          <div className="form-group">
+          <div className="input-group">
+            <span className="input-group-text bg-light">
+              <i class="fa-regular fa-user" />
+            </span>
             <input
               type="text"
               className="form-control"
@@ -50,7 +53,10 @@ function SignIn() {
               placeholder="Enter Username"
             />
           </div>
-          <div className="form-group my-3">
+          <div className="input-group my-3">
+            <span className="input-group-text bg-light">
+              <i class="fa-solid fa-lock"></i>
+            </span>
             <input
               type="password"
               className="form-control"
