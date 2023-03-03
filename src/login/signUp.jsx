@@ -34,86 +34,86 @@ function SignUp() {
   };
   return !isUserLoggedIn ? (
     <>
-      <div className="limiter">
-        <div className="container-login100">
-          <div className="wrap-login100">
-            <form className="login100-form validate-form">
-              <span className="login100-form-title pb-5">Sign-up</span>
-
-              <div className="wrap-input100">
-                <input
-                  id="username"
-                  className="input100"
-                  type="text"
-                  placeholder="Username"
-                />
-              </div>
-
-              <div
-                className="wrap-input100 validate-input"
-                data-validate="Password is required"
-              >
-                <input
-                  id="password"
-                  className="input100"
-                  type="password"
-                  placeholder="Password"
-                />
-              </div>
-
-              <div className="wrap-input100">
-                <input
-                  id="fullName"
-                  className="input100"
-                  type="text"
-                  placeholder="Full Name"
-                />
-              </div>
-
-              <div className="wrap-input100">
-                <input
-                  id="email"
-                  className="input100"
-                  type="Email"
-                  placeholder="Email"
-                />
-              </div>
-
-              <div className="container-login100-form-btn">
-                <button className="login100-form-btn" onClick={register}>
-                  Register now
-                </button>
-              </div>
-
-              <div className="text-center p-t-46 p-b-20">
-                <span className="txt2">or sign in using</span>
-              </div>
-
-              <div className="login100-form-social flex-c-m">
-                <a
-                  href="#"
-                  className="login100-form-social-item flex-c-m bg1 m-r-5"
-                >
-                  <i className="fa fa-facebook-f" aria-hidden="true"></i>
-                </a>
-
-                <a
-                  href="#"
-                  className="login100-form-social-item flex-c-m bg2 m-r-5"
-                >
-                  <i className="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </div>
-            </form>
-
-            <div
-              className="login100-more"
-              style={{
-                backgroundImage: `url(images/loginbg.jpg)`,
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
+      <div className="row justify-content-center align-items-center m-0">
+        <div className="container col me-0 me-lg-3">
+          <h2 className="lead display-6 text-center text-muted mb-5">
+            Register your account.
+          </h2>
+          <div className="input-group">
+            <span className="input-group-text bg-light">
+              <i class="fa-regular fa-user" />
+            </span>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              placeholder="Enter Username"
+            />
           </div>
+
+          <div className="input-group my-3">
+            <span className="input-group-text bg-light">
+              <i class="fa-solid fa-lock"></i>
+            </span>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="Enter Password"
+            />
+          </div>
+
+          <div className="input-group my-3">
+            <span className="input-group-text bg-light">
+              <i class="fa-solid fa-key"></i>
+            </span>
+            <input
+              type="password"
+              className="form-control"
+              id="re-password"
+              placeholder="Confirm Password"
+            />
+          </div>
+
+          <div className="input-group my-3">
+            <span className="input-group-text bg-light">
+              <i class="fa-regular fa-id-card"></i>
+            </span>
+            <input
+              type="text"
+              className="form-control"
+              id="fullName"
+              placeholder="Enter Full Name"
+            />
+          </div>
+
+          <div className="input-group my-3">
+            <span className="input-group-text bg-light">
+              <i class="fa-regular fa-envelope"></i>
+            </span>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="Enter Email"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-lg w-100 btn-warning text-light"
+            onClick={register}
+          >
+            Register
+          </button>
+        </div>
+        <div className="col d-none d-lg-block text-center border-start border-warning">
+          <img
+            className="login-logo img-fluid"
+            src="./assets/images/Vape-hub.svg"
+            alt="Vapehub-Logo"
+          />
+          <h1 className="login-brand">VAPE HUB</h1>
         </div>
       </div>
     </>

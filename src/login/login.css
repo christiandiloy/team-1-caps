@@ -22,9 +22,17 @@
   margin-top: -3em;
 }
 
+.login-plink-signup {
+  margin-top: -0.5em;
+}
+
 @media only screen and (max-width: 768px) {
   .login-plink {
     margin-top: 3em;
+    text-align: center;
+  }
+  .login-plink-signup {
+    margin-top: 2em;
     text-align: center;
   }
 }

@@ -7,9 +7,11 @@ import SignUp from "./signUp";
 
 function Login() {
   const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignUpLink, setIsSignUpLink] = useState(false); // add new state variable
 
   const toggleSignInUp = () => {
     setIsSignIn(!isSignIn);
+    setIsSignUpLink(!isSignUpLink); // toggle the new state variable
   };
 
   return (
@@ -19,7 +21,11 @@ function Login() {
         <div className="container login-container">
           <div className="border rounded bg-light p-4">
             {isSignIn ? <SignIn /> : <SignUp />}
-            <p className="login-plink ms-3">
+            <p
+              className={`login-plink ms-3${
+                isSignUpLink ? " login-plink-signup" : ""
+              }`}
+            >
               {isSignIn
                 ? "Don't have an account yet?"
                 : "Already have an account?"}{" "}
@@ -27,7 +33,7 @@ function Login() {
               <a className="login-link link-warning" onClick={toggleSignInUp}>
                 {isSignIn ? "Sign up here" : "Sign in"}
               </a>
-              {isSignIn ? "" : " here instead"}
+              {isSignIn ? "" : " here instead."}
             </p>
           </div>
         </div>
