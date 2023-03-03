@@ -1,4 +1,5 @@
 import { RegisterAPI } from "../Utils/fetch";
+import React, { useState } from "react";
 function SignUp() {
   let isUserLoggedIn = false;
   try {
@@ -32,6 +33,21 @@ function SignUp() {
         console.log("error: ", error);
       });
   };
+
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+
+  const handlePasswordChange = (event) => {
+    const password = event.target.value;
+    const rePassword = document.getElementById("re-password").value;
+    setPasswordsMatch(password === rePassword);
+  };
+
+  const handleRePasswordChange = (event) => {
+    const password = document.getElementById("password").value;
+    const rePassword = event.target.value;
+    setPasswordsMatch(password === rePassword);
+  };
+
   return !isUserLoggedIn ? (
     <>
       <div className="row justify-content-center align-items-center m-0">
@@ -60,6 +76,7 @@ function SignUp() {
               className="form-control"
               id="password"
               placeholder="Enter Password"
+              onChange={handlePasswordChange}
             />
           </div>
 
@@ -72,8 +89,12 @@ function SignUp() {
               className="form-control"
               id="re-password"
               placeholder="Confirm Password"
+              onChange={handleRePasswordChange}
             />
           </div>
+          {!passwordsMatch && (
+            <p className="login-passNotMatch">* Password does not match.</p>
+          )}
 
           <div className="input-group my-3">
             <span className="input-group-text bg-light">
@@ -103,6 +124,7 @@ function SignUp() {
             type="submit"
             className="btn btn-lg w-100 btn-warning text-light"
             onClick={register}
+            disabled={!passwordsMatch}
           >
             Register
           </button>
