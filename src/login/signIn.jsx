@@ -37,9 +37,9 @@ function SignIn() {
   };
   return !isUserLoggedIn ? (
     <>
-      <div className="row justify-content-center align-items-center g-0 ">
-        <div className="container col me-3">
-          <h2 className="lead display-6 text-muted mb-5">
+      <div className="row justify-content-center align-items-center m-0">
+        <div className="container col me-0 me-lg-3">
+          <h2 className="lead display-6 text-center text-muted mb-5">
             Login to your account.
           </h2>
           <div className="form-group">
@@ -76,7 +76,7 @@ function SignIn() {
             Login
           </button>
         </div>
-        <div className="col text-center border-start border-warning">
+        <div className="col d-none d-lg-block text-center border-start border-warning">
           <img
             className="login-logo img-fluid"
             src="./assets/images/Vape-hub.svg"

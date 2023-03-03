@@ -17,7 +17,7 @@ function Login() {
       <div className="login-home">
         <LoginNav />
         <div className="container login-container">
-          <div className="border rounded bg-light p-5">
+          <div className="border rounded bg-light p-4">
             {isSignIn ? <SignIn /> : <SignUp />}
             <p className="login-plink ms-3">
               {isSignIn
