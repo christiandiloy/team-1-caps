@@ -38,7 +38,7 @@ function SignIn() {
   return !isUserLoggedIn ? (
     <>
       <div className="">
-        <div className="form-group">
+        <div className="form-group w-50">
           <input
             type="text"
             className="form-control"
@@ -46,7 +46,7 @@ function SignIn() {
             placeholder="Enter Username"
           />
         </div>
-        <div className="form-group my-3">
+        <div className="form-group w-50 my-3">
           <input
             type="password"
             className="form-control"
@@ -66,7 +66,7 @@ function SignIn() {
         </div>
         <button
           type="submit"
-          className="btn btn-lg w-100 btn-warning text-light"
+          className="btn btn-lg w-50 btn-warning text-light"
           onClick={login}
         >
           Login

@@ -8,5 +8,7 @@
 }
 
 .login-home {
-  background-color: orange;
+  background: url("/public/assets/images/loginBG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

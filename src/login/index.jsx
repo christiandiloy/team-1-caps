@@ -16,7 +16,7 @@ function Login() {
     <>
       <div className="login-home">
         <LoginNav />
-        <div className="row row-cols-1 row-cols-lg-2 justify-content-center align-items-center">
+        <div className="login-bg row row-cols-1 row-cols-lg-2 justify-content-center align-items-center">
           <div className="col">
             <img
               className="login-logo img-fluid"
