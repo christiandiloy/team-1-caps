@@ -35,11 +35,36 @@ function SignUp() {
   };
 
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const [passwordStrength, setPasswordStrength] = useState("");
+  const [passwordStrengthClass, setPasswordStrengthClass] = useState("");
+  const [isStrongPassword, setIsStrongPassword] = useState(false);
 
   const handlePasswordChange = (event) => {
     const password = event.target.value;
     const rePassword = document.getElementById("re-password").value;
+
+    // Check if password meets strength requirements
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const isStrongPassword = passwordRegex.test(password);
+
+    // Update password strength indicator
+    let passwordStrength = "";
+    let passwordStrengthClass = "";
+    if (password.length === 0) {
+      passwordStrength = "";
+      passwordStrengthClass = "";
+    } else if (password.length < 8 || !isStrongPassword) {
+      passwordStrength = "Password strength: Weak";
+      passwordStrengthClass = "login-passStrength text-danger";
+    } else {
+      passwordStrength = "Password strength: Strong";
+      passwordStrengthClass = "login-passStrength text-success";
+    }
+
+    setPasswordStrength(passwordStrength);
+    setPasswordStrengthClass(passwordStrengthClass);
     setPasswordsMatch(password === rePassword);
+    setIsStrongPassword(isStrongPassword);
   };
 
   const handleRePasswordChange = (event) => {
@@ -79,6 +104,7 @@ function SignUp() {
               onChange={handlePasswordChange}
             />
           </div>
+          <p className={passwordStrengthClass}>{passwordStrength}</p>
 
           <div className="input-group my-3">
             <span className="input-group-text bg-light">
@@ -124,7 +150,7 @@ function SignUp() {
             type="submit"
             className="btn btn-lg w-100 btn-warning text-light"
             onClick={register}
-            disabled={!passwordsMatch}
+            disabled={!passwordsMatch || !isStrongPassword}
           >
             Register
           </button>
