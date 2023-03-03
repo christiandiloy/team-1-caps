@@ -40,15 +40,15 @@ function Login() {
   return !isUserLoggedIn ? (
     <>
       <LoginNav />
-      <div className="row row-cols-2 justify-content-center align-items-center">
-        <div className="col-5">
+      <div className="row row-cols-1 row-cols-lg-2 justify-content-center align-items-center">
+        <div className="col">
           <img
-            className="login-logo"
+            className="login-logo img-fluid"
             src="./assets/images/Vape-hub.svg"
             alt="Vapehub-Logo"
           />
         </div>
-        <div className="col-5">
+        <div className="col">
           <div className="form-group ">
             <input
               type="text"

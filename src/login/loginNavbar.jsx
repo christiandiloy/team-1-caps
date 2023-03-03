@@ -12,11 +12,13 @@ export default function LoginNav() {
         variant="dark"
         style={{ backgroundColor: "#08002a" }}
       >
-        <Container className="my-3">
-          <h3 className="text-light lead">
-            WARNING: Nicotine is an addictive chemical. Only for adults. Anyone
-            below the age of 21 is prohibited from buying e-cigarette.
-          </h3>
+        <Container className="my-3 justify-content-center text-center">
+          <div className="m-2 p-3 container border border-warning text-warning">
+            <h3 className="lead">
+              WARNING: Anyone below the age of 21 is prohibited from buying
+              e-cigarette.
+            </h3>
+          </div>
         </Container>
       </Navbar>
     </>
