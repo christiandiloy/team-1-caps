@@ -98,6 +98,7 @@ function SignUp() {
             </span>
             <input
               type="password"
+              maxlength="8"
               className="form-control"
               id="password"
               placeholder="Enter Password"
@@ -112,6 +113,7 @@ function SignUp() {
             </span>
             <input
               type="password"
+              maxlength="8"
               className="form-control"
               id="re-password"
               placeholder="Confirm Password"
