@@ -1,18 +1,16 @@
 
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-// import NavBar from "./navbar";
 import * as React from "react";
 import "./store.css";
 import TheFooter from "../footer";
-import Vapes from "../main-web-components/vapes";
 import Embed from "../main-web-components/embed";
-import Slider from "../main-web-components/SliderParent";
 import StoreHead from "./store-head";
 import StoreNavBar from "../store/navbar";
 import StoreHeader from "./store-header";
 import StoreCarousel from "./StoreCarousel";
 import Products from "./products";
+import TopDeals from "./top-deals";
 
 
 
@@ -40,6 +38,8 @@ function Store() {
         <StoreNavBar setCurrentLink = {setCurrentLink} />
         <StoreCarousel/>
         <Products/>
+        <TopDeals/>
+        <Embed/>
         <Outlet />
         <TheFooter/>
       </>

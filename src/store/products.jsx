@@ -24,10 +24,11 @@ function Products() {
       {aegisItems.map((item) => {
         return (
           <Col key={item.id} class="aegis-col">
+            
             <Card className="aegis-cards">
               {/* <Card.Img variant="top" src={products.category(Aegis)} /> */}
               <Card.Img variant="top" src={item.url} />
-              <Card.Body style={{ textAlign: "center" }}>
+              <Card.Body className="body-text" style={{ textAlign: "center" }}>
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>
                   <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
