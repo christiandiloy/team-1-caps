@@ -1,5 +1,5 @@
 import { LoginAPI } from "../Utils/fetch";
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 
 function SignIn() {
@@ -35,6 +35,23 @@ function SignIn() {
         console.log("error: ", error);
       });
   };
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = (event) => {
+    if (event.target.checked) {
+      const expiryDate = new Date();
+      expiryDate.setHours(expiryDate.getHours() + 12);
+      localStorage.setItem(
+        "expiryDate",
+        JSON.stringify({ time: expiryDate.getTime() })
+      );
+    } else {
+      localStorage.clear();
+    }
+    setIsChecked((current) => !current);
+  };
+
   return !isUserLoggedIn ? (
     <>
       <div className="row justify-content-center align-items-center m-0">
@@ -59,7 +76,7 @@ function SignIn() {
             </span>
             <input
               type="password"
-              maxlength="8"
+              maxLength="8"
               className="form-control"
               id="password"
               placeholder="Password"
@@ -69,6 +86,8 @@ function SignIn() {
             <input
               type="checkbox"
               className="form-check-input"
+              value={isChecked}
+              onChange={handleChange}
               id="exampleCheck1"
             />
             <label className="form-check-label" htmlFor="exampleCheck1">
