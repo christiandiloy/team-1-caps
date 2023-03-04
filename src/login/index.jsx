@@ -1,84 +1,46 @@
-import { Link } from "react-router-dom";
-import { LoginAPI } from "../Utils/fetch";
-
-import React from "react";
+import React, { useState } from "react";
+import "./login.css";
+import LoginNav from "./loginNavbar";
+import Footer from "../footer/index";
+import SignIn from "./signIn";
+import SignUp from "./signUp";
 
 function Login() {
-  let isUserLoggedIn = false;
-  try {
-    isUserLoggedIn = JSON.parse(localStorage.getItem("user"));
-    if (isUserLoggedIn && isUserLoggedIn.id) {
-      window.location.href = "http://localhost:3000/store";
-    }
-  } catch (error) {}
+  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignUpLink, setIsSignUpLink] = useState(false); // add new state variable
 
-  const login = () => {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    console.log("username: ", username);
-    console.log("password: ", password);
-    LoginAPI(username, password)
-      .then((result) => {
-        return result.json();
-      })
-      .then((result) => {
-        console.log("result: ", result);
-        console.log("localStorage: ", localStorage);
-        if (result.success) {
-          //go to dashboard / home
-          localStorage.setItem("user", JSON.stringify(result.userData));
-          window.location.href = "http://localhost:3000/store";
-        } else {
-          alert("Invalid Username or Password");
-        }
-      })
-      .catch((error) => {
-        console.log("error: ", error);
-      });
+  const toggleSignInUp = () => {
+    setIsSignIn(!isSignIn);
+    setIsSignUpLink(!isSignUpLink); // toggle the new state variable
   };
-  return !isUserLoggedIn ? (
-    <div className="row row-cols-2 justify-content-center align-items-center">
-      <div className="col">
-        <img src="./assets/images/Vape-hub.svg" alt="Vapehub-Logo" />
+
+  return (
+    <>
+      <div className="login-home">
+        <LoginNav />
+        <div className="container login-container">
+          <div className="border rounded bg-light p-4">
+            {isSignIn ? <SignIn /> : <SignUp />}
+            <p
+              className={`login-plink ms-3${
+                isSignUpLink ? " login-plink-signup" : ""
+              }`}
+            >
+              {isSignIn
+                ? "Don't have an account yet?"
+                : "Already have an account?"}{" "}
+              &nbsp;
+              <a className="login-link link-warning" onClick={toggleSignInUp}>
+                {isSignIn ? "Sign up here" : "Sign in"}
+              </a>
+              {isSignIn ? "" : " here instead."}
+            </p>
+          </div>
+        </div>
+
+        <Footer />
       </div>
-      <div className="col">
-        <div className="form-group ">
-          <input
-            type="text"
-            className="form-control"
-            id="username"
-            placeholder="Enter Username"
-          />
-        </div>
-        <div className="form-group my-3">
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            placeholder="Password"
-          />
-        </div>
-        <div className="form-check mb-3">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="exampleCheck1"
-          />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Remember me
-          </label>
-        </div>
-        <button
-          type="submit"
-          className="btn btn-lg w-75 btn-primary"
-          onClick={login}
-        >
-          Login
-        </button>
-      </div>
-    </div>
-  ) : (
-    <></>
+    </>
   );
 }
 
