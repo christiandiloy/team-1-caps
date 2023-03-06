@@ -26,7 +26,7 @@ function SignUp() {
           localStorage.setItem("user", JSON.stringify(result.userData)); // put back if you want to automatically login
           window.location.href = "http://localhost:3000/"; // change to http://localhost:3000/ if you want to automatically login
         } else {
-          // alert user that credentials is invalid
+          alert("Invalid Credentials");
         }
       })
       .catch((error) => {
