@@ -1,4 +1,5 @@
 import { RegisterAPI } from "../Utils/fetch";
+import { CheckUserAPI } from "../Utils/fetch";
 import React, { useState } from "react";
 function SignUp() {
   let isUserLoggedIn = false;
@@ -9,12 +10,11 @@ function SignUp() {
     }
   } catch (error) {}
 
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const fullName = document.getElementById("fullName").value;
-  const email = document.getElementById("email").value;
-
   const register = () => {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
     RegisterAPI(username, password, fullName, email)
       .then((result) => {
         return result.json();
@@ -32,6 +32,25 @@ function SignUp() {
         console.log("error: ", error);
       });
   };
+
+  // const checkUser = () => {
+  //   const username = document.getElementById("username").value;
+  //   const email = document.getElementById("email").value;
+  //   CheckUserAPI(username, email)
+  //     .then((result) => {
+  //       return result.json();
+  //     })
+  //     .then((result) => {
+  //       if (result.success) {
+  //         console.log("Username already exist");
+  //       } else {
+  //         //
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log("error: ", error);
+  //     });
+  // };
 
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [passwordStrength, setPasswordStrength] = useState("");
@@ -88,6 +107,7 @@ function SignUp() {
               className="form-control"
               id="username"
               placeholder="Enter Username"
+              // onChange={checkUser}
             />
           </div>
 
@@ -144,6 +164,7 @@ function SignUp() {
               className="form-control"
               id="email"
               placeholder="Enter Email"
+              // onChange={checkUser}
             />
           </div>
 

@@ -31,3 +31,18 @@ export const RegisterAPI = (username, password, fullName, email) => {
   };
   return fetch(serverRoutes.Register, requestOptions);
 };
+
+// export const CheckUserAPI = (username, email) => {
+//   var myHeaders = new Headers();
+//   myHeaders.append("Content-Type", "application/json");
+//   var raw = JSON.stringify({
+//     username: username,
+//     email: email,
+//   });
+//   var requestOptions = {
+//     method: "POST",
+//     headers: myHeaders,
+//     body: raw,
+//   };
+//   return fetch(serverRoutes.CheckUser, requestOptions);
+// };
