@@ -1,3 +1,5 @@
+
+
 /* Head Reminder */
 .store-warning {
   background-color: #08002a;
@@ -294,6 +296,9 @@
 .all-products_title {
   color: white;
 }
+.body-text {
+  color: black;
+}
 
 /* Page title */
 
@@ -304,3 +309,27 @@
   }
 
 /* Cards */
+
+/* Header */
+
+
+
+/* Header */
+
+/* Product Slider */
+
+.slider-h1 {
+  text-align: center;
+}
+
+.react-multi-carousel-list {
+  margin: 0 100px 0 200px;
+}
+/* .slider-image {
+  margin: 0 70px;
+} */
+.card-body {
+  text-align: center;
+}
+
+/* Product Slider */
