@@ -25,11 +25,11 @@ import ItemPage from './store/item-page';
 
 
 
-const App = (props) => {
+const App = (props) => { 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Store />}>
+        <Route path="/" element={<Home/>}>
           <Route path="/aegis" element={<Aegis/>}/>
           <Route path="/geekvape-u" element={<GeekvapeU/>}/>
           <Route path="/geekvape-z" element={<GeekvapeZ/>}/>
@@ -39,37 +39,23 @@ const App = (props) => {
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/about-us" element={<AboutUs/>}/>
           <Route path="/contact-us" element={<ContactUsNow/>}/>
-        <Route path="/" element={<Store />}>
-          {/* <Route path="/aegis" element={<Aegis />} />
-          <Route path="/geekvape-u" element={<GeekvapeU />} />
-          <Route path="/geekvape-z" element={<GeekvapeZ />} />
-          <Route path="/wenax" element={<Wenax />} />
-          <Route path="/obelisk" element={<Obelisk />} />
-          <Route path="/coils" element={<Coils />} />
-          <Route path="/FAQ" element={<FAQ />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUsNow />} /> */}
-          <Route path="/all-products" element={<AllProducts />} />
-          <Route path="/box-mods" element={<BoxMod />} />
-          <Route path="/replacement-pods" element={<ReplacementPods />} />
-          <Route path="/replacement-coils" element={<ReplacementCoils />} />
         </Route>
 
-        <Route path="/store" element={<Store />}>
-          <Route path="/store/all-products" element={<AllProducts />} />
-          <Route path="/store/box-mods" element={<BoxMod />} />
-          <Route path="/store/replacement-pods" element={<ReplacementPods />} />
-          <Route
-            path="/store/replacement-coils"
-            element={<ReplacementCoils />}
-          />
-          <Route path="/store/my-cart" element={<MyCart />} />
+        <Route path="/store" element={<Store/>}>
+          
+          <Route path="/store/item-page/:itemId" element={<ItemPage />} />
+          <Route path="/store/all-products" element={<AllProducts/>}/>
+          <Route path="/store/box-mods" element={<BoxMod/>}/>
+          <Route path="/store/replacement-pods" element={<ReplacementPods/>}/>
+          <Route path="/store/replacement-coils" element={<ReplacementCoils/>}/>
+          <Route path="/store/my-cart" element={<MyCart />}/>
+          
         </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
+        <Route path="/terms-of-service" element={<TermsOfService/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   );
