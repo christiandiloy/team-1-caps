@@ -82,7 +82,7 @@ function SignUp() {
           </h2>
           <div className="input-group">
             <span className="input-group-text bg-light">
-              <i class="fa-regular fa-user" />
+              <i className="fa-regular fa-user" />
             </span>
             <input
               type="text"
@@ -94,7 +94,7 @@ function SignUp() {
 
           <div className="input-group my-3">
             <span className="input-group-text bg-light">
-              <i class="fa-solid fa-lock"></i>
+              <i className="fa-solid fa-lock"></i>
             </span>
             <input
               type="password"
@@ -108,7 +108,7 @@ function SignUp() {
 
           <div className="input-group my-3">
             <span className="input-group-text bg-light">
-              <i class="fa-solid fa-key"></i>
+              <i className="fa-solid fa-key"></i>
             </span>
             <input
               type="password"
@@ -124,7 +124,7 @@ function SignUp() {
 
           <div className="input-group my-3">
             <span className="input-group-text bg-light">
-              <i class="fa-regular fa-id-card"></i>
+              <i className="fa-regular fa-id-card"></i>
             </span>
             <input
               type="text"
@@ -136,7 +136,7 @@ function SignUp() {
 
           <div className="input-group my-3">
             <span className="input-group-text bg-light">
-              <i class="fa-regular fa-envelope"></i>
+              <i className="fa-regular fa-envelope"></i>
             </span>
             <input
               type="email"
@@ -158,10 +158,9 @@ function SignUp() {
         <div className="col d-none d-lg-block text-center border-start border-warning">
           <img
             className="login-logo img-fluid"
-            src="./assets/images/Vape-hub.svg"
+            src="./assets/images/gons-dispo.png"
             alt="Vapehub-Logo"
           />
-          <h1 className="login-brand">VAPE HUB</h1>
         </div>
       </div>
     </>
