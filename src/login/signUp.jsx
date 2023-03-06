@@ -9,18 +9,17 @@ function SignUp() {
     }
   } catch (error) {}
 
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const fullName = document.getElementById("fullName").value;
+  const email = document.getElementById("email").value;
+
   const register = () => {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const fullName = document.getElementById("fullName").value;
-    const email = document.getElementById("email").value;
     RegisterAPI(username, password, fullName, email)
       .then((result) => {
         return result.json();
       })
       .then((result) => {
-        console.log("result: ", result);
-        console.log("localStorage: ", localStorage);
         if (result.success) {
           //go to dashboard / home
           localStorage.setItem("user", JSON.stringify(result.userData)); // put back if you want to automatically login
