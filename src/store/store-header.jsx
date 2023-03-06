@@ -9,7 +9,7 @@ export default function Navbar(props) {
   return (
     <nav className="navbar store-header">
       <div>
-        <Link to="/store" onClick={() => {props.setCurrentLink("/store");}} className="navbar-logo">
+        <Link to="/" onClick={() => {props.setCurrentLink("/");}} className="navbar-logo">
           <img
             className="sh-img"
             src="/assets/images/goods.jpg"

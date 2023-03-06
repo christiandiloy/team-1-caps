@@ -24,10 +24,6 @@ function StoreNavBar() {
     localStorage.clear();
     window.location.href = "http://localhost:3000/login";
   }
-  const logout = () => {
-    localStorage.clear();
-    window.location.reload();
-  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -35,10 +31,10 @@ function StoreNavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/store/all-products">All Products</Nav.Link>
-            <Nav.Link href="/store/box-mods">Box Mods</Nav.Link>
-            <Nav.Link href="/store/replacement-pods">Replacement Pods</Nav.Link>
-            <Nav.Link href="/store/replacement-coils">Replacement Coils</Nav.Link>
+            <Nav.Link><Link to="/all-products">All Products</Link></Nav.Link>
+            <Nav.Link><Link to="/box-mods">Box Mods</Link></Nav.Link>
+            <Nav.Link><Link to="/replacement-pods">Replacement Pods</Link></Nav.Link>
+            <Nav.Link><Link to="/replacement-coils">Replacement Coils</Link></Nav.Link>
             <NavDropdown title="Vape Kits" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

@@ -30,7 +30,7 @@ function Store() {
     window.location.href = "http://localhost:3000/login";
   }
 
-  if(currentLink === "store"){
+  if(currentLink === "/"){
     return !!isUserLoggedIn ? (
       <>
         <StoreHead/>
