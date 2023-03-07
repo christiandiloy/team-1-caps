@@ -14,15 +14,11 @@ function SignIn() {
   const login = () => {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    console.log("username: ", username);
-    console.log("password: ", password);
     LoginAPI(username, password)
       .then((result) => {
         return result.json();
       })
       .then((result) => {
-        console.log("result: ", result);
-        console.log("localStorage: ", localStorage);
         if (result.success) {
           //go to dashboard / home
           localStorage.setItem("user", JSON.stringify(result.userData));
