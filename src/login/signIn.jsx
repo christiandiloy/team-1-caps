@@ -7,7 +7,7 @@ function SignIn() {
   try {
     isUserLoggedIn = JSON.parse(localStorage.getItem("user"));
     if (isUserLoggedIn && isUserLoggedIn.id) {
-      window.location.href = "http://localhost:3000/store";
+      window.location.href = "http://localhost:3000";
     }
   } catch (error) {}
 
@@ -22,7 +22,7 @@ function SignIn() {
         if (result.success) {
           //go to dashboard / home
           localStorage.setItem("user", JSON.stringify(result.userData));
-          window.location.href = "http://localhost:3000/store";
+          window.location.href = "http://localhost:3000";
         } else {
           alert("Invalid Username or Password");
         }

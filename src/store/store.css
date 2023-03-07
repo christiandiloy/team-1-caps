@@ -106,6 +106,19 @@
     align-items: center;
     gap: 0.1rem;
   }
+  .navbar-components {
+    text-decoration: none;
+    color: white;
+  }
+  .navbar-components:hover {
+    color: orange;
+  }
+  #cards-container {
+    margin: 0 10%;
+  }
+  #aegis-cards {
+    border: none;
+  }
   @media only screen and (min-width: 470px) {
     .btn {
       padding: 0.5rem 1rem;
@@ -307,12 +320,15 @@
   .star {
     color: orange;
   }
+  .col {
+    border: none;
+  }
 
 /* Cards */
 
 /* Header */
 
-
+  
 
 /* Header */
 

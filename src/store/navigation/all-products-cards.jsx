@@ -20,11 +20,11 @@ function AllProductsCards() {
   console.log(aegisItems)
 
   return (
-    <Row xs={1} md={4} className="g-1">
+    <Row xs={1} md={4} className="g-1" id="cards-container">
       {aegisItems.map((item) => {
         return (
-          <Col key={item.id} class="aegis-col">
-            <Card className="aegis-cards">
+          <Col key={item.id} id="aegis-col">
+            <Card id="aegis-cards">
               <Card.Img variant="top" src={item.url} />
               <Card.Body style={{ textAlign: "center" }}>
                 <Card.Title>{item.title}</Card.Title>

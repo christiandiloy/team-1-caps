@@ -16,40 +16,37 @@ import TopDeals from "./top-deals";
 
 function Store() {
   const [currentLink, setCurrentLink] = useState(window.location.pathname.substring(1));
-  let isUserLoggedIn = false;
-  try {
-    isUserLoggedIn = JSON.parse(localStorage.getItem("user"));
-    if (isUserLoggedIn && isUserLoggedIn.id) {
-      // do nothing, continue lang
-    } else {
-      localStorage.clear();
-      window.location.href = "http://localhost:3000/login";
-    }
-  } catch (error) {
-    localStorage.clear();
-    window.location.href = "http://localhost:3000/login";
-  }
-
-  if(currentLink === "store"){
-    return !!isUserLoggedIn ? (
+  // let isUserLoggedIn = false;
+  // try {
+  //   isUserLoggedIn = JSON.parse(localStorage.getItem("user"));
+  //   if (isUserLoggedIn && isUserLoggedIn.id) {
+  //     // do nothing, continue lang
+  //   } else {
+  //     localStorage.clear();
+  //     window.location.href = "http://localhost:3000/login";
+  //   }
+  // } catch (error) {
+  //   localStorage.clear();
+  //   window.location.href = "http://localhost:3000/login";
+  // }
+  console.log(currentLink);
+  if(currentLink === "/" || currentLink === ""){
+    return (
       <>
         <StoreHead/>
         <StoreHeader/>
         <StoreNavBar setCurrentLink = {setCurrentLink} />
         <StoreCarousel/>
-        <Products/>
+
         <TopDeals/>
         <Embed/>
         <Outlet />
         <TheFooter/>
       </>
-    ) : (
-      <></>
+
     );
-  }
-  
-  else{
-    return !!isUserLoggedIn ? (
+  } else if(currentLink === "/all-products") {
+    return (
       <>
         <StoreHead/>
         <StoreHeader/>
@@ -57,8 +54,19 @@ function Store() {
         <Outlet />
         <TheFooter/>
       </>
-    ) : (
-      <></>
+
+    ); 
+  }
+  
+  else{
+    return(
+      <>
+        <StoreHead/>
+        <StoreHeader/>
+        <StoreNavBar setCurrentLink = {setCurrentLink} />
+        <Outlet />
+        <TheFooter/>
+      </>
     );
   }
   
