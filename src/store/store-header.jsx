@@ -7,7 +7,7 @@ export default function Navbar(props) {
     window.location.reload()
 }
   return (
-    <nav className="navbar store-header">
+    <nav className="navbar" id="store-header">
       <div>
         <Link to="/" onClick={() => {props.setCurrentLink("/");}} className="navbar-logo">
           <img

@@ -328,7 +328,10 @@
 
 /* Header */
 
-  
+  #store-header {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 
 /* Header */
 
