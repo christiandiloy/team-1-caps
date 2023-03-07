@@ -25,32 +25,13 @@ function SignUp() {
           localStorage.setItem("user", JSON.stringify(result.userData)); // put back if you want to automatically login
           window.location.href = "http://localhost:3000/"; // change to http://localhost:3000/ if you want to automatically login
         } else {
-          alert("Invalid Credentials");
+          alert(result.message); //Change this to show hide and not on alert
         }
       })
       .catch((error) => {
         console.log("error: ", error);
       });
   };
-
-  // const checkUser = () => {
-  //   const username = document.getElementById("username").value;
-  //   const email = document.getElementById("email").value;
-  //   CheckUserAPI(username, email)
-  //     .then((result) => {
-  //       return result.json();
-  //     })
-  //     .then((result) => {
-  //       if (result.success) {
-  //         console.log("Username already exist");
-  //       } else {
-  //         //
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log("error: ", error);
-  //     });
-  // };
 
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [passwordStrength, setPasswordStrength] = useState("");

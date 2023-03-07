@@ -7,7 +7,7 @@ export default function Footer() {
       <footer className="footer">
         <div className="container">
           <div className="row g-0 mx-0 justify-content-between align-items-center">
-            <div className="col-lg-3">
+            <div className="col-lg-4 text-center">
               <div className="footer-about">
                 <div className="footer-logo">
                   <img
@@ -16,31 +16,26 @@ export default function Footer() {
                     alt="Gons Dispo Logo"
                   />
                 </div>
-                <p>
-                  Our journey began with a passion for vaping and a desire to
-                  share that passion with others. We noticed a gap in the market
-                  for a vape shop that offers a comprehensive range of products,
-                  exceptional customer service, and a comfortable environment
-                  for vapers to explore their hobby.
-                </p>
+                <i className="fa-solid fa-location-dot">
+                  &nbsp; 101# Beltran St. Brgy. Consuelo Sur, San Marcelino,
+                  Zambales
+                </i>
+                <i className="fa-solid fa-phone">0919 656 0285</i>
               </div>
             </div>
 
-            <div className="col-lg-3">
+            <div className="col-lg-4 text-center">
               <div className="footer-widget">
-                <h6>Links</h6>
+                <h6>Contact Us</h6>
                 <ul>
                   <li>
-                    <a href="#">Contact Us</a>
+                    <i className="fa-brands fa-facebook text-warning"></i>
                   </li>
                   <li>
-                    <a href="#">Payment Methods</a>
+                    <i className="fa-brands fa-twitter text-warning"></i>
                   </li>
                   <li>
-                    <a href="#">Delivary</a>
-                  </li>
-                  <li>
-                    <a href="#">Return & Exchanges</a>
+                    <i className="fa-brands fa-instagram text-warning"></i>
                   </li>
                 </ul>
               </div>
@@ -51,8 +46,7 @@ export default function Footer() {
                 <h6>NewsLetter</h6>
                 <div className="footer-newslatter">
                   <p>
-                    Be the first to know about new arrivals, look books, sales &
-                    promos!
+                    Be the first to know about new arrivals, subscribed now!
                   </p>
                   <form action="#">
                     <input type="text" placeholder="Your Email" />
@@ -67,8 +61,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-lg-12 text-center">
+          <div className="rontainer">
+            <div className="text-center">
               <div className="footer-copyright-text">
                 <p>
                   Copyright &copy; 2023 All rights reserved | Gon's Dispo Vape
