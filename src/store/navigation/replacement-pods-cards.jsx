@@ -23,7 +23,7 @@ function ReplacementPodsCards() {
       {aegisItems.map((item) => {
         return (
           <Col key={item.id} class="aegis-col">
-            <Card className="aegis-cards">
+            <Card id="aegis-cards">
               <Card.Img variant="top" src={item.url} />
               <Card.Body style={{ textAlign: "center" }}>
                 <Card.Title>{item.title}</Card.Title>

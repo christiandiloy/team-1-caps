@@ -24,7 +24,7 @@ function AllProductsCards() {
       {aegisItems.map((item) => {
         return (
           <Col key={item.id} id="aegis-col">
-            <Card className="aegis-cards">
+            <Card id="aegis-cards">
               <Card.Img variant="top" src={item.url} />
               <Card.Body style={{ textAlign: "center" }}>
                 <Card.Title>{item.title}</Card.Title>

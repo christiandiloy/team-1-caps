@@ -14,7 +14,7 @@ function ReplacementCoilsCards() {
       .then(({ products }) => setProducts(products));
   }, []);
   let aegisItems = products.filter((products) => {
-    return products.category === "ReplacementCoils";
+    return products.category === "Coil";
   });
   console.log(aegisItems)
 
@@ -23,7 +23,7 @@ function ReplacementCoilsCards() {
       {aegisItems.map((item) => {
         return (
           <Col key={item.id} class="aegis-col">
-            <Card className="aegis-cards">
+            <Card id="aegis-cards">
               <Card.Img variant="top" src={item.url} />
               <Card.Body style={{ textAlign: "center" }}>
                 <Card.Title>{item.title}</Card.Title>
@@ -36,7 +36,7 @@ function ReplacementCoilsCards() {
                 </Card.Text>
                 <Card.Text className="text-muted">
                   <i class="fa-solid fa-peso-sign"></i>
-                  {item.text}
+                  {item.price}
                 </Card.Text>
               </Card.Body>
             </Card>
