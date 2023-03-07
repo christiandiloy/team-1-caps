@@ -170,19 +170,13 @@ const handleSmallImageClick = (index) => {
                 <hr />
                 <dl className="row">
                   <dt className="col-sm-4">Code</dt>
-                  <dd className="col-sm-8 mb-3">NULL</dd>
+                  <dd className="col-sm-8 mb-3">{item.item_id}</dd>
 
                   <dt className="col-sm-4">Category</dt>
-                  <dd className="col-sm-8 mb-3">NULL</dd>
+                  <dd className="col-sm-8 mb-3">{item.item_category}</dd>
 
-                  <dt className="col-sm-4">Brand</dt>
-                  <dd className="col-sm-8 mb-3">NULL</dd>
-
-                  <dt className="col-sm-4">Manufacturer</dt>
-                  <dd className="col-sm-8 mb-3">NULL</dd>
-
-                  <dt className="col-sm-4">Color</dt>
-                  <dd className="col-sm-8 mb-3">NULL</dd>
+                  <dt className="col-sm-4">Series</dt>
+                  <dd className="col-sm-8 mb-3">{item.item_series}</dd>
                 </dl>
 
               </div>
@@ -203,7 +197,7 @@ const handleSmallImageClick = (index) => {
       </>
     )}
   </div>
-  
+
 
   );
 }
