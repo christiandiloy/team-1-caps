@@ -33,9 +33,9 @@ function StoreNavBar(props) {
           <Nav className="me-auto">
             <Nav.Link><Link to="/all-products" className="navbar-components" onClick={()=>{props.setCurrentLink('/all-products')}}
 >All Products</Link></Nav.Link>
-            <Nav.Link><Link to="/box-mods" className="navbar-components" >Box Mods</Link></Nav.Link>
-            <Nav.Link><Link to="/replacement-pods" className="navbar-components">Replacement Pods</Link></Nav.Link>
-            <Nav.Link><Link to="/replacement-coils" className="navbar-components">Replacement Coils</Link></Nav.Link>
+            <Nav.Link><Link to="/box-mods" className="navbar-components" onClick={()=>{props.setCurrentLink('/box-mods')}}>Box Mods</Link></Nav.Link>
+            <Nav.Link><Link to="/replacement-pods" className="navbar-components" onClick={()=>{props.setCurrentLink('/replacement-pods')}}>Replacement Pods</Link></Nav.Link>
+            <Nav.Link><Link to="/replacement-coils" className="navbar-components" onClick={()=>{props.setCurrentLink('/replacement-coils')}}>Replacement Coils</Link></Nav.Link>
             <NavDropdown title="Vape Kits" id="collasible-nav-dropdown">
               <NavDropdown.Item>
                 Box mod kit
