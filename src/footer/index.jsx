@@ -7,7 +7,7 @@ export default function Footer() {
       <footer className="footer">
         <div className="container">
           <div className="row g-0 mx-0 justify-content-between align-items-center">
-            <div className="col-lg-4 text-center">
+            <div className="col-lg-6 text-center">
               <div className="footer-about">
                 <div className="footer-logo">
                   <img
@@ -16,26 +16,40 @@ export default function Footer() {
                     alt="Gons Dispo Logo"
                   />
                 </div>
-                <i className="fa-solid fa-location-dot">
-                  &nbsp; 101# Beltran St. Brgy. Consuelo Sur, San Marcelino,
-                  Zambales
-                </i>
-                <i className="fa-solid fa-phone">0919 656 0285</i>
+                <p className="text-light h6">
+                  <i className="fa-solid fa-location-dot text-warning">
+                    &nbsp;
+                  </i>
+                  101# Beltran St. Brgy. Consuelo Sur, San Marcelino, Zambales
+                </p>
+                <p className="text-light h6">
+                  <i className="fa-solid fa-phone text-warning">&nbsp;</i>0919
+                  656 0285
+                </p>
               </div>
             </div>
 
-            <div className="col-lg-4 text-center">
+            <div className="footer-social-col col-lg-2 text-center pt-4 mb-3">
               <div className="footer-widget">
-                <h6>Contact Us</h6>
-                <ul>
+                <h6>Social Links</h6>
+                <ul className="footer-social-links d-flex justify-content-center">
                   <li>
-                    <i className="fa-brands fa-facebook text-warning"></i>
+                    <a
+                      href="https://www.facebook.com/gon.freecss.ygg"
+                      target="_blank"
+                    >
+                      <i className="fa-brands fa-facebook text-warning"></i>
+                    </a>
                   </li>
                   <li>
-                    <i className="fa-brands fa-twitter text-warning"></i>
+                    <a href="#twitter" target="_blank">
+                      <i className="fa-brands fa-twitter text-warning mx-4"></i>
+                    </a>
                   </li>
                   <li>
-                    <i className="fa-brands fa-instagram text-warning"></i>
+                    <a href="#instagram" target="_blank">
+                      <i className="fa-brands fa-instagram text-warning"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
