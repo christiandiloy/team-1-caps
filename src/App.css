@@ -6,6 +6,11 @@
   box-sizing: border-box;
   border: none;
 }
+
+:root {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #fff;
 }

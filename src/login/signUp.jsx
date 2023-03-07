@@ -1,4 +1,5 @@
 import { RegisterAPI } from "../Utils/fetch";
+import { CheckUserAPI } from "../Utils/fetch";
 import React, { useState } from "react";
 function SignUp() {
   let isUserLoggedIn = false;
@@ -19,14 +20,12 @@ function SignUp() {
         return result.json();
       })
       .then((result) => {
-        console.log("result: ", result);
-        console.log("localStorage: ", localStorage);
         if (result.success) {
           //go to dashboard / home
           localStorage.setItem("user", JSON.stringify(result.userData)); // put back if you want to automatically login
           window.location.href = "http://localhost:3000/"; // change to http://localhost:3000/ if you want to automatically login
         } else {
-          alert("Invalid Credentials");
+          alert(result.message); //Change this to show hide and not on alert
         }
       })
       .catch((error) => {
@@ -89,6 +88,7 @@ function SignUp() {
               className="form-control"
               id="username"
               placeholder="Enter Username"
+              // onChange={checkUser}
             />
           </div>
 
@@ -145,6 +145,7 @@ function SignUp() {
               className="form-control"
               id="email"
               placeholder="Enter Email"
+              // onChange={checkUser}
             />
           </div>
 

@@ -1,111 +1,92 @@
 import React from "react";
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-} from "mdb-react-ui-kit";
+import "./footer.css";
 
 export default function Footer() {
   return (
-    <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
-      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <div className="me-5 d-none d-lg-block">
-          <span>Get connected with us on social networks:</span>
+    <>
+      <footer className="footer">
+        <div className="container">
+          <div className="row g-0 mx-0 justify-content-between align-items-center">
+            <div className="col-lg-6 text-center">
+              <div className="footer-about">
+                <div className="footer-logo">
+                  <img
+                    className="footer-logo"
+                    src="./assets/images/gons-dispo-header.png"
+                    alt="Gons Dispo Logo"
+                  />
+                </div>
+                <p className="text-light h6">
+                  <i className="fa-solid fa-location-dot text-warning">
+                    &nbsp;
+                  </i>
+                  101# Beltran St. Brgy. Consuelo Sur, San Marcelino, Zambales
+                </p>
+                <p className="text-light h6">
+                  <i className="fa-solid fa-phone text-warning">&nbsp;</i>0919
+                  656 0285
+                </p>
+              </div>
+            </div>
+
+            <div className="footer-social-col col-lg-2 text-center pt-4 mb-3">
+              <div className="footer-widget">
+                <h6>Social Links</h6>
+                <ul className="footer-social-links d-flex justify-content-center">
+                  <li>
+                    <a
+                      href="https://www.facebook.com/gon.freecss.ygg"
+                      target="_blank"
+                    >
+                      <i className="fa-brands fa-facebook text-warning"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#twitter" target="_blank">
+                      <i className="fa-brands fa-twitter text-warning mx-4"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#instagram" target="_blank">
+                      <i className="fa-brands fa-instagram text-warning"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-lg-3 offset-lg-1">
+              <div className="footer-widget">
+                <h6>NewsLetter</h6>
+                <div className="footer-newslatter">
+                  <p>
+                    Be the first to know about new arrivals, subscribed now!
+                  </p>
+                  <form action="#">
+                    <input type="text" placeholder="Your Email" />
+                    <button type="submit">
+                      <span>
+                        <i className="fa fa-envelope" arial-hidden="true"></i>
+                      </span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rontainer">
+            <div className="text-center">
+              <div className="footer-copyright-text">
+                <p>
+                  Copyright &copy; 2023 All rights reserved | Gon's Dispo Vape
+                  Shop
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div>
-          <a
-            href="https://www.facebook.com/GoodSourceSanMa"
-            className="me-4 text-reset"
-          >
-            <MDBIcon fab icon="facebook-f" />
-          </a>
-          <a
-            href="https://www.twitter.com/GoodSourceSanMa"
-            className="me-4 text-reset"
-          >
-            <MDBIcon fab icon="twitter" />
-          </a>
-          <a href="goodsource@gmail.com" className="me-4 text-reset">
-            <MDBIcon fab icon="google" />
-          </a>
-          <a
-            href="https://www.instagram.com/GoodSourceSanMa"
-            className="me-4 text-reset"
-          >
-            <MDBIcon fab icon="instagram" />
-          </a>
-        </div>
-      </section>
-
-      <section className="">
-        <MDBContainer className="text-center text-md-start mt-5">
-          <MDBRow className="mt-3">
-            <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">
-                <MDBIcon icon="gem" className="me-3" />
-                VAPE HUB
-              </h6>
-              <p>
-                We provide the best vape experience for our clients.
-                <br />
-                We provide the best and pleasing associates for our clients.
-              </p>
-            </MDBCol>
-
-            <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Products</h6>
-              <p>
-                <a href="#!" className="text-reset">
-                  AEGIS
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  GEEKVAPE
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  E-JUICE
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  CHECK STORE FOR MORE
-                </a>
-              </p>
-            </MDBCol>
-
-            <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Contact US</h6>
-              <p>
-                <MDBIcon icon="home" className="me-2" />
-                101# Beltran St. Brgy. Consuelo Sur, San Marcelino, Zambales
-              </p>
-              <p>
-                <MDBIcon icon="envelope" className="me-3" />
-                goodsource@gmail.com
-              </p>
-              <p>
-                <MDBIcon icon="phone" className="me-3" /> +63919 656 0285
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </section>
-
-      <div
-        className="text-center p-4"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
-      >
-        © 2020 Copyright:&nbsp;
-        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-          VAPE HUB ALL RIGHTS RESERVED.
-        </a>
-      </div>
-    </MDBFooter>
+      </footer>
+    </>
   );
 }
