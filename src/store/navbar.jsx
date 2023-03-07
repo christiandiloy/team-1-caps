@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import "./store.css";
 import { useState } from "react";
 
-function StoreNavBar() {
+function StoreNavBar(props) {
   const [currentLink, setCurrentLink] = useState(
     window.location.pathname.substring(1)
   );
@@ -31,17 +31,18 @@ function StoreNavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link><Link to="/all-products">All Products</Link></Nav.Link>
-            <Nav.Link><Link to="/box-mods">Box Mods</Link></Nav.Link>
-            <Nav.Link><Link to="/replacement-pods">Replacement Pods</Link></Nav.Link>
-            <Nav.Link><Link to="/replacement-coils">Replacement Coils</Link></Nav.Link>
+            <Nav.Link><Link to="/all-products" className="navbar-components" onClick={()=>{props.setCurrentLink('/all-products')}}
+>All Products</Link></Nav.Link>
+            <Nav.Link><Link to="/box-mods" className="navbar-components" >Box Mods</Link></Nav.Link>
+            <Nav.Link><Link to="/replacement-pods" className="navbar-components">Replacement Pods</Link></Nav.Link>
+            <Nav.Link><Link to="/replacement-coils" className="navbar-components">Replacement Coils</Link></Nav.Link>
             <NavDropdown title="Vape Kits" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item>
                 Box mod kit
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Pod Kit</NavDropdown.Item>
-              <NavDropdown.Divider />
+              <NavDropdown.Item>
+                Pod Kit
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

@@ -29,8 +29,8 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>}>
-          <Route path="/aegis" element={<Aegis/>}/>
+        <Route path="/" element={<Store/>}>
+          {/* <Route path="/aegis" element={<Aegis/>}/>
           <Route path="/geekvape-u" element={<GeekvapeU/>}/>
           <Route path="/geekvape-z" element={<GeekvapeZ/>}/>
           <Route path="/wenax" element={<Wenax/>}/>
@@ -38,19 +38,25 @@ const App = (props) => {
           <Route path="/coils" element={<Coils/>}/>
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/about-us" element={<AboutUs/>}/>
-          <Route path="/contact-us" element={<ContactUsNow/>}/>
+          <Route path="/contact-us" element={<ContactUsNow/>}/> */}
+          <Route path="/item-page/:itemId" element={<ItemPage />} />
+          <Route path="/all-products" element={<AllProducts/>}/>
+          <Route path="/box-mods" element={<BoxMod/>}/>
+          <Route path="/replacement-pods" element={<ReplacementPods/>}/>
+          <Route path="/replacement-coils" element={<ReplacementCoils/>}/>
+          <Route path="/my-cart" element={<MyCart />}/>
         </Route>
 
-        <Route path="/store" element={<Store/>}>
+        {/* <Route path="/store" element={<Store/>}>
           
-          <Route path="/store/item-page/:itemId" element={<ItemPage />} />
-          <Route path="/store/all-products" element={<AllProducts/>}/>
-          <Route path="/store/box-mods" element={<BoxMod/>}/>
-          <Route path="/store/replacement-pods" element={<ReplacementPods/>}/>
-          <Route path="/store/replacement-coils" element={<ReplacementCoils/>}/>
-          <Route path="/store/my-cart" element={<MyCart />}/>
+          <Route path="/item-page/:itemId" element={<ItemPage />} />
+          <Route path="/all-products" element={<AllProducts/>}/>
+          <Route path="/box-mods" element={<BoxMod/>}/>
+          <Route path="/replacement-pods" element={<ReplacementPods/>}/>
+          <Route path="/replacement-coils" element={<ReplacementCoils/>}/>
+          <Route path="/my-cart" element={<MyCart />}/>
           
-        </Route>
+        </Route> */}
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/forgot-password" element={<ForgotPassword/>}/>

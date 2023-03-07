@@ -29,23 +29,33 @@ function Store() {
   //   localStorage.clear();
   //   window.location.href = "http://localhost:3000/login";
   // }
-
-  if(currentLink === "/"){
+  console.log(currentLink);
+  if(currentLink === "/" || currentLink === ""){
     return (
       <>
         <StoreHead/>
         <StoreHeader/>
         <StoreNavBar setCurrentLink = {setCurrentLink} />
         <StoreCarousel/>
-        <Products/>
+
         <TopDeals/>
         <Embed/>
         <Outlet />
         <TheFooter/>
       </>
-    // ) : (
-    //   <></>
+
     );
+  } else if(currentLink === "/all-products") {
+    return (
+      <>
+        <StoreHead/>
+        <StoreHeader/>
+        <StoreNavBar setCurrentLink = {setCurrentLink} />
+        <Outlet />
+        <TheFooter/>
+      </>
+
+    ); 
   }
   
   else{
