@@ -106,10 +106,6 @@
   float: right;
 }
 
-.shopping-cart .summary button {
-  margin-top: 20px;
-}
-
 @media (min-width: 768px) {
   .shopping-cart .items .product .info {
     padding-top: 25px;
