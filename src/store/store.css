@@ -112,6 +112,13 @@
   .navbar-components:hover {
     color: orange;
   }
+  .navbar-components-dropdown {
+    color: black;
+    text-decoration: none;
+  }
+  .navbar-components-dropdown:hover {
+    color: orange;
+  }
   #cards-container {
     margin: 0 10%;
   }
@@ -120,6 +127,9 @@
   }
   #header-icons {
     color: white;
+  }
+  #header-icons:hover {
+    color: orange;
   }
   @media only screen and (min-width: 470px) {
     .btn {
@@ -288,6 +298,10 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+#collasible-nav-dropdown {
+  color: white;
+}
+
 
 /* Drowdown */
 
