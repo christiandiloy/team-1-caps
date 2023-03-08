@@ -3,13 +3,19 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   const logout = () => {
-    localStorage.clear()
-    window.location.reload()
-}
+    localStorage.clear();
+    window.location.reload();
+  };
   return (
     <nav className="navbar" id="store-header">
       <div>
-        <Link to="/" onClick={() => {props.setCurrentLink("/");}} className="navbar-logo">
+        <Link
+          to="/"
+          onClick={() => {
+            props.setCurrentLink("/");
+          }}
+          className="navbar-logo"
+        >
           <img
             className="sh-img"
             src="/assets/images/gons-dispo-header.png"
@@ -30,14 +36,20 @@ export default function Navbar(props) {
         <div className="dropdown">
           <a class="dropbtn page-links">
             <Link to="/login">
-            <i class="fa-solid fa-user nav-icon" id="header-icons"></i>
+              <i class="fa-solid fa-user nav-icon" id="header-icons"></i>
             </Link>
           </a>
           <div className="dropdown-content">
             <a onClick={logout}>Log out</a>
           </div>
         </div>
-        <Link to="/store/my-cart" className="page-links nav-link">
+        <Link
+          to="/store/my-cart"
+          onClick={() => {
+            props.setCurrentLink("/store/my-cart");
+          }}
+          className="page-links nav-link"
+        >
           <i className="fas fa-cart-plus nav-icon" id="header-icons"></i>
         </Link>
       </div>
