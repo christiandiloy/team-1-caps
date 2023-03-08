@@ -120,7 +120,7 @@
     color: orange;
   }
   #cards-container {
-    margin: 0 10%;
+    margin: 30px 10%;
   }
   #aegis-cards {
     border: none;
@@ -339,6 +339,7 @@
   .col {
     border: none;
   }
+  
 
 /* Cards */
 
@@ -361,9 +362,6 @@
 .react-multi-carousel-list {
   margin: 0 100px 0 200px;
 }
-/* .slider-image {
-  margin: 0 70px;
-} */
 .card-body {
   text-align: center;
 }

@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-function BoxModKitsCards() {
+function PodKitsCards() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -15,7 +15,7 @@ function BoxModKitsCards() {
       .then(({ products }) => setProducts(products));
   }, []);
   let aegisItems = products.filter((products) => {
-    return products.category === "BoxModKits";
+    return products.category === "PodKits";
   });
   console.log(aegisItems)
 
@@ -49,4 +49,4 @@ function BoxModKitsCards() {
   );
 }
 
-export default BoxModKitsCards;
+export default PodKitsCards;
