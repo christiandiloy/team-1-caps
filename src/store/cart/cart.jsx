@@ -1,5 +1,6 @@
 import React from "react";
 import "./cart.css";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 function MyCart() {
   return (
@@ -170,12 +171,15 @@ function MyCart() {
                     <span class="text">Total</span>
                     <span class="price">$360</span>
                   </div>
-                  <button
+                  <PayPalScriptProvider options={{ "client-id": "test" }}>
+                    <PayPalButtons style={{ layout: "horizontal" }} />
+                  </PayPalScriptProvider>
+                  {/* <button
                     type="button"
-                    class="btn btn-primary btn-lg btn-block"
+                    class="btn btn-warning btn-lg btn-block w-100"
                   >
                     Checkout
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
