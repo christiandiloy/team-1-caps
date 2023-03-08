@@ -63,7 +63,7 @@ export default function Footer() {
                     Be the first to know about new arrivals, subscribed now!
                   </p>
                   <form action="#">
-                    <input type="text" placeholder="Your Email" />
+                    <input type="email" placeholder="Your Email" name="email" />
                     <button type="submit">
                       <span>
                         <i className="fa fa-envelope" arial-hidden="true"></i>
