@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import FooterLogo from "../assets/images/gons-dispo-header.png";
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
                 <div className="footer-logo">
                   <img
                     className="footer-logo"
-                    src="./assets/images/gons-dispo-header.png"
+                    src={FooterLogo}
                     alt="Gons Dispo Logo"
                   />
                 </div>
