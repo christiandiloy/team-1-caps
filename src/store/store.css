@@ -2,17 +2,16 @@
 
 /* Head Reminder */
 .store-warning {
-  background-color: #08002a;
+  background-color: orange;
   width: 100%;
-  border-bottom: 2px solid #08002a;
   box-sizing: border-box;
   text-align: center;
-  color: #fff;
+  color: #08002a;
   height: 120px;
   padding: 30px 0;
 }
 .store-warning p {
-  border: 1px solid #fff;
+  border: 1px solid #08002a;
   width: 800px;
   margin: 0 auto 30px auto;
 }
@@ -46,7 +45,7 @@
   .navbar {
     width: 100%;
     margin: auto;
-    background-color: orange;
+    background-color: #08002a;
     align-items: center;
     position: relative;
     display: flex;
@@ -118,6 +117,9 @@
   }
   #aegis-cards {
     border: none;
+  }
+  #header-icons {
+    color: white;
   }
   @media only screen and (min-width: 470px) {
     .btn {
@@ -331,6 +333,7 @@
   #store-header {
     padding-left: 10%;
     padding-right: 10%;
+    background-color: #08002a;
   }
 
 /* Header */

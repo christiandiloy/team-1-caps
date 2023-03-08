@@ -12,7 +12,7 @@ export default function Navbar(props) {
         <Link to="/" onClick={() => {props.setCurrentLink("/");}} className="navbar-logo">
           <img
             className="sh-img"
-            src="/assets/images/goods.jpg"
+            src="/assets/images/gons-dispo-header.png"
             alt=""
             style={{ width: "100%", height: "auto" }}
           />
@@ -30,18 +30,15 @@ export default function Navbar(props) {
         <div className="dropdown">
           <a class="dropbtn page-links">
             <Link to="/login">
-            <i class="fa-solid fa-user nav-icon"></i>
+            <i class="fa-solid fa-user nav-icon" id="header-icons"></i>
             </Link>
           </a>
           <div className="dropdown-content">
             <a onClick={logout}>Log out</a>
           </div>
         </div>
-        <a href="../Wishlist/wishilist.html" className="page-links">
-          <i className="far fa-heart nav-icon"></i>
-        </a>
         <Link to="/store/my-cart" className="page-links">
-          <i className="fas fa-cart-plus nav-icon"></i>
+          <i className="fas fa-cart-plus nav-icon" id="header-icons"></i>
         </Link>
       </div>
     </nav>
