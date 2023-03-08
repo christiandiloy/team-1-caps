@@ -37,7 +37,7 @@ export default function Navbar(props) {
             <a onClick={logout}>Log out</a>
           </div>
         </div>
-        <Link to="/store/my-cart" className="page-links">
+        <Link to="/store/my-cart" className="page-links nav-link">
           <i className="fas fa-cart-plus nav-icon" id="header-icons"></i>
         </Link>
       </div>

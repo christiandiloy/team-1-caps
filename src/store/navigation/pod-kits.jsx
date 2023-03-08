@@ -11,8 +11,8 @@ function PodKits() {
       >
         <div>
           <div class="all-products_title">
-            <h5>Box mod kit</h5>
-            <p>Geekvape box mod kit</p>
+            <h5>Pod kit</h5>
+            <p>Pod Vape Kit is an ultra-compact and easy to use vape device</p>
           </div>
         </div>
       </div>
