@@ -1,5 +1,4 @@
 import { RegisterAPI } from "../Utils/fetch";
-import { CheckUserAPI } from "../Utils/fetch";
 import React, { useState } from "react";
 function SignUp() {
   let isUserLoggedIn = false;
@@ -88,7 +87,6 @@ function SignUp() {
               className="form-control"
               id="username"
               placeholder="Enter Username"
-              // onChange={checkUser}
             />
           </div>
 
