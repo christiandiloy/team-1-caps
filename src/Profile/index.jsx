@@ -28,31 +28,34 @@ export default function Profile() {
             <hr />
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a
-                  href="#profile"
-                  class={`nav-link ${activeTab === "profile" ? "active" : ""}`}
+                <button
+                  class={`nav-link w-100 ${
+                    activeTab === "profile" ? "active" : ""
+                  }`}
                   onClick={() => handleTabClick("profile")}
                 >
                   Profile
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#orders"
-                  class={`nav-link ${activeTab === "orders" ? "active" : ""}`}
+                <button
+                  class={`nav-link w-100 ${
+                    activeTab === "orders" ? "active" : ""
+                  }`}
                   onClick={() => handleTabClick("orders")}
                 >
                   Orders
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#address"
-                  class={`nav-link ${activeTab === "address" ? "active" : ""}`}
+                <button
+                  class={`nav-link w-100 ${
+                    activeTab === "address" ? "active" : ""
+                  }`}
                   onClick={() => handleTabClick("address")}
                 >
                   Address
-                </a>
+                </button>
               </li>
             </ul>
             <hr />
