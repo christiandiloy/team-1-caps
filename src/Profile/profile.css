@@ -3,6 +3,6 @@
   padding: 0;
 }
 
-.profile-tab {
-  background-color: lightgray;
+.orange-active {
+  background-color: orange !important;
 }

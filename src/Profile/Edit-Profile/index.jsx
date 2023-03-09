@@ -132,7 +132,7 @@ function EditProfile() {
         </div>
         {/* Save Button */}
         <div className="text-end">
-          <button className="btn btn-warning mt-5 w-25">Save</button>
+          <button className="btn btn-warning mt-5 w-25 text-light">Save</button>
         </div>
       </div>
     </>

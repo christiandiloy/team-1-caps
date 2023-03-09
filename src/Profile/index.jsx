@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./profile.css";
 import EditProfile from "./Edit-Profile";
+import ChangePass from "./Change-password";
 import Orders from "./My-Orders";
 import Address from "./Address";
 
@@ -14,6 +15,8 @@ export default function Profile() {
   let tabContent;
   if (activeTab === "profile") {
     tabContent = <EditProfile />;
+  } else if (activeTab === "ChangePass") {
+    tabContent = <ChangePass />;
   } else if (activeTab === "orders") {
     tabContent = <Orders />;
   } else if (activeTab === "address") {
@@ -30,17 +33,27 @@ export default function Profile() {
               <li class="nav-item">
                 <button
                   class={`nav-link w-100 ${
-                    activeTab === "profile" ? "active" : ""
+                    activeTab === "profile" ? "orange-active active" : ""
                   }`}
                   onClick={() => handleTabClick("profile")}
                 >
                   Profile
                 </button>
               </li>
+              <li class="nav-item">
+                <button
+                  class={`nav-link w-100 ${
+                    activeTab === "ChangePass" ? "orange-active active" : ""
+                  }`}
+                  onClick={() => handleTabClick("ChangePass")}
+                >
+                  Change Password
+                </button>
+              </li>
               <li>
                 <button
                   class={`nav-link w-100 ${
-                    activeTab === "orders" ? "active" : ""
+                    activeTab === "orders" ? "orange-active active" : ""
                   }`}
                   onClick={() => handleTabClick("orders")}
                 >
@@ -50,7 +63,7 @@ export default function Profile() {
               <li>
                 <button
                   class={`nav-link w-100 ${
-                    activeTab === "address" ? "active" : ""
+                    activeTab === "address" ? "orange-active active" : ""
                   }`}
                   onClick={() => handleTabClick("address")}
                 >
@@ -58,7 +71,6 @@ export default function Profile() {
                 </button>
               </li>
             </ul>
-            <hr />
           </div>
           <div className="col-10">
             <div className="container">{tabContent}</div>
