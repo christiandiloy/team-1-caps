@@ -1,4 +1,8 @@
-import AllProductsCards from "./all-products-cards";
+import AegisProducts from "./aegis-products";
+import GeekvapeUProducts from "./geekvape-u-products";
+import GeekvapeZProducts from "./geekvape-z-products";
+import ObeliskProducts from "./obelisk-products";
+import WenaxProducts from "./wenax-products";
 
 function AllProducts() {
   return (
@@ -15,7 +19,12 @@ function AllProducts() {
           </div>
         </div>
       </div>
-      <AllProductsCards />
+      {/* <AllProductsCards /> */}
+      <AegisProducts/>
+      <GeekvapeUProducts/>
+      <GeekvapeZProducts/>
+      <ObeliskProducts/>
+      <WenaxProducts/>
     </main>
   );
 }

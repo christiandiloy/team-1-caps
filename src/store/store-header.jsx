@@ -1,18 +1,33 @@
 import "./store.css";
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 export default function Navbar(props) {
   const logout = () => {
-    localStorage.clear()
-    window.location.reload()
-}
+    localStorage.clear();
+    window.location.reload();
+  };
+
+  const [fullName, setFullName] = useState("");
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    setFullName(userData?.full_name || "Guest");
+  }, []);
+
   return (
     <nav className="navbar" id="store-header">
       <div>
-        <Link to="/" onClick={() => {props.setCurrentLink("/");}} className="navbar-logo">
+        <Link
+          to="/"
+          onClick={() => {
+            props.setCurrentLink("/");
+          }}
+          className="navbar-logo"
+        >
           <img
             className="sh-img"
-            src="/assets/images/goods.jpg"
+            src="/assets/images/gons-dispo-header.png"
             alt=""
             style={{ width: "100%", height: "auto" }}
           />
@@ -28,20 +43,35 @@ export default function Navbar(props) {
       </div>
       <div className="navbar-cart">
         <div className="dropdown">
-          <a class="dropbtn page-links">
-            <Link to="/login">
-            <i class="fa-solid fa-user nav-icon"></i>
-            </Link>
-          </a>
+          <p className="storeHeader-fullname h4 text-light d-flex">
+            <span>
+              <i class="fas fa-user-circle"></i>
+            </span>
+            &nbsp;
+            {fullName}
+          </p>
+
           <div className="dropdown-content">
+            <Link
+              to="/Profile"
+              onClick={() => {
+                props.setCurrentLink("/Profile");
+              }}
+            >
+              View Profile
+            </Link>
+
             <a onClick={logout}>Log out</a>
           </div>
         </div>
-        <a href="../Wishlist/wishilist.html" className="page-links">
-          <i className="far fa-heart nav-icon"></i>
-        </a>
-        <Link to="/store/my-cart" className="page-links">
-          <i className="fas fa-cart-plus nav-icon"></i>
+        <Link
+          to="/store/my-cart"
+          onClick={() => {
+            props.setCurrentLink("/store/my-cart");
+          }}
+          className="page-links nav-link"
+        >
+          <i className="fas fa-cart-plus nav-icon" id="header-icons"></i>
         </Link>
       </div>
     </nav>

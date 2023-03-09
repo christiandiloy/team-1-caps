@@ -8,7 +8,7 @@ function ReplacementPods() {
       <div
         className="article rep-pods"
         style={{
-          backgroundImage: `url("../assets/images/Refillable_pod.jpg")`,
+          backgroundColor: 'gray',
           height: '15vh'
         }}
       >
