@@ -1,7 +1,29 @@
 import React from "react";
+import { SubscriberAPI } from "../Utils/fetch";
 import "./footer.css";
 
 export default function Footer() {
+
+  const subscriber = () => {
+    const email = document.getElementById("email").value;
+
+    SubscriberAPI(email)
+    .then((result) => {
+      return result.json
+    })
+    .then((result) => {
+        if (result.success) {
+          //go to dashboard / home
+          localStorage.setItem("subscriber", JSON.stringify(result.userData)); // put back if you want to automatically login
+          window.location.href = "http://localhost:3000/"; // change to http://localhost:3000/ if you want to automatically login
+        } else {
+          alert(result.message); //Change this to show hide and not on alert
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
+  }
   return (
     <>
       <footer className="footer">
@@ -63,8 +85,8 @@ export default function Footer() {
                     Be the first to know about new arrivals, subscribed now!
                   </p>
                   <form action="#">
-                    <input type="email" placeholder="Your Email" name="email" />
-                    <button type="submit">
+                    <input type="email" placeholder="Your Email" name="email" id="email" />
+                    <button onClick={subscriber} type="submit">
                       <span>
                         <i className="fa fa-envelope" arial-hidden="true"></i>
                       </span>
