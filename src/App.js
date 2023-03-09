@@ -5,7 +5,6 @@ import Login from "./login";
 import Register from "./registration";
 import ForgotPassword from "./forgot-password";
 import TermsOfService from "./Terms-of-service";
-import AboutUs from "./components/Support/About-us";
 import Store from "./store/store";
 import AllProducts from "./store/navigation/all-products";
 import BoxMod from "./store/navigation/box-mod";
