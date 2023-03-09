@@ -15,6 +15,7 @@ import MyCart from "./store/cart/cart";
 import ItemPage from "./store/item-page";
 import BoxModKits from "./store/navigation/box-mod-kits";
 import PodKits from "./store/navigation/pod-kits";
+import Profile from "./Profile";
 
 const App = (props) => {
   try {
@@ -37,6 +38,7 @@ const App = (props) => {
           <Route path="/box-mod-kits" element={<BoxModKits />} />
           <Route path="/pod-kits" element={<PodKits />} />
           <Route path="/store/my-cart" element={<MyCart />} />
+          <Route path="/Profile" element={<Profile />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

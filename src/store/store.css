@@ -4,6 +4,11 @@
   cursor: pointer;
 }
 
+.sh-img {
+  width: 100%;
+  height: auto;
+}
+
 .store-warning {
   background-color: orange;
   width: 100%;
