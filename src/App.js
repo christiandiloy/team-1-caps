@@ -11,7 +11,6 @@ import AllProducts from "./store/navigation/all-products";
 import BoxMod from "./store/navigation/box-mod";
 import ReplacementPods from "./store/navigation/replacement-pods";
 import ReplacementCoils from "./store/navigation/replacement-coils";
-import ContactUsNow from "./contact-us";
 import MyCart from "./store/cart/cart";
 import ItemPage from "./store/item-page";
 import BoxModKits from "./store/navigation/box-mod-kits";

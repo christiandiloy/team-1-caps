@@ -1,11 +1,20 @@
 import "./store.css";
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 export default function Navbar(props) {
   const logout = () => {
     localStorage.clear();
     window.location.reload();
   };
+
+  const [fullName, setFullName] = useState("");
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    setFullName(userData?.full_name || "Guest");
+  }, []);
+
   return (
     <nav className="navbar" id="store-header">
       <div>
@@ -34,12 +43,24 @@ export default function Navbar(props) {
       </div>
       <div className="navbar-cart">
         <div className="dropdown">
-          <a class="dropbtn page-links">
-            <Link to="/login">
-              <i class="fa-solid fa-user nav-icon" id="header-icons"></i>
-            </Link>
-          </a>
+          <p className="storeHeader-fullname h4 text-light d-flex">
+            <span>
+              <i class="fas fa-user-circle"></i>
+            </span>
+            &nbsp;
+            {fullName}
+          </p>
+
           <div className="dropdown-content">
+            <Link
+              to="/Profile"
+              onClick={() => {
+                props.setCurrentLink("/Profile");
+              }}
+            >
+              View Profile
+            </Link>
+
             <a onClick={logout}>Log out</a>
           </div>
         </div>
