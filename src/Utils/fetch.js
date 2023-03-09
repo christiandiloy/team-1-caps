@@ -31,3 +31,19 @@ export const RegisterAPI = (username, password, fullName, email) => {
   };
   return fetch(serverRoutes.Register, requestOptions);
 };
+
+export const SubscriberAPI = (email) => {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    email: email
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+  };
+  return fetch(serverRoutes.Subscriber, requestOptions);  
+}
