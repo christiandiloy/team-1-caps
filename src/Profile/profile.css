@@ -19,3 +19,14 @@
   margin-top: 1em;
   margin-bottom: -0.5em;
 }
+
+.pass-params {
+  margin-top: 0.5em;
+  margin-bottom: -0.5em;
+  font-size: 0.75em;
+}
+
+.pass-eye-icon {
+  background-color: white;
+  border: 0;
+}

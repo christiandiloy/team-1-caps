@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function ChangePass() {
   const [passwordsMatch, setPasswordsMatch] = useState(true);
@@ -40,6 +42,12 @@ function ChangePass() {
     setPasswordsMatch(password === rePassword);
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <div className="profile-header container my-3 p-4 border">
@@ -51,12 +59,27 @@ function ChangePass() {
             Old Password
           </label>
           <div className="col-sm-10">
-            <input
-              type="password"
-              maxLength="8"
-              className="form-control"
-              id="old-password"
-            />
+            <div className="input-group align-items-center">
+              <input
+                type={showPassword ? "text" : "password"}
+                maxLength="8"
+                className="form-control"
+                id="old-password"
+              />
+              <div className="input-group-append">
+                <span
+                  className="input-group-text pass-eye-icon"
+                  style={{ cursor: "pointer" }}
+                  onClick={togglePassword}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </span>
+              </div>
+            </div>
+
+            <p className="pass-params">
+              Note: A-Z, 0-9, Uppercase, No spaces & special characters.
+            </p>
           </div>
         </div>
         {/* New Pass */}
@@ -65,13 +88,25 @@ function ChangePass() {
             New Password
           </label>
           <div className="col-sm-10">
-            <input
-              type="password"
-              maxLength="8"
-              className="form-control"
-              id="new-password"
-              onChange={handlePasswordChange}
-            />
+            <div className="input-group align-items-center">
+              <input
+                type={showPassword ? "text" : "password"}
+                maxLength="8"
+                className="form-control"
+                id="new-password"
+                onChange={handlePasswordChange}
+              />
+              <div className="input-group-append">
+                <span
+                  className="input-group-text pass-eye-icon"
+                  style={{ cursor: "pointer" }}
+                  onClick={togglePassword}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </span>
+              </div>
+            </div>
+
             <p className={passwordStrengthClass}>{passwordStrength}</p>
           </div>
         </div>
@@ -81,13 +116,25 @@ function ChangePass() {
             Confirm Password
           </label>
           <div className="col-sm-10">
-            <input
-              type="password"
-              maxLength="8"
-              className="form-control"
-              id="re-password"
-              onChange={handleRePasswordChange}
-            />
+            <div className="input-group align-items-center">
+              <input
+                type={showPassword ? "text" : "password"}
+                maxLength="8"
+                className="form-control"
+                id="re-password"
+                onChange={handleRePasswordChange}
+              />
+              <div className="input-group-append">
+                <span
+                  className="input-group-text pass-eye-icon"
+                  style={{ cursor: "pointer" }}
+                  onClick={togglePassword}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </span>
+              </div>
+            </div>
+
             {!passwordsMatch && (
               <p className="profile-passNotMatch">* Password does not match.</p>
             )}
