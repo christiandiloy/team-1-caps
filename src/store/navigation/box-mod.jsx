@@ -7,7 +7,7 @@ function BoxMod() {
       <div
         className="article box-mods"
         style={{
-          backgroundImage: `url("../assets/images/aegis_max_3000x.jpg")`,
+          backgroundColor: 'gray',
           height: '15vh'
         }}
       >

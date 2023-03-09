@@ -6,7 +6,7 @@ function BoxModKits() {
       <div
         className="article"
         style={{
-          backgroundColor: 'gray', height: '10vh'
+          backgroundColor: 'gray', height: '15vh'
         }}
       >
         <div>

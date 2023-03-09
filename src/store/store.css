@@ -313,6 +313,7 @@
 
 .all-products_title {
   text-align: center;
+  /* margin: auto 0; */
 }
 
 .all-products_title h5 {
@@ -320,6 +321,7 @@
   font-size: 2rem;
   font-weight: bold;
   color: white;
+  line-height: 2.5;
 }
 
 .all-products_title {
@@ -330,6 +332,8 @@
 }
 
 /* Page title */
+
+
 
 /* Cards */
 
