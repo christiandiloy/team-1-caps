@@ -1,5 +1,8 @@
 import { RegisterAPI } from "../Utils/fetch";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
 function SignUp() {
   let isUserLoggedIn = false;
   try {
@@ -71,6 +74,17 @@ function SignUp() {
     setPasswordsMatch(password === rePassword);
   };
 
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+
+  const togglePassword1 = () => {
+    setShowPassword1(!showPassword1);
+  };
+
+  const togglePassword2 = () => {
+    setShowPassword2(!showPassword2);
+  };
+
   return !isUserLoggedIn ? (
     <>
       <div className="row justify-content-center align-items-center m-0">
@@ -95,13 +109,20 @@ function SignUp() {
               <i className="fa-solid fa-lock"></i>
             </span>
             <input
-              type="password"
+              type={showPassword1 ? "text" : "password"}
               maxLength="8"
               className="form-control"
               id="password"
               placeholder="Enter Password"
               onChange={handlePasswordChange}
             />
+            <span
+              className="input-group-text bg-light"
+              style={{ cursor: "pointer" }}
+              onClick={togglePassword1}
+            >
+              <FontAwesomeIcon icon={showPassword1 ? faEyeSlash : faEye} />
+            </span>
           </div>
           <p className={passwordStrengthClass}>{passwordStrength}</p>
 
@@ -110,13 +131,20 @@ function SignUp() {
               <i className="fa-solid fa-key"></i>
             </span>
             <input
-              type="password"
+              type={showPassword2 ? "text" : "password"}
               maxLength="8"
               className="form-control"
               id="re-password"
               placeholder="Confirm Password"
               onChange={handleRePasswordChange}
             />
+            <span
+              className="input-group-text bg-light"
+              style={{ cursor: "pointer" }}
+              onClick={togglePassword2}
+            >
+              <FontAwesomeIcon icon={showPassword2 ? faEyeSlash : faEye} />
+            </span>
           </div>
           {!passwordsMatch && (
             <p className="login-passNotMatch">* Password does not match.</p>
