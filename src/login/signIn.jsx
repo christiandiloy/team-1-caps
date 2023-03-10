@@ -48,6 +48,11 @@ function SignIn() {
     setIsChecked((current) => !current);
   };
 
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
   return !isUserLoggedIn ? (
     <>
       <div className="row justify-content-center align-items-center m-0">
@@ -71,12 +76,23 @@ function SignIn() {
               <i className="fa-solid fa-lock"></i>
             </span>
             <input
-              type="password"
+              type={passwordShown ? "text" : "password"}
               maxLength="8"
               className="form-control"
               id="password"
               placeholder="Password"
             />
+          </div>
+          <div className="form-check mb-1">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              onChange={togglePassword}
+              id="exampleCheck2"
+            />
+            <label className="form-check-label" htmlFor="exampleCheck2">
+              Show Password
+            </label>
           </div>
           <div className="form-check mb-3">
             <input
