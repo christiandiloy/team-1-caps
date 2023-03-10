@@ -42,10 +42,20 @@ function ChangePass() {
     setPasswordsMatch(password === rePassword);
   };
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+  const [showPassword3, setShowPassword3] = useState(false);
 
-  const togglePassword = () => {
-    setShowPassword(!showPassword);
+  const togglePassword1 = () => {
+    setShowPassword1(!showPassword1);
+  };
+
+  const togglePassword2 = () => {
+    setShowPassword2(!showPassword2);
+  };
+
+  const togglePassword3 = () => {
+    setShowPassword3(!showPassword3);
   };
 
   return (
@@ -61,7 +71,7 @@ function ChangePass() {
           <div className="col-sm-10">
             <div className="input-group align-items-center">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword1 ? "text" : "password"}
                 maxLength="8"
                 className="form-control"
                 id="old-password"
@@ -70,9 +80,9 @@ function ChangePass() {
                 <span
                   className="input-group-text pass-eye-icon"
                   style={{ cursor: "pointer" }}
-                  onClick={togglePassword}
+                  onClick={togglePassword1}
                 >
-                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                  <FontAwesomeIcon icon={showPassword1 ? faEyeSlash : faEye} />
                 </span>
               </div>
             </div>
@@ -90,7 +100,7 @@ function ChangePass() {
           <div className="col-sm-10">
             <div className="input-group align-items-center">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword2 ? "text" : "password"}
                 maxLength="8"
                 className="form-control"
                 id="new-password"
@@ -100,9 +110,9 @@ function ChangePass() {
                 <span
                   className="input-group-text pass-eye-icon"
                   style={{ cursor: "pointer" }}
-                  onClick={togglePassword}
+                  onClick={togglePassword2}
                 >
-                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                  <FontAwesomeIcon icon={showPassword2 ? faEyeSlash : faEye} />
                 </span>
               </div>
             </div>
@@ -118,7 +128,7 @@ function ChangePass() {
           <div className="col-sm-10">
             <div className="input-group align-items-center">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword3 ? "text" : "password"}
                 maxLength="8"
                 className="form-control"
                 id="re-password"
@@ -128,9 +138,9 @@ function ChangePass() {
                 <span
                   className="input-group-text pass-eye-icon"
                   style={{ cursor: "pointer" }}
-                  onClick={togglePassword}
+                  onClick={togglePassword3}
                 >
-                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                  <FontAwesomeIcon icon={showPassword3 ? faEyeSlash : faEye} />
                 </span>
               </div>
             </div>
