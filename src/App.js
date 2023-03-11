@@ -2,10 +2,8 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./404";
 import Login from "./login";
-import Register from "./registration";
 import ForgotPassword from "./forgot-password";
 import TermsOfService from "./Terms-of-service";
-import AboutUs from "./components/Support/About-us";
 import Store from "./store/store";
 import AllProducts from "./store/navigation/all-products";
 import BoxMod from "./store/navigation/box-mod";
@@ -41,7 +39,6 @@ const App = (props) => {
           <Route path="/Profile" element={<Profile />} />
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="*" element={<NotFound />} />
