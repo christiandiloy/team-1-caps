@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchUserProfile } from "../../Utils/fetch";
+import { fetchUserProfile, updateUserProfile } from "../../Utils/fetch";
 
 function EditProfile() {
   const [userData, setUserData] = useState({
@@ -36,9 +36,14 @@ function EditProfile() {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Implement the code to submit the form data to the backend API
+    try {
+      const message = await updateUserProfile(userData);
+      console.log(message);
+    } catch (error) {
+      console.error("Error updating user profile:", error);
+    }
   };
 
   const [genderData, setGenderData] = useState({
@@ -157,7 +162,7 @@ function EditProfile() {
         <div className="text-end">
           <button
             className="btn btn-warning mt-5 w-25 text-light"
-            // onClick={updateProfile}
+            onClick={handleSubmit}
           >
             Save
           </button>

@@ -63,6 +63,28 @@ export const fetchUserProfile = async () => {
   }
 };
 
+//Update Profile
+export const updateUserProfile = async (formData) => {
+  try {
+    const response = await fetch(serverRoutes.UpdateProfile, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    if (data.success) {
+      return Promise.resolve(data.message);
+    } else {
+      return Promise.reject(data.message);
+    }
+  } catch (error) {
+    console.error("Error updating user profile:", error);
+    return Promise.reject("Failed to update user profile");
+  }
+};
+
 export const SubscriberAPI = (email) => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
