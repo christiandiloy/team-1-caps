@@ -1,58 +1,54 @@
-import React, { useState } from "react";
-import { updateProfileAPI } from "../../Utils/fetch";
+import React, { useState, useEffect } from "react";
+import { fetchUserProfile } from "../../Utils/fetch";
 
 function EditProfile() {
-  const data = localStorage.getItem("user");
-  const userData = JSON.parse(data);
-  const [contactNumber, setContactNumber] = useState("");
-  const [Email, setEmail] = useState(userData.email);
-  const [FullName, setFullname] = useState(userData.full_name);
+  const [userData, setUserData] = useState({
+    username: "",
+    fullName: "",
+    email: "",
+    contactNo: "",
+    gender: "",
+    dateOfBirth: "",
+  });
 
-  const handleContactNumberChange = (event) => {
-    const { value } = event.target;
-    const validatedValue = value.replace(/[^0-9]/g, "").substring(0, 11);
-    setContactNumber(validatedValue);
-  };
-
-  const handleEmailChange = (event) => {
-    const { value } = event.target;
-    setEmail(value);
-  };
-
-  const handleNameChange = (event) => {
-    const { value } = event.target;
-    setFullname(value);
-  };
-
-  const [errorMessage, setErrorMessage] = useState("");
-  const [gender, setGender] = useState("");
-
-  function handleGenderChange(event) {
-    setGender(event.target.value);
-    document.getElementById("gender-value").value = event.target.value;
-  }
-
-  const updateProfile = () => {
-    const fullName = document.getElementById("input-fullName").value;
-    const email = document.getElementById("input-email").value;
-    const contactNo = document.getElementById("input-number").value;
-    const dateOfBirth = document.getElementById("input-birth").value;
-
-    updateProfileAPI(fullName, email, contactNo, gender, dateOfBirth)
-      .then((result) => {
-        return result.json();
-      })
-      .then((result) => {
-        if (result.success) {
-          setErrorMessage("");
-          alert("Profile updated successfully!");
-        } else {
-          throw new Error("Failed to update profile.");
-        }
+  useEffect(() => {
+    fetchUserProfile()
+      .then((data) => {
+        setUserData({
+          username: data.username,
+          fullName: data.full_name,
+          email: data.email,
+          contactNo: data.contact_no,
+          gender: data.gender,
+          dateOfBirth: data.date_of_birth,
+        });
       })
       .catch((error) => {
-        console.log("error: ", error);
+        console.error("Error fetching user profile:", error);
       });
+  }, []);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Implement the code to submit the form data to the backend API
+  };
+
+  const [genderData, setGenderData] = useState({
+    gender: "male",
+  });
+
+  const handleGenderChange = (event) => {
+    setGenderData({
+      gender: event.target.value,
+    });
   };
 
   return (
@@ -73,6 +69,7 @@ function EditProfile() {
               id="input-username"
               disabled
               value={userData.username}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -86,8 +83,8 @@ function EditProfile() {
               type="text"
               className="form-control"
               id="input-fullName"
-              value={FullName}
-              onChange={handleNameChange}
+              value={userData.fullName}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -101,8 +98,8 @@ function EditProfile() {
               type="email"
               className="form-control"
               id="input-email"
-              value={Email}
-              onChange={handleEmailChange}
+              value={userData.email}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -116,9 +113,9 @@ function EditProfile() {
               type="text"
               className="form-control w-25"
               id="input-number"
-              value={contactNumber}
               maxLength="11"
-              onChange={handleContactNumberChange}
+              value={userData.contactNo}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -128,65 +125,39 @@ function EditProfile() {
             Gender
           </label>
           <div className="col-sm-10">
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="Male"
-                checked={gender === "Male"}
-                onChange={handleGenderChange}
-              />
-              <label class="form-check-label" for="inlineRadio1">
-                Male
-              </label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="Female"
-                checked={gender === "Female"}
-                onChange={handleGenderChange}
-              />
-              <label class="form-check-label" for="inlineRadio2">
-                Female
-              </label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio3"
-                value="Other"
-                checked={gender === "Other"}
-                onChange={handleGenderChange}
-              />
-              <label class="form-check-label" for="inlineRadio3">
-                Other
-              </label>
-            </div>
+            <select
+              className="form-select w-25"
+              id="gender"
+              name="gender"
+              value={genderData.gender}
+              onChange={handleGenderChange}
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
           </div>
         </div>
-        <input type="hidden" id="gender-value" />
         {/* Date of Birth */}
         <div className="form-group row mb-3">
           <label htmlFor="input-birth" className="col-sm-2 col-form-label">
             Date of Birth
           </label>
           <div className="col-sm-10">
-            <input type="date" className="form-control w-25" id="input-birth" />
+            <input
+              type="date"
+              className="form-control w-25"
+              id="input-birth"
+              value={userData.dateOfBirth}
+              onChange={handleChange}
+            />
           </div>
         </div>
         {/* Save Button */}
         <div className="text-end">
           <button
             className="btn btn-warning mt-5 w-25 text-light"
-            onClick={updateProfile}
+            // onClick={updateProfile}
           >
             Save
           </button>

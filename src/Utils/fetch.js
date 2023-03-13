@@ -44,28 +44,23 @@ export const updatePasswordAPI = (oldPassword, newPassword) => {
   return fetch(serverRoutes.UpdatePassword, requestOptions);
 };
 
-export const updateProfileAPI = (
-  fullName,
-  email,
-  contactNo,
-  gender,
-  dateOfBirth
-) => {
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  const raw = JSON.stringify({
-    fullName,
-    email,
-    contactNo,
-    gender,
-    dateOfBirth,
-  });
-  const requestOptions = {
-    method: "PUT",
-    headers: myHeaders,
-    body: raw,
-  };
-  return fetch(serverRoutes.UpdateProfile, requestOptions);
+//Fetch Profile Data from Database
+export const fetchUserProfile = async () => {
+  try {
+    const response = await fetch(serverRoutes.UpdateProfile);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    if (data.success) {
+      return Promise.resolve(data.data);
+    } else {
+      return Promise.reject(data.message);
+    }
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+    return Promise.reject("Failed to fetch user profile");
+  }
 };
 
 export const SubscriberAPI = (email) => {
