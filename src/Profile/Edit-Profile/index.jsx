@@ -1,15 +1,58 @@
 import React, { useState } from "react";
+import { updateProfileAPI } from "../../Utils/fetch";
 
 function EditProfile() {
   const data = localStorage.getItem("user");
   const userData = JSON.parse(data);
   const [contactNumber, setContactNumber] = useState("");
+  const [Email, setEmail] = useState(userData.email);
+  const [FullName, setFullname] = useState(userData.full_name);
 
   const handleContactNumberChange = (event) => {
     const { value } = event.target;
-
     const validatedValue = value.replace(/[^0-9]/g, "").substring(0, 11);
     setContactNumber(validatedValue);
+  };
+
+  const handleEmailChange = (event) => {
+    const { value } = event.target;
+    setEmail(value);
+  };
+
+  const handleNameChange = (event) => {
+    const { value } = event.target;
+    setFullname(value);
+  };
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [gender, setGender] = useState("");
+
+  function handleGenderChange(event) {
+    setGender(event.target.value);
+    document.getElementById("gender-value").value = event.target.value;
+  }
+
+  const updateProfile = () => {
+    const fullName = document.getElementById("input-fullName").value;
+    const email = document.getElementById("input-email").value;
+    const contactNo = document.getElementById("input-number").value;
+    const dateOfBirth = document.getElementById("input-birth").value;
+
+    updateProfileAPI(fullName, email, contactNo, gender, dateOfBirth)
+      .then((result) => {
+        return result.json();
+      })
+      .then((result) => {
+        if (result.success) {
+          setErrorMessage("");
+          alert("Profile updated successfully!");
+        } else {
+          throw new Error("Failed to update profile.");
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
   };
 
   return (
@@ -43,7 +86,8 @@ function EditProfile() {
               type="text"
               className="form-control"
               id="input-fullName"
-              value={userData.full_name}
+              value={FullName}
+              onChange={handleNameChange}
             />
           </div>
         </div>
@@ -57,7 +101,8 @@ function EditProfile() {
               type="email"
               className="form-control"
               id="input-email"
-              value={userData.email}
+              value={Email}
+              onChange={handleEmailChange}
             />
           </div>
         </div>
@@ -89,7 +134,9 @@ function EditProfile() {
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio1"
-                value="option1"
+                value="Male"
+                checked={gender === "Male"}
+                onChange={handleGenderChange}
               />
               <label class="form-check-label" for="inlineRadio1">
                 Male
@@ -101,7 +148,9 @@ function EditProfile() {
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio2"
-                value="option2"
+                value="Female"
+                checked={gender === "Female"}
+                onChange={handleGenderChange}
               />
               <label class="form-check-label" for="inlineRadio2">
                 Female
@@ -113,7 +162,9 @@ function EditProfile() {
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio3"
-                value="option3"
+                value="Other"
+                checked={gender === "Other"}
+                onChange={handleGenderChange}
               />
               <label class="form-check-label" for="inlineRadio3">
                 Other
@@ -121,6 +172,7 @@ function EditProfile() {
             </div>
           </div>
         </div>
+        <input type="hidden" id="gender-value" />
         {/* Date of Birth */}
         <div className="form-group row mb-3">
           <label htmlFor="input-birth" className="col-sm-2 col-form-label">
@@ -132,7 +184,12 @@ function EditProfile() {
         </div>
         {/* Save Button */}
         <div className="text-end">
-          <button className="btn btn-warning mt-5 w-25 text-light">Save</button>
+          <button
+            className="btn btn-warning mt-5 w-25 text-light"
+            onClick={updateProfile}
+          >
+            Save
+          </button>
         </div>
       </div>
     </>

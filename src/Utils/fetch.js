@@ -44,6 +44,30 @@ export const updatePasswordAPI = (oldPassword, newPassword) => {
   return fetch(serverRoutes.UpdatePassword, requestOptions);
 };
 
+export const updateProfileAPI = (
+  fullName,
+  email,
+  contactNo,
+  gender,
+  dateOfBirth
+) => {
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const raw = JSON.stringify({
+    fullName,
+    email,
+    contactNo,
+    gender,
+    dateOfBirth,
+  });
+  const requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: raw,
+  };
+  return fetch(serverRoutes.UpdateProfile, requestOptions);
+};
+
 export const SubscriberAPI = (email) => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
