@@ -32,18 +32,30 @@ export const RegisterAPI = (username, password, fullName, email) => {
   return fetch(serverRoutes.Register, requestOptions);
 };
 
+export const updatePasswordAPI = (oldPassword, newPassword) => {
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const raw = JSON.stringify({ oldPassword, newPassword });
+  const requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: raw,
+  };
+  return fetch(serverRoutes.UpdatePassword, requestOptions);
+};
+
 export const SubscriberAPI = (email) => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   var raw = JSON.stringify({
-    email: email
+    email: email,
   });
 
   var requestOptions = {
-    method: 'POST',
+    method: "POST",
     headers: myHeaders,
     body: raw,
   };
-  return fetch(serverRoutes.Subscriber, requestOptions);  
-}
+  return fetch(serverRoutes.Subscriber, requestOptions);
+};
