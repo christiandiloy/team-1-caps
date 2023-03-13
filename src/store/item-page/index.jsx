@@ -116,11 +116,11 @@ const handleSmallImageClick = (index) => {
           <div className="col-lg-6 order-sm-1 order-lg-2">
               <div className="row">
 
-                <div className="col-12 mb-4">
+                <div className="col-12 mb-4" style={{width:"500px"}}>
                   <img
                     className="border rounded ratio ratio-1x1"
                     alt=""
-                    src={images[currentImage]}
+                    src={`http://localhost:3005/${item.item_main_image}`}
                   />
                 </div>
               </div>
