@@ -44,7 +44,7 @@ function EditProfile() {
     try {
       userData.gender = genderData.gender;
       const message = await updateUserProfile(userData);
-      console.log(message);
+      alert(message);
     } catch (error) {
       console.error("Error updating user profile:", error);
     }
