@@ -190,6 +190,7 @@ const handleSmallImageClick = (index) => {
         <div className="container-fluid">
           <h4 className="mb-0">Overview</h4>
           <hr />
+          <p>{item.item_desc}</p>
           <div className="container-fluid aegisBKImg">
             <div className="container-fluid" style={{position:"relative"}}>
               <img
