@@ -1,8 +1,31 @@
 import React, { useState } from "react";
+import { updatePasswordAPI } from "../../Utils/fetch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function ChangePass() {
+  const [errorMessage, setErrorMessage] = useState("");
+  const updatePass = () => {
+    const oldPassword = document.getElementById("old-password").value;
+    const newPassword = document.getElementById("new-password").value;
+
+    updatePasswordAPI(oldPassword, newPassword)
+      .then((result) => {
+        return result.json();
+      })
+      .then((result) => {
+        if (result.success) {
+          setErrorMessage("");
+          alert("Password changed successfully!");
+        } else {
+          throw new Error("Failed to change password");
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
+  };
+
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [passwordStrength, setPasswordStrength] = useState("");
   const [passwordStrengthClass, setPasswordStrengthClass] = useState("");
@@ -152,7 +175,12 @@ function ChangePass() {
         </div>
         {/* Save Button */}
         <div className="text-end">
-          <button className="btn btn-warning mt-5 w-25 text-light">Save</button>
+          <button
+            className="btn btn-warning mt-5 w-25 text-light"
+            onClick={updatePass}
+          >
+            Save
+          </button>
         </div>
       </div>
     </>
