@@ -28,8 +28,7 @@ export default function Navbar(props) {
           <img
             className="sh-img"
             src="/assets/images/gons-dispo-header.png"
-            alt=""
-            style={{ width: "100%", height: "auto" }}
+            alt="Gons Dispo Logo"
           />
         </Link>
       </div>
