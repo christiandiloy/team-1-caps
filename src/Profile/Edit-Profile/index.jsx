@@ -35,20 +35,20 @@ function EditProfile() {
       [name]: value,
     }));
   };
+  const [genderData, setGenderData] = useState({
+    gender: "male",
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      userData.gender = genderData.gender;
       const message = await updateUserProfile(userData);
       console.log(message);
     } catch (error) {
       console.error("Error updating user profile:", error);
     }
   };
-
-  const [genderData, setGenderData] = useState({
-    gender: "male",
-  });
 
   const handleGenderChange = (event) => {
     setGenderData({
@@ -88,6 +88,7 @@ function EditProfile() {
               type="text"
               className="form-control"
               id="input-fullName"
+              name="fullName"
               value={userData.fullName}
               onChange={handleChange}
             />
@@ -103,6 +104,7 @@ function EditProfile() {
               type="email"
               className="form-control"
               id="input-email"
+              name="email"
               value={userData.email}
               onChange={handleChange}
             />
@@ -120,6 +122,7 @@ function EditProfile() {
               id="input-number"
               maxLength="11"
               value={userData.contactNo}
+              name="contactNo"
               onChange={handleChange}
             />
           </div>
@@ -153,6 +156,7 @@ function EditProfile() {
               type="date"
               className="form-control w-25"
               id="input-birth"
+              name="dateOfBirth"
               value={userData.dateOfBirth}
               onChange={handleChange}
             />
