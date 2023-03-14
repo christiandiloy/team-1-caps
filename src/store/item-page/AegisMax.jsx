@@ -2,8 +2,9 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/aegis-max.css';
-import aegisBKIcon from '../../assets/images/item-pages-details/aegis-boost-01-icon.png';
-import powerLogo from '../../assets/images/item-pages-details/power-icon.png';
+import AegisMaxIcon1 from '../../assets/images/item-pages-details/aegis-max-03-icon1.png';
+import AegisMaxIcon2 from '../../assets/images/item-pages-details/aegis-max-03-icon2.png';
+import AegisMaxIcon3 from '../../assets/images/item-pages-details/aegis-max-03-icon3.png';
 
 
 function AegisMax() {
@@ -187,10 +188,31 @@ const handleSmallImageClick = (index) => {
           </div>
         </div>
 
-        <div className="container-fluid" style={{backgroundColor:"#8bd7d2"}}>
+        <div className="container-fluid">
           <h4 className="mb-0">Overview</h4>
           <hr />
-          
+          <p>{item.item_desc}</p>
+          <div className="container-fluid aegisMaxBodyImg">
+            <div class="textAegisMax">
+              <h2>
+                Military Grade Mod</h2>
+              <h2>
+                IP67 Rate, Perfect for Extreme Outdoor Activities</h2>
+                <br />
+              <p>
+                <img className="aegisMaxIcons" src={AegisMaxIcon1}/>
+                IP67 Water Resistant,<br/>
+                can be submerged in up to 1 meter for up to 30 minutes.</p>
+              <p>
+                <img className="aegisMaxIcons" src={AegisMaxIcon2}/>
+                Shock Resistant,&nbsp;<br/>
+                no need to worry about breaking by accident.</p>
+              <p>
+                <img className="aegisMaxIcons" src={AegisMaxIcon3}/>
+                IP67 Dust Resistant,<br/>
+                able to withstand dirty environment.and can be easily cleaned.</p>
+            </div>
+          </div>
         </div>
       </>
     )}
