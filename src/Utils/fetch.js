@@ -32,6 +32,32 @@ export const RegisterAPI = (username, password, fullName, email) => {
   return fetch(serverRoutes.Register, requestOptions);
 };
 
+export const AddressAPI = (
+  userID,
+  fullName,
+  contactNo,
+  place,
+  postalCode,
+  houseNo
+) => {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  var raw = JSON.stringify({
+    userID: userID,
+    fullName: fullName,
+    contactNo: contactNo,
+    place: place,
+    postalCode: postalCode,
+    houseNo: houseNo,
+  });
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+  };
+  return fetch(serverRoutes.Address, requestOptions);
+};
+
 export const updatePasswordAPI = (oldPassword, newPassword) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
