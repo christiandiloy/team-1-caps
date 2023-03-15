@@ -1,12 +1,40 @@
 import React, { useState } from "react";
+import { AddressAPI } from "../../Utils/fetch";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import "./address.css";
 
 function Address() {
-  const [show, setShow] = useState(false);
+  const userDataId = localStorage.getItem("user");
+  const userObj = JSON.parse(userDataId);
+  const userIdLocal = userObj.id;
 
+  const AddAddress = () => {
+    const userID = userIdLocal;
+    const fullName = document.getElementById("fullName").value;
+    const contactNo = document.getElementById("contactNo").value;
+    const place = document.getElementById("place").value;
+    const postalCode = document.getElementById("postalCode").value;
+    const houseNo = document.getElementById("houseNo").value;
+
+    AddressAPI(userID, fullName, contactNo, place, postalCode, houseNo)
+      .then((result) => {
+        return result.json();
+      })
+      .then((result) => {
+        if (result.success) {
+          alert("Address successfully added.");
+        } else {
+          alert(result.message);
+        }
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
+  };
+
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -36,10 +64,15 @@ function Address() {
           <Modal.Body>
             <Form>
               <Form.Group className="mb-3">
-                <Form.Control type="text" placeholder="Full Name" />
+                <Form.Control
+                  id="fullName"
+                  type="text"
+                  placeholder="Full Name"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Control
+                  id="contactNo"
                   type="number"
                   maxLength={11}
                   placeholder="Contact No."
@@ -47,15 +80,21 @@ function Address() {
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Control
+                  id="place"
                   type="text"
                   placeholder="Region, Province, City, Barangay"
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Control type="number" placeholder="Postal Code" />
+                <Form.Control
+                  id="postalCode"
+                  type="number"
+                  placeholder="Postal Code"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Control
+                  id="houseNo"
                   type="text"
                   placeholder="Street Name, Building, House No."
                 />
@@ -67,7 +106,7 @@ function Address() {
             <Button variant="light" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="warning" onClick={handleClose}>
+            <Button variant="warning" onClick={AddAddress}>
               Submit
             </Button>
           </Modal.Footer>

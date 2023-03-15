@@ -8,5 +8,6 @@ export const serverRoutes = {
   Register: myExpressURL + "/api/v2/register",
   UpdateProfile: myExpressURL + `/api/v2/users/${userId}/profile`,
   UpdatePassword: myExpressURL + `/api/v2/users/${userId}/password`,
+  Address: myExpressURL + `/api/v2/address`,
   Subscriber: myExpressURL + "/subscribe",
 };
