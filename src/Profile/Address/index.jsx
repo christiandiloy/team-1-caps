@@ -73,9 +73,16 @@ function Address() {
               <Form.Group className="mb-3">
                 <Form.Control
                   id="contactNo"
-                  type="number"
-                  maxLength={11}
+                  type="text"
                   placeholder="Contact No."
+                  onKeyPress={(event) => {
+                    if (!/[0-9]/.test(event.key)) {
+                      event.preventDefault();
+                    }
+                    if (event.target.value.length >= 11) {
+                      event.preventDefault();
+                    }
+                  }}
                 />
               </Form.Group>
               <Form.Group className="mb-3">
