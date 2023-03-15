@@ -1,7 +1,6 @@
 import "./store.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import SearchBar from "./SearchBar";
 
 export default function Navbar(props) {
   const logout = () => {
@@ -10,14 +9,11 @@ export default function Navbar(props) {
   };
 
   const [fullName, setFullName] = useState("");
-  const [results, setResults] = useState([]);
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
     setFullName(userData?.full_name || "Guest");
   }, []);
-
-  
 
   return (
     <nav className="navbar" id="store-header">
@@ -32,12 +28,18 @@ export default function Navbar(props) {
           <img
             className="sh-img"
             src="/assets/images/gons-dispo-header.png"
-            alt=""
-            style={{ width: "100%", height: "auto" }}
+            alt="Gons Dispo Logo"
           />
         </Link>
       </div>
-      <SearchBar setResults={setResults} />
+      <div className="navbar-search">
+        <i className="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          className="i-text"
+          placeholder="Search for products, brands and more"
+        />
+      </div>
       <div className="navbar-cart">
         <div className="dropdown">
           <p className="storeHeader-fullname h4 text-light d-flex">

@@ -6,41 +6,18 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-let searchValue = "";
-function AllProductsCards() {
-  const [products, setProducts] = useState([]);
-  const fetchProducts = (value) => {
-    fetch("http://localhost:3005/getProduct")
-        .then((response) => response.json())
-        .then ((result) => {
-          const products = (result && result.products) ? result.products : result
-          const results = value === "" ? products : products.filter((products) => {
-            return (value && products.title && products.title.toLowerCase().includes(value));
-          });
-          setProducts(results);
-        })
-  }
-  useEffect(
-      () => {
-        let searchChecker = setInterval(() => {
-          const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-          });
-          if(searchValue !== params.search){
-            searchValue = params.search
-            fetchProducts(searchValue)
-          }
-        },1000);
-        return () => {
-          clearInterval(searchChecker);
-        };
-      },
-      []
-  );
+function BoxModKitsCards() {
 
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3005/getProduct")
+      .then((response) => response.json())
+      .then(({ products }) => setProducts(products));
+  }, []);
   let aegisItems = products.filter((products) => {
-    return products;
+    return products.category === "BoxModKits";
   });
+  console.log(aegisItems)
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
@@ -60,7 +37,7 @@ function AllProductsCards() {
                 </Card.Text>
                 <Card.Text className="text-muted">
                   <i class="fa-solid fa-peso-sign"></i>
-                  {item.price}
+                  {item.text}
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -72,4 +49,4 @@ function AllProductsCards() {
   );
 }
 
-export default AllProductsCards;
+export default BoxModKitsCards;

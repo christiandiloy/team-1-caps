@@ -6,47 +6,23 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-let searchValue = "";
-function AllProductsCards() {
+function ReplacementCoilsCards() {
   const [products, setProducts] = useState([]);
-  const fetchProducts = (value) => {
+  useEffect(() => {
     fetch("http://localhost:3005/getProduct")
-        .then((response) => response.json())
-        .then ((result) => {
-          const products = (result && result.products) ? result.products : result
-          const results = value === "" ? products : products.filter((products) => {
-            return (value && products.title && products.title.toLowerCase().includes(value));
-          });
-          setProducts(results);
-        })
-  }
-  useEffect(
-      () => {
-        let searchChecker = setInterval(() => {
-          const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-          });
-          if(searchValue !== params.search){
-            searchValue = params.search
-            fetchProducts(searchValue)
-          }
-        },1000);
-        return () => {
-          clearInterval(searchChecker);
-        };
-      },
-      []
-  );
-
+      .then((response) => response.json())
+      .then(({ products }) => setProducts(products));
+  }, []);
   let aegisItems = products.filter((products) => {
-    return products;
+    return products.category === "Coil";
   });
+  console.log(aegisItems)
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
       {aegisItems.map((item) => {
         return (
-          <Col key={item.id} id="aegis-col">
+          <Col key={item.id} class="aegis-col">
             <Card id="aegis-cards">
               <Card.Img variant="top" src={item.url} />
               <Card.Body style={{ textAlign: "center" }}>
@@ -72,4 +48,4 @@ function AllProductsCards() {
   );
 }
 
-export default AllProductsCards;
+export default ReplacementCoilsCards;
