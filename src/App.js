@@ -12,6 +12,7 @@ import ReplacementCoils from "./store/navigation/replacement-coils";
 import MyCart from "./store/cart/cart";
 import AegisBonusKit from "./store/item-page/AegisBonusKit";
 import AegisMax from "./store/item-page/AegisMax";
+import AegisBoostPro from "./store/item-page/AegisBoostPro";
 import BoxModKits from "./store/navigation/box-mod-kits";
 import PodKits from "./store/navigation/pod-kits";
 import Profile from "./Profile";
@@ -31,6 +32,7 @@ const App = (props) => {
         <Route path="/" element={<Store />}>
         <Route path="/item-page/AegisBonusKit" element={<AegisBonusKit />} />
         <Route path="/item-page/AegisMax" element={<AegisMax />} />
+        <Route path="/item-page/AegisBoostPro" element={<AegisBoostPro />} />
           <Route path="/all-products" element={<AllProducts />} />
           <Route path="/box-mods" element={<BoxMod />} />
           <Route path="/replacement-pods" element={<ReplacementPods />} />
