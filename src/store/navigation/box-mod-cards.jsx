@@ -38,6 +38,10 @@ function BoxModCards() {
                   <i class="fa-solid fa-peso-sign"></i>
                   {item.text}
                 </Card.Text>
+                <button type="button" className="btn btn-success" id="cart-btn">
+                    Add to cart
+                    <i className="fas fa-cart-plus nav-icon"></i>
+                  </button>
               </Card.Body>
             </Card>
           </Col>
