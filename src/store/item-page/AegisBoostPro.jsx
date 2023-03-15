@@ -146,7 +146,7 @@ function AegisBoostPro() {
                             >
                             <img
                                 className={"rounded mb-2 ratio " + selected}
-                                alt="Different Colors of Aegis Max"
+                                alt=""
                                 src={image}
                             />
                             </div>
@@ -199,7 +199,7 @@ function AegisBoostPro() {
                     <img
                     className="aegisBoostProLogo"
                     src={AegisBoostProIcon1}
-                    alt="Aegis Icon" />
+                    alt="" />
                     <div className="aegisBoostProDetails">
                         <h1 style={{color:"#ff6b00"}}><strong>Four in Full Will.</strong></h1>
                         <p className="aegisBoostPro-p">

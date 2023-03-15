@@ -1,0 +1,254 @@
+.Aegis1FCPK-vertical-scroller {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.Aegis1FCPK-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.Aegis1FCPK-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.Aegis1FCPKImg {
+    background-image: url('/src/assets/images/item-pages-details/aegis-1fc-01.jpg');
+    height: 80vh;
+    background-position: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.Aegis1FCPKDetails {
+    position: absolute;
+    top: 18rem;
+    left: 4vh;
+    z-index: 1;
+    max-width: 60vw;
+}
+
+.Aegis1FCPKDetails > h1 {
+    font-size: 4rem;
+}
+
+.Aegis1FCPK-p {
+    color: #333333;
+    font-size: 2.3rem;
+}
+
+.Aegis1FCPKLogo {
+    position: absolute;
+    top: 15rem;
+    left: 61vh;
+    z-index: 3;
+    height: 5vh;
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .Aegis1FCPK-vertical-scroller {
+        height: 400px;
+    }
+
+    .Aegis1FCPKDetails {
+        position: absolute;
+        top: 16rem;
+        left: 30vh;
+        z-index: 1;
+        box-sizing: border-box;
+        max-width: 50vw;
+    }
+
+    .Aegis1FCPKLogo {
+        position: absolute;
+        top: 8rem;
+        left: 28vw;
+        z-index: 3;
+        height: 5vh;
+    }
+}
+
+@media (min-width:992px) {
+    .Aegis1FCPK-vertical-scroller {
+        height: 330px;
+    }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+    .Aegis1FCPKDetails {
+        position: absolute;
+        top: 14rem;
+        left: 16vh;
+        z-index: 1;
+        box-sizing: border-box;
+        max-width: 50vw;
+    }
+
+    .Aegis1FCPKLogo {
+        position: absolute;
+        top: 6rem;
+        left: 20vw;
+        z-index: 3;
+        height: 5vh;
+    }
+}
+
+@media (max-width:991px) {
+    .Aegis1FCPK-vertical-scroller {
+        height: 16vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .Aegis1FCPK-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 120% !important;
+    }
+}
+
+@media (min-width:834px) {
+    .Aegis1FCPKDetails2 {
+        position: absolute;
+        left: 10vw;
+        top: 13rem;
+        z-index: 1;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .Aegis1FCPKDetails {
+        position: absolute;
+        top: 14rem;
+        left: 4vh;
+        z-index: 1;
+    }
+
+    .Aegis1FCPKLogo {
+        position: absolute;
+        top: 6rem;
+        left: 4vh;
+        z-index: 3;
+        height: 5vh;
+    }
+}
+
+@media (max-width:767px) {
+    .Aegis1FCPK-vertical-scroller {
+        height: 13vh;
+    }
+}
+
+@media (min-width:576px) and (max-width:767px){
+    .Aegis1FCPKDetails {
+        position: absolute;
+        top: 15rem;
+        left: 5vh;
+        z-index: 1;
+    }
+
+    .Aegis1FCPKLogo {
+        position: absolute;
+        top: 10rem;
+        left: 5vh;
+        z-index: 3;
+        height: 4vh;
+    }
+    .Aegis1FCPK-p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width:500px) and (max-width:575px){
+    .Aegis1FCPKDetails {
+        position: absolute;
+        top: 15rem;
+        left: 6vh;
+        z-index: 1;
+        max-width: 85vw;
+    }
+
+    .Aegis1FCPK-p {
+        font-size: 1.6rem;
+    }
+
+    .Aegis1FCPKLogo {
+        top: 10rem;
+        left: 4vh;
+        height: 4vh;
+    }
+
+    .Aegis1FCPKDetails > h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width:375px) {
+    .Aegis1FCPK-vertical-scroller {
+        height: 9vh;
+    }
+}
+
+@media (min-width:321px) and (max-width:499px){
+    .Aegis1FCPKDetails {
+        position: absolute;
+        top: 13rem;
+        left: 3vh;
+        z-index: 1;
+    }
+
+    .Aegis1FCPK-p {
+        font-size: 1.5rem;
+    }
+
+    .Aegis1FCPKLogo {
+        top: 8rem;
+        left: 3vh;
+        height: 2.7vh;
+    }
+
+    .Aegis1FCPKDetails > h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width:320px) {
+    .Aegis1FCPKDetails {
+        top: 10rem;
+        left: 3vh;
+    }
+
+    .Aegis1FCPK-p {
+        font-size: 1.4rem;
+    }
+
+    .Aegis1FCPKLogo {
+        position: absolute;
+        top: 7rem;
+        left: 3vh;
+        z-index: 3;
+        height: 2.7vh;
+    }
+
+    .Aegis1FCPKDetails > h1 {
+        font-size: 2.5rem;
+    }
+
+}

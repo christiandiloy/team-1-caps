@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/aegis-hero.css";
-import AegisHeroIcon1 from "../../assets/images/item-pages-details/aegis-hero-01-icon.png";
+import "./css/aegis-1fc-pod-kit.css";
+import Aegis1FCPKIcon1 from "../../assets/images/item-pages-details/aegis-hero-01-icon.png";
 
-function AegisHero() {
-    const pageName = "AegisHero";
+function Aegis1FCPodKit() {
+    const pageName = "Aegis1FCPodKit";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -32,9 +32,9 @@ function AegisHero() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/aegis-boost-pro-kit",
+        "../../assets/images/aegis-1fc-pod-kit",
         false,
-        /\.(png|jpe?g|svg)$/
+        /\.(png|jpe?g|svg|webp)$/
         );
         const importedImages = await Promise.all(context.keys().map(context));
         setImages(importedImages);
@@ -129,7 +129,7 @@ function AegisHero() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="AegisHero-vertical-scroller"
+                    className="Aegis1FCPK-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -194,16 +194,12 @@ function AegisHero() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid AegisHeroImg">
+            <div className="container-fluid Aegis1FCPKImg">
                 <div className="container-fluid" style={{position:"relative"}}>
-                    <img
-                    className="AegisHeroLogo"
-                    src={AegisHeroIcon1}
-                    alt="" />
-                    <div className="AegisHeroDetails">
-                        <h1 style={{color:"#ff6b00"}}><strong><em>Top Airflow Top Performance</em></strong></h1>
-                        <p className="AegisHero-p">
-                        Behold, explore the evolution of vaping through Aegis Hero. This top airflow pod mod features an unprecedented Buck-Boost system, giving you the ultimate performance: small in size, but rich in flavor.
+                    <div className="Aegis1FCPKDetails">
+                        <h1 style={{color:"#333333"}}><strong>GEEKVAPE 1FC</strong></h1>
+                        <p className="Aegis1FCPK-p">
+                        World's First Fast Charging Vape Pen
                         </p>
                     </div>
                 </div>
@@ -216,4 +212,4 @@ function AegisHero() {
     );
 }
 
-export default AegisHero;
+export default Aegis1FCPodKit;
