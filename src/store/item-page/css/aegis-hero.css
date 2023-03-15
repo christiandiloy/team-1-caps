@@ -1,0 +1,237 @@
+.AegisHero-vertical-scroller {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.AegisHero-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.AegisHero-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.AegisHeroImg {
+    background-image: url('/src/assets/images/item-pages-details/aegis-hero-01.jpg');
+    height: 80vh;
+    background-position: bottom 1rem left 1px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.AegisHeroDetails {
+    position: absolute;
+    top: 20rem;
+    left: 61vh;
+    z-index: 1;
+    max-width: 70vw;
+}
+
+.AegisHero-p {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.AegisHeroLogo {
+    position: absolute;
+    top: 15rem;
+    left: 61vh;
+    z-index: 3;
+    height: 5vh;
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .AegisHero-vertical-scroller {
+        height: 400px;
+    }
+
+    .AegisHeroDetails {
+        position: absolute;
+        top: 16rem;
+        left: 30vh;
+        z-index: 1;
+        box-sizing: border-box;
+        max-width: 50vw;
+    }
+
+    .AegisHeroLogo {
+        position: absolute;
+        top: 8rem;
+        left: 28vw;
+        z-index: 3;
+        height: 5vh;
+    }
+}
+
+@media (min-width:992px) {
+    .AegisHero-vertical-scroller {
+        height: 330px;
+    }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+    .AegisHeroDetails {
+        position: absolute;
+        top: 14rem;
+        left: 16vh;
+        z-index: 1;
+        box-sizing: border-box;
+        max-width: 50vw;
+    }
+
+    .AegisHeroLogo {
+        position: absolute;
+        top: 6rem;
+        left: 20vw;
+        z-index: 3;
+        height: 5vh;
+    }
+}
+
+@media (max-width:991px) {
+    .AegisHero-vertical-scroller {
+        height: 16vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .AegisHero-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 200% !important;
+    }
+}
+
+@media (min-width:834px) {
+    .AegisHeroDetails2 {
+        position: absolute;
+        left: 10vw;
+        top: 13rem;
+        z-index: 1;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .AegisHeroDetails {
+        position: absolute;
+        top: 14rem;
+        left: 4vh;
+        z-index: 1;
+    }
+
+    .AegisHeroLogo {
+        position: absolute;
+        top: 6rem;
+        left: 4vh;
+        z-index: 3;
+        height: 5vh;
+    }
+}
+
+@media (max-width:767px) {
+    .AegisHero-vertical-scroller {
+        height: 13vh;
+    }
+}
+
+@media (min-width:576px) and (max-width:767px){
+    .AegisHeroDetails {
+        position: absolute;
+        top: 15rem;
+        left: 5vh;
+        z-index: 1;
+    }
+
+    .AegisHeroLogo {
+        position: absolute;
+        top: 10rem;
+        left: 5vh;
+        z-index: 3;
+        height: 4vh;
+    }
+    .AegisHero-p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width:500px) and (max-width:575px){
+    .AegisHeroDetails {
+        position: absolute;
+        top: 15rem;
+        left: 4vh;
+        z-index: 1;
+    }
+
+    .AegisHero-p {
+        font-size: 1.2rem;
+    }
+
+    .AegisHeroLogo {
+        top: 10rem;
+        left: 4vh;
+        height: 4vh;
+    }
+}
+
+@media (max-width:375px) {
+    .AegisHero-vertical-scroller {
+        height: 9vh;
+    }
+}
+
+@media (min-width:321px) and (max-width:499px){
+    .AegisHeroDetails {
+        position: absolute;
+        top: 13rem;
+        left: 3vh;
+        z-index: 1;
+    }
+
+    .AegisHero-p {
+        font-size: 1.08rem;
+    }
+
+    .AegisHeroLogo {
+        top: 8rem;
+        left: 3vh;
+        height: 2.7vh;
+    }
+}
+
+@media (max-width:320px) {
+    .AegisHeroDetails {
+        top: 10rem;
+        left: 3vh;
+    }
+
+    .AegisHero-p {
+        font-size: 1.08rem;
+    }
+
+    .AegisHeroLogo {
+        position: absolute;
+        top: 7rem;
+        left: 3vh;
+        z-index: 3;
+        height: 2.7vh;
+    }
+
+}
