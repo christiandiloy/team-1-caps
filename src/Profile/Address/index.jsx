@@ -6,6 +6,7 @@ import Modal from "react-bootstrap/Modal";
 import "./address.css";
 import { serverRoutes } from "../../Utils/const";
 import { Card, ListGroup } from "react-bootstrap";
+import { updateAddress } from "../../Utils/fetch";
 
 function Address() {
   const userDataId = localStorage.getItem("user");
@@ -31,21 +32,31 @@ function Address() {
 
   const handleEdit = (address) => {
     setSelectedAddress(address);
+    localStorage.setItem("address", JSON.stringify(address));
     setShow(true);
   };
 
-  const handleSave = () => {
-    const userID = userIdLocal;
+  const handleSave = async (event) => {
+    event.preventDefault();
     const fullName = document.getElementById("fullName").value;
     const contactNo = document.getElementById("contactNo").value;
     const place = document.getElementById("place").value;
     const postalCode = document.getElementById("postalCode").value;
     const houseNo = document.getElementById("houseNo").value;
-
-    // TODO: Update the address using the API
-    // ...
-
+    try {
+      const message = await updateAddress(
+        fullName,
+        contactNo,
+        place,
+        postalCode,
+        houseNo
+      );
+      alert(message);
+    } catch (error) {
+      console.error("Error updating user profile:", error);
+    }
     setShow(false);
+    // localStorage.removeItem("address");
   };
 
   const handleAdd = () => {
@@ -54,14 +65,13 @@ function Address() {
   };
 
   const handleAddAddress = () => {
-    const userID = userIdLocal;
     const fullName = document.getElementById("fullName").value;
     const contactNo = document.getElementById("contactNo").value;
     const place = document.getElementById("place").value;
     const postalCode = document.getElementById("postalCode").value;
     const houseNo = document.getElementById("houseNo").value;
 
-    AddressAPI(userID, fullName, contactNo, place, postalCode, houseNo)
+    AddressAPI(fullName, contactNo, place, postalCode, houseNo)
       .then((result) => {
         return result.json();
       })
