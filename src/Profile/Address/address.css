@@ -13,3 +13,11 @@
   overflow: scroll;
   overflow-x: hidden;
 }
+
+.address-editDelete {
+  margin-right: 1.5em;
+}
+
+.address-editDelete a {
+  color: black;
+}

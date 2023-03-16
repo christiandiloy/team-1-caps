@@ -84,8 +84,13 @@ function Address() {
               <div className="address-list">
                 {addresses.map((address, index) => (
                   <div key={address.house_no}>
-                    <div className="address-item">
-                      <h5>{address.full_name}</h5>
+                    <div className="address-item ">
+                      <div className="d-flex justify-content-between">
+                        <h5>{address.full_name}</h5>
+                        <h5 className="address-editDelete h6 nav-link">
+                          <a href="">Edit</a> | <a href="">Delete</a>
+                        </h5>
+                      </div>
                       <p>
                         {address.house_no}&nbsp;{address.place},{" "}
                         {address.postal_code}
