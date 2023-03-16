@@ -19,6 +19,7 @@ function Address() {
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState({});
 
+  //Render Address
   useEffect(() => {
     fetch(serverRoutes.FindAddress)
       .then((response) => response.json())
@@ -30,8 +31,10 @@ function Address() {
       });
   }, []);
 
+  //Edit Address
   const handleEdit = (address) => {
     setSelectedAddress(address);
+    localStorage.removeItem("address");
     localStorage.setItem("address", JSON.stringify(address));
     setShow(true);
   };
@@ -56,9 +59,31 @@ function Address() {
       console.error("Error updating user profile:", error);
     }
     setShow(false);
-    // localStorage.removeItem("address");
   };
 
+  //Delete Address
+  const [message, setMessage] = useState("");
+
+  function handleDelete() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this address?"
+    );
+    if (confirmed) {
+      fetch(serverRoutes.DeleteAddress, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setMessage(data.message);
+        })
+        .catch((error) => {
+          console.error("Error deleting address:", error);
+          setMessage("Failed to delete address.");
+        });
+    }
+  }
+
+  //Add Address
   const handleAdd = () => {
     setSelectedAddress({});
     setShow(true);
@@ -115,7 +140,7 @@ function Address() {
                             {address.full_name}
                             <p className="h6">
                               <a onClick={() => handleEdit(address)}>Edit</a> |{" "}
-                              <a>Delete</a>
+                              <a onClick={handleDelete}>Delete</a>
                             </p>
                           </div>
                         </Card.Title>
