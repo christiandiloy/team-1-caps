@@ -99,23 +99,23 @@ function Address() {
                 {addresses.map((address) => (
                   <ListGroup.Item key={address.id}>
                     <Card border="light" className="border-0">
-                      <Card.Body className="">
-                        <Card.Title>{address.full_name}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">
+                      <Card.Body>
+                        <Card.Title>
+                          <div className="address-editDelete d-flex justify-content-between">
+                            {address.full_name}
+                            <p className="h6">
+                              <a onClick={() => handleEdit(address)}>Edit</a> |{" "}
+                              <a>Delete</a>
+                            </p>
+                          </div>
+                        </Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted d-flex justify-content-start">
                           {address.contact_no}
                         </Card.Subtitle>
-                        <Card.Text>
+                        <Card.Text className="d-flex justify-content-start">
                           {address.house_no}, {address.place},{" "}
                           {address.postal_code}
                         </Card.Text>
-                        <div className="d-flex justify-content-end">
-                          <Button
-                            variant="outline-dark"
-                            onClick={() => handleEdit(address)}
-                          >
-                            Edit
-                          </Button>
-                        </div>
                       </Card.Body>
                     </Card>
                   </ListGroup.Item>
