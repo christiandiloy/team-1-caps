@@ -12,7 +12,48 @@ function Address() {
   const userObj = JSON.parse(userDataId);
   const userIdLocal = userObj.id;
 
-  const AddAddress = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+
+  const [addresses, setAddresses] = useState([]);
+  const [selectedAddress, setSelectedAddress] = useState({});
+
+  useEffect(() => {
+    fetch(serverRoutes.FindAddress)
+      .then((response) => response.json())
+      .then((data) => {
+        setAddresses(data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  const handleEdit = (address) => {
+    setSelectedAddress(address);
+    setShow(true);
+  };
+
+  const handleSave = () => {
+    const userID = userIdLocal;
+    const fullName = document.getElementById("fullName").value;
+    const contactNo = document.getElementById("contactNo").value;
+    const place = document.getElementById("place").value;
+    const postalCode = document.getElementById("postalCode").value;
+    const houseNo = document.getElementById("houseNo").value;
+
+    // TODO: Update the address using the API
+    // ...
+
+    setShow(false);
+  };
+
+  const handleAdd = () => {
+    setSelectedAddress({});
+    setShow(true);
+  };
+
+  const handleAddAddress = () => {
     const userID = userIdLocal;
     const fullName = document.getElementById("fullName").value;
     const contactNo = document.getElementById("contactNo").value;
@@ -27,6 +68,7 @@ function Address() {
       .then((result) => {
         if (result.success) {
           alert("Address successfully added.");
+          setShow(false);
         } else {
           alert(result.message);
         }
@@ -36,29 +78,12 @@ function Address() {
       });
   };
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const [addresses, setAddresses] = useState([]);
-
-  useEffect(() => {
-    fetch(serverRoutes.FindAddress)
-      .then((response) => response.json())
-      .then((data) => {
-        setAddresses(data.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
   return (
     <>
       <div className="profile-header container my-3 p-4 border">
         <div className="d-flex justify-content-between">
           <h3>My Addresses</h3>
-          <button className="btn btn-warning text-light" onClick={handleShow}>
+          <button className="btn btn-warning text-light" onClick={handleAdd}>
             <i class="fas fa-plus"></i>&nbsp;Add New Address
           </button>
         </div>
@@ -67,106 +92,110 @@ function Address() {
         <div className="address-body">
           <div className="address-list-wrapper">
             {/* No Address */}
-            {addresses.length === 0 && (
-              <div className="no-address">
-                <div className="row row-cols-1 text-center pt-5">
-                  <span className="display-3 text-muted">
-                    <i className="fas fa-map-marked-alt"></i>
-                  </span>
-                  <p className="lead">You don't have addresses yet.</p>
-                </div>
-              </div>
-            )}
-
-            {/* Card */}
-
-            {addresses.length > 0 && (
-              <div className="address-list">
-                {addresses.map((address, index) => (
-                  <div key={address.house_no}>
-                    <div className="address-item ">
-                      <div className="d-flex justify-content-between">
-                        <h5>{address.full_name}</h5>
-                        <h5 className="address-editDelete h6 nav-link">
-                          <a href="">Edit</a> | <a href="">Delete</a>
-                        </h5>
-                      </div>
-                      <p>
-                        {address.house_no}&nbsp;{address.place},{" "}
-                        {address.postal_code}
-                        <br />
-                        {address.contact_no}
-                      </p>
-                    </div>
-                    {index < addresses.length - 1 && <hr />}
-                  </div>
+            {addresses.length === 0 ? (
+              <p>No address available</p>
+            ) : (
+              <ListGroup>
+                {addresses.map((address) => (
+                  <ListGroup.Item key={address.id}>
+                    <Card border="light" className="border-0">
+                      <Card.Body className="">
+                        <Card.Title>{address.full_name}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">
+                          {address.contact_no}
+                        </Card.Subtitle>
+                        <Card.Text>
+                          {address.house_no}, {address.place},{" "}
+                          {address.postal_code}
+                        </Card.Text>
+                        <div className="d-flex justify-content-end">
+                          <Button
+                            variant="outline-dark"
+                            onClick={() => handleEdit(address)}
+                          >
+                            Edit
+                          </Button>
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  </ListGroup.Item>
                 ))}
-              </div>
+              </ListGroup>
             )}
           </div>
         </div>
-        {/* Modal */}
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>New Address</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group className="mb-3">
-                <Form.Control
-                  id="fullName"
-                  type="text"
-                  placeholder="Full Name"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Control
-                  id="contactNo"
-                  type="text"
-                  placeholder="Contact No."
-                  onKeyPress={(event) => {
-                    if (!/[0-9]/.test(event.key)) {
-                      event.preventDefault();
-                    }
-                    if (event.target.value.length >= 11) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Control
-                  id="place"
-                  type="text"
-                  placeholder="Region, Province, City, Barangay"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Control
-                  id="postalCode"
-                  type="number"
-                  placeholder="Postal Code"
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Control
-                  id="houseNo"
-                  type="text"
-                  placeholder="Street Name, Building, House No."
-                />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="light" onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button variant="warning" onClick={AddAddress}>
-              Submit
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </div>
+
+      {/* Modal */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {selectedAddress.id ? "Edit" : "Add"} Address
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="fullName">
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter full name"
+                defaultValue={selectedAddress.full_name}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="contactNo">
+              <Form.Label>Contact No</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter contact number"
+                defaultValue={selectedAddress.contact_no}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="place">
+              <Form.Label>Place</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter place"
+                defaultValue={selectedAddress.place}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="postalCode">
+              <Form.Label>Postal Code</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter postal code"
+                defaultValue={selectedAddress.postal_code}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="houseNo">
+              <Form.Label>House No</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter house number"
+                defaultValue={selectedAddress.house_no}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          {selectedAddress.id ? (
+            <Button variant="primary" onClick={handleSave}>
+              Save Changes
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={handleAddAddress}>
+              Add Address
+            </Button>
+          )}
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }

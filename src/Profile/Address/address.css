@@ -20,4 +20,5 @@
 
 .address-editDelete a {
   color: black;
+  cursor: pointer;
 }
