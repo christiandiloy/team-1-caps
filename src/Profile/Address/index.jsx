@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AddressAPI } from "../../Utils/fetch";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import "./address.css";
+import { serverRoutes } from "../../Utils/const";
+import { Card, ListGroup } from "react-bootstrap";
 
 function Address() {
   const userDataId = localStorage.getItem("user");
@@ -37,6 +39,20 @@ function Address() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [addresses, setAddresses] = useState([]);
+
+  useEffect(() => {
+    fetch(serverRoutes.FindAddress)
+      .then((response) => response.json())
+      .then((data) => {
+        setAddresses(data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <>
       <div className="profile-header container my-3 p-4 border">
@@ -49,12 +65,41 @@ function Address() {
         <hr />
         {/* Address body */}
         <div className="address-body d-flex justify-content-center align-items-center">
-          <div className="row row-cols-1 text-center">
-            <span className="display-3 text-muted">
-              <i class="fas fa-map-marked-alt"></i>
-            </span>
-            <p className="lead">You don't have addresses yet.</p>
-          </div>
+          {/* No Address */}
+          {addresses.length === 0 && (
+            <div className="no-address">
+              <div className="row row-cols-1 text-center">
+                <span className="display-3 text-muted">
+                  <i className="fas fa-map-marked-alt"></i>
+                </span>
+                <p className="lead">You don't have addresses yet.</p>
+              </div>
+            </div>
+          )}
+
+          {/* Card */}
+          {addresses.length > 0 && (
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+              {addresses.map((address) => (
+                <div key={address.house_no}>
+                  <Card>
+                    <Card.Header>{address.full_name}</Card.Header>
+                    <Card.Body>
+                      <Card.Title>{address.house_no}</Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">
+                        {address.place}, {address.postal_code}
+                      </Card.Subtitle>
+                      <Card.Text>{address.contact_no}</Card.Text>
+                      <Card.Text>
+                        Default address:{" "}
+                        {address.default_address ? "Yes" : "No"}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         {/* Modal */}
         <Modal show={show} onHide={handleClose}>
@@ -106,7 +151,6 @@ function Address() {
                   placeholder="Street Name, Building, House No."
                 />
               </Form.Group>
-              <Form.Check label="Set as Default Address" />
             </Form>
           </Modal.Body>
           <Modal.Footer>
