@@ -143,7 +143,7 @@ const handleSmallImageClick = (index) => {
                       <div key={index} onClick={() => handleSmallImageClick(index)}>
                         <img
                           className={"rounded mb-2 ratio " + selected}
-                          alt="Different Colors of Aegis Boost LE Bonus Kit"
+                          alt=""
                           src={image}
                         />
                       </div>
@@ -196,7 +196,7 @@ const handleSmallImageClick = (index) => {
               <img
               className="aegisBKLogo"
               src={aegisBKIcon}
-              alt="Aegis Icon" />
+              alt="" />
               <div className="aegisBKDetails">
                 <h1 style={{color:"#ff6b00"}}>More Flavors Await</h1>
                 <p className="aegisBK-p">

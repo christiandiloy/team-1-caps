@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/aegis-boost-pro.css";
-import AegisBoostProIcon1 from "../../assets/images/item-pages-details/aegis-boost-pro-01-icon.png";
+import "./css/gv-h45.css";
+import GVH45Icon1 from "../../assets/images/item-pages-details/aegis-hero-01-icon.png";
 
-function AegisBoostPro() {
-    const pageName = "AegisBoostPro";
+function GVH45() {
+    const pageName = "GVH45";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -32,7 +32,7 @@ function AegisBoostPro() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/aegis-boost-pro-kit",
+        "../../assets/images/gv-h45",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -129,7 +129,7 @@ function AegisBoostPro() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="AegisBoostPro-vertical-scroller"
+                    className="GVH45-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -194,32 +194,24 @@ function AegisBoostPro() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid aegisBoostProImg">
+            <div className="container-fluid GVH45Img">
                 <div className="container-fluid" style={{position:"relative"}}>
-                    <img
-                    className="aegisBoostProLogo"
-                    src={AegisBoostProIcon1}
-                    alt="" />
-                    <div className="aegisBoostProDetails">
-                        <h1 style={{color:"#ff6b00"}}><strong>Four in Full Will.</strong></h1>
-                        <p className="aegisBoostPro-p">
-                        An ultimate Quadra Vaping System boosts up vaping
-                        <br />
-                        experience to pro, with a new design embodied both
-                        <br />
-                        in and out - an upgraded Gen 2 three-inlet Airflow
-                        <br />
-                        Control & a refreshing brand-new UI. Compact in a
-                        <br />
-                        texture-decorative tri-proof body with a universal
-                        <br />
-                        USB-C port, for the first time, four vaping
-                        <br />
-                        experiences can be switched on in hands at ease. Let
-                        <br />
-                        us be honest - all you want in full is Aegis Boost Pro.
+                    {/* <img
+                    className="GVH45Logo"
+                    src={GVH45Icon1}
+                    alt="" /> */}
+                    <div className="GVH45Details">
+                        <h1 style={{color:"#fff"}}><strong>GeekVape H45</strong></h1>
+                        <h1 style={{color:"#fff"}}>(Aegis Hero2)</h1>
+                        <p className="GVH45-p">
+                        New Tri-proof. New HERO
                         </p>
                     </div>
+                </div>
+            </div>
+
+            <div className="container-fluid GVH45Img2">
+                <div className="container-fluid" style={{position:"relative"}}>
                 </div>
             </div>
 
@@ -230,4 +222,4 @@ function AegisBoostPro() {
     );
 }
 
-export default AegisBoostPro;
+export default GVH45;
