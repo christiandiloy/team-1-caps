@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/aegis-boost-pro.css";
-import AegisBoostProIcon1 from "../../assets/images/item-pages-details/aegis-boost-pro-01-icon.png";
+import "./css/aegis-1fc-pod-kit.css";
+import Aegis1FCPKIcon1 from "../../assets/images/item-pages-details/aegis-hero-01-icon.png";
 
-function AegisBoostPro() {
-    const pageName = "AegisBoostPro";
+function Aegis1FCPodKit() {
+    const pageName = "Aegis1FCPodKit";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -32,9 +32,9 @@ function AegisBoostPro() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/aegis-boost-pro-kit",
+        "../../assets/images/aegis-1fc-pod-kit",
         false,
-        /\.(png|jpe?g|svg)$/
+        /\.(png|jpe?g|svg|webp)$/
         );
         const importedImages = await Promise.all(context.keys().map(context));
         setImages(importedImages);
@@ -129,7 +129,7 @@ function AegisBoostPro() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="AegisBoostPro-vertical-scroller"
+                    className="Aegis1FCPK-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -194,30 +194,12 @@ function AegisBoostPro() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid aegisBoostProImg">
+            <div className="container-fluid Aegis1FCPKImg">
                 <div className="container-fluid" style={{position:"relative"}}>
-                    <img
-                    className="aegisBoostProLogo"
-                    src={AegisBoostProIcon1}
-                    alt="" />
-                    <div className="aegisBoostProDetails">
-                        <h1 style={{color:"#ff6b00"}}><strong>Four in Full Will.</strong></h1>
-                        <p className="aegisBoostPro-p">
-                        An ultimate Quadra Vaping System boosts up vaping
-                        <br />
-                        experience to pro, with a new design embodied both
-                        <br />
-                        in and out - an upgraded Gen 2 three-inlet Airflow
-                        <br />
-                        Control & a refreshing brand-new UI. Compact in a
-                        <br />
-                        texture-decorative tri-proof body with a universal
-                        <br />
-                        USB-C port, for the first time, four vaping
-                        <br />
-                        experiences can be switched on in hands at ease. Let
-                        <br />
-                        us be honest - all you want in full is Aegis Boost Pro.
+                    <div className="Aegis1FCPKDetails">
+                        <h1 style={{color:"#333333"}}><strong>GEEKVAPE 1FC</strong></h1>
+                        <p className="Aegis1FCPK-p">
+                        World's First Fast Charging Vape Pen
                         </p>
                     </div>
                 </div>
@@ -230,4 +212,4 @@ function AegisBoostPro() {
     );
 }
 
-export default AegisBoostPro;
+export default Aegis1FCPodKit;
