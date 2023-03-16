@@ -64,42 +64,41 @@ function Address() {
         </div>
         <hr />
         {/* Address body */}
-        <div className="address-body d-flex justify-content-center align-items-center">
-          {/* No Address */}
-          {addresses.length === 0 && (
-            <div className="no-address">
-              <div className="row row-cols-1 text-center">
-                <span className="display-3 text-muted">
-                  <i className="fas fa-map-marked-alt"></i>
-                </span>
-                <p className="lead">You don't have addresses yet.</p>
-              </div>
-            </div>
-          )}
-
-          {/* Card */}
-          {addresses.length > 0 && (
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-              {addresses.map((address) => (
-                <div key={address.house_no}>
-                  <Card>
-                    <Card.Header>{address.full_name}</Card.Header>
-                    <Card.Body>
-                      <Card.Title>{address.house_no}</Card.Title>
-                      <Card.Subtitle className="mb-2 text-muted">
-                        {address.place}, {address.postal_code}
-                      </Card.Subtitle>
-                      <Card.Text>{address.contact_no}</Card.Text>
-                      <Card.Text>
-                        Default address:{" "}
-                        {address.default_address ? "Yes" : "No"}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+        <div className="address-body">
+          <div className="address-list-wrapper">
+            {/* No Address */}
+            {addresses.length === 0 && (
+              <div className="no-address">
+                <div className="row row-cols-1 text-center pt-5">
+                  <span className="display-3 text-muted">
+                    <i className="fas fa-map-marked-alt"></i>
+                  </span>
+                  <p className="lead">You don't have addresses yet.</p>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            )}
+
+            {/* Card */}
+
+            {addresses.length > 0 && (
+              <div className="address-list">
+                {addresses.map((address, index) => (
+                  <div key={address.house_no}>
+                    <div className="address-item">
+                      <h5>{address.full_name}</h5>
+                      <p>
+                        {address.house_no}&nbsp;{address.place},{" "}
+                        {address.postal_code}
+                        <br />
+                        {address.contact_no}
+                      </p>
+                    </div>
+                    {index < addresses.length - 1 && <hr />}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
         {/* Modal */}
         <Modal show={show} onHide={handleClose}>
