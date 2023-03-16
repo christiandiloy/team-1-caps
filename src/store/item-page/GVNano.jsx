@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-legend200.css";
-import GVL200Icons from '../../assets/images/item-pages-details/aegis-legend2-02-icon.png';
+import "./css/gv-nano.css";
+import GVNanoIcon1 from '../../assets/images/item-pages-details/aegis-nano-01-icon.png';
+import GVNanoIcon2 from '../../assets/images/item-pages-details/aegis-legend2-02-icon.png';
 
-function GVLegend200() {
-    const pageName = "GVLegend200";
+function GVNano() {
+    const pageName = "GVNano";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -32,7 +33,7 @@ function GVLegend200() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gv-l200-kit",
+        "../../assets/images/gv-nano",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -129,7 +130,7 @@ function GVLegend200() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVLegend200-vertical-scroller"
+                    className="GVNano-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -194,25 +195,36 @@ function GVLegend200() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-                <div className="container-fluid GVLegend200Img">
-                    <div className="container-fluid GVLegend200Details" style={{position:"relative"}}>
-                            <p className="GVLegend200-p">
-                            Smaller and lighter, Geekvape L200 leaps with pride and honor.
+                <div className="container-fluid GVNanoImg">
+                    <div className="container-fluid" style={{position:"relative"}}>
+                        <div className="GVNanoDetails">
+                            <img
+                            className="GVNanoLogo1"
+                            src={GVNanoIcon1}
+                            alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="container-fluid GVNanoImg2">
+                    <div className="container-fluid GVNanoDetails2" style={{position:"relative"}}>
+                            <p className="GVNano-p2">
+                            The little monster of Geekvape, Geekvape Nano gains Bravo with macro features.
                             <br />
-                            Geekvape Tri-proof Technology upgrades to the second generation.
+                            Industry-leading Geekvape tri-proof technology.
                             <br />
-                            A-Lock, a new way to protect from accident.
+                            With handy portability, it provides up to 30W output with adjustable airflow switch.
                             <br />
-                            The 2nd generation of Aegis Design with new 1.08-inch full screen.
+                            Auto Output Adjustment for Refillable Pod with Magnetic Click.
                             <br />
-                            Charging port with flipping cover, easier to fuel your vape.
+                            Top filling port lets you fill up your day with ease.
                             <br />
-                            Geekvape Z Sub-ohm 2021 Tank, larger air inflow & better performance.
+                            Bring Geekvape Nano by hanging on the neck with stylish chains.
                             </p>
                             <img
-                        className="GVLegend200Logo"
-                        src={GVL200Icons}
-                        alt="" />
+                            className="GVNanoLogo2"
+                            src={GVNanoIcon2}
+                            alt="" />
                     </div>
                 </div>
             </div>
@@ -222,4 +234,4 @@ function GVLegend200() {
     );
 }
 
-export default GVLegend200;
+export default GVNano;
