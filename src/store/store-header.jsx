@@ -1,9 +1,7 @@
 import "./store.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import SearchBar from "./SearchBar";
-import { useSelector} from "react-redux";
-
+import { fetchUserProfile } from "../Utils/fetch";
 
 export default function Navbar(props) {
 
@@ -12,14 +10,20 @@ export default function Navbar(props) {
     window.location.reload();
   };
 
-  const [fullName, setFullName] = useState("");
-  const [results, setResults] = useState([]);
-  const { cartTotalQuantity } = useSelector(state => state.cart);
-
+  const [userData, setUserData] = useState({
+    fullName: "",
+  });
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("user"));
-    setFullName(userData?.full_name || "Guest");
+    fetchUserProfile()
+      .then((data) => {
+        setUserData({
+          fullName: data.full_name,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching user profile:", error);
+      });
   }, []);
 
 
@@ -50,7 +54,7 @@ export default function Navbar(props) {
               <i class="fas fa-user-circle"></i>
             </span>
             &nbsp;
-            {fullName}
+            {userData.fullName}
           </p>
 
           <div className="dropdown-content">
