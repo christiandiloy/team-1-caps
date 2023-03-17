@@ -1,36 +1,19 @@
 import "./store.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { fetchUserProfile } from "../Utils/fetch";
-import SearchBar from "./SearchBar";
-import { useSelector } from "react-redux";
 
 export default function Navbar(props) {
-  const [results, setResults] = useState([]);
-  const { cartTotalQuantity } = useSelector(state => state.cart);
-
   const logout = () => {
     localStorage.clear();
     window.location.reload();
   };
 
-  const [userData, setUserData] = useState({
-    fullName: "",
-  });
+  const [fullName, setFullName] = useState("");
 
   useEffect(() => {
-    fetchUserProfile()
-      .then((data) => {
-        setUserData({
-          fullName: data.full_name,
-        });
-      })
-      .catch((error) => {
-        console.error("Error fetching user profile:", error);
-      });
+    const userData = JSON.parse(localStorage.getItem("user"));
+    setFullName(userData?.full_name || "Guest");
   }, []);
-
-
 
   return (
     <nav className="navbar" id="store-header">
@@ -45,12 +28,18 @@ export default function Navbar(props) {
           <img
             className="sh-img"
             src="/assets/images/gons-dispo-header.png"
-            alt=""
-            style={{ width: "100%", height: "auto" }}
+            alt="Gons Dispo Logo"
           />
         </Link>
       </div>
-      <SearchBar setResults={setResults} />
+      <div className="navbar-search">
+        <i className="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          className="i-text"
+          placeholder="Search for products, brands and more"
+        />
+      </div>
       <div className="navbar-cart">
         <div className="dropdown">
           <p className="storeHeader-fullname h4 text-light d-flex">
@@ -58,7 +47,7 @@ export default function Navbar(props) {
               <i class="fas fa-user-circle"></i>
             </span>
             &nbsp;
-            {userData.fullName}
+            {fullName}
           </p>
 
           <div className="dropdown-content">
@@ -75,33 +64,13 @@ export default function Navbar(props) {
           </div>
         </div>
         <Link
-          to="/my-cart"
-          style={{
-            width: "3rem",
-            height: "3rem",
-            position: "relative",
-            marginTop: "25px",
-          }}
+          to="/store/my-cart"
           onClick={() => {
-            props.setCurrentLink("/my-cart");
+            props.setCurrentLink("/store/my-cart");
           }}
           className="page-links nav-link"
         >
           <i className="fas fa-cart-plus nav-icon" id="header-icons"></i>
-          <div
-            className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
-            style={{
-              color: "white",
-              width: "1.5rem",
-              height: "1.5rem",
-              position: "absolute",
-              bottom: 0,
-              right: 0,
-              transform: "translate(-15%, -20%)",
-            }}
-          >
-            <span>{cartTotalQuantity}</span>
-          </div>
         </Link>
       </div>
     </nav>
