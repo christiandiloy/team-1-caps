@@ -1,7 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
-import "./store.css";
 
 function TopDeals() {
   const [products, setProducts] = useState([]);
@@ -56,9 +55,6 @@ function TopDeals() {
                     <i class="fa-solid fa-peso-sign"></i>
                     {item.price}
                   </div>
-                  <button type="button" className="btn btn-success" id="cart-btn">
-                    + Add to cart
-                  </button>
                 </div>
               
           </div>

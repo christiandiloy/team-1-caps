@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-function PodKitsCards() {
+function BoxModKitsCards() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -15,7 +15,7 @@ function PodKitsCards() {
       .then(({ products }) => setProducts(products));
   }, []);
   let aegisItems = products.filter((products) => {
-    return products.category === "PodKits";
+    return products.category === "BoxModKits";
   });
   console.log(aegisItems)
 
@@ -39,10 +39,6 @@ function PodKitsCards() {
                   <i class="fa-solid fa-peso-sign"></i>
                   {item.text}
                 </Card.Text>
-                <button type="button" className="btn btn-success" id="cart-btn">
-                    Add to cart
-                    <i className="fas fa-cart-plus nav-icon"></i>
-                  </button>
               </Card.Body>
             </Card>
           </Col>
@@ -53,4 +49,4 @@ function PodKitsCards() {
   );
 }
 
-export default PodKitsCards;
+export default BoxModKitsCards;

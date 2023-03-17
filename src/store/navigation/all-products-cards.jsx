@@ -6,18 +6,41 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+let searchValue = "";
 function AllProductsCards() {
-
   const [products, setProducts] = useState([]);
-  useEffect(() => {
+  const fetchProducts = (value) => {
     fetch("http://localhost:3005/getProduct")
-      .then((response) => response.json())
-      .then(({ products }) => setProducts(products));
-  }, []);
+        .then((response) => response.json())
+        .then ((result) => {
+          const products = (result && result.products) ? result.products : result
+          const results = value === "" ? products : products.filter((products) => {
+            return (value && products.title && products.title.toLowerCase().includes(value));
+          });
+          setProducts(results);
+        })
+  }
+  useEffect(
+      () => {
+        let searchChecker = setInterval(() => {
+          const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+          });
+          if(searchValue !== params.search){
+            searchValue = params.search
+            fetchProducts(searchValue)
+          }
+        },1000);
+        return () => {
+          clearInterval(searchChecker);
+        };
+      },
+      []
+  );
+
   let aegisItems = products.filter((products) => {
     return products;
   });
-  console.log(aegisItems)
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
@@ -39,6 +62,10 @@ function AllProductsCards() {
                   <i class="fa-solid fa-peso-sign"></i>
                   {item.price}
                 </Card.Text>
+                <button type="button" className="btn btn-success"  id="cart-btn">
+                    Add to cart
+                    <i className="fas fa-cart-plus nav-icon"></i>
+                  </button>
               </Card.Body>
             </Card>
           </Col>

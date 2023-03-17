@@ -6,8 +6,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-function PodKitsCards() {
-
+function ReplacementPodsCards() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3005/getProduct")
@@ -15,7 +14,7 @@ function PodKitsCards() {
       .then(({ products }) => setProducts(products));
   }, []);
   let aegisItems = products.filter((products) => {
-    return products.category === "PodKits";
+    return products.category === "ReplacementPods";
   });
   console.log(aegisItems)
 
@@ -23,7 +22,7 @@ function PodKitsCards() {
     <Row xs={1} md={4} className="g-1" id="cards-container">
       {aegisItems.map((item) => {
         return (
-          <Col key={item.id} id="aegis-col">
+          <Col key={item.id} class="aegis-col">
             <Card id="aegis-cards">
               <Card.Img variant="top" src={item.url} />
               <Card.Body style={{ textAlign: "center" }}>
@@ -39,10 +38,6 @@ function PodKitsCards() {
                   <i class="fa-solid fa-peso-sign"></i>
                   {item.text}
                 </Card.Text>
-                <button type="button" className="btn btn-success" id="cart-btn">
-                    Add to cart
-                    <i className="fas fa-cart-plus nav-icon"></i>
-                  </button>
               </Card.Body>
             </Card>
           </Col>
@@ -53,4 +48,4 @@ function PodKitsCards() {
   );
 }
 
-export default PodKitsCards;
+export default ReplacementPodsCards;
