@@ -57,8 +57,7 @@ function TopDeals() {
                     {item.price}
                   </div>
                   <button type="button" className="btn btn-success" id="cart-btn">
-                    Add to cart
-                    <i className="fas fa-cart-plus nav-icon"></i>
+                    + Add to cart
                   </button>
                 </div>
               

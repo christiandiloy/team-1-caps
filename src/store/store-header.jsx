@@ -2,8 +2,11 @@ import "./store.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
+import { useSelector} from "react-redux";
+
 
 export default function Navbar(props) {
+
   const logout = () => {
     localStorage.clear();
     window.location.reload();
@@ -11,13 +14,15 @@ export default function Navbar(props) {
 
   const [fullName, setFullName] = useState("");
   const [results, setResults] = useState([]);
+  const { cartTotalQuantity } = useSelector(state => state.cart);
+
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
     setFullName(userData?.full_name || "Guest");
   }, []);
 
-  
+
 
   return (
     <nav className="navbar" id="store-header">
@@ -62,13 +67,33 @@ export default function Navbar(props) {
           </div>
         </div>
         <Link
-          to="/store/my-cart"
+          to="/my-cart"
+          style={{
+            width: "3rem",
+            height: "3rem",
+            position: "relative",
+            marginTop: "25px",
+          }}
           onClick={() => {
-            props.setCurrentLink("/store/my-cart");
+            props.setCurrentLink("/my-cart");
           }}
           className="page-links nav-link"
         >
           <i className="fas fa-cart-plus nav-icon" id="header-icons"></i>
+          <div
+            className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+            style={{
+              color: "white",
+              width: "1.5rem",
+              height: "1.5rem",
+              position: "absolute",
+              bottom: 0,
+              right: 0,
+              transform: "translate(-15%, -20%)",
+            }}
+          >
+            <span>{cartTotalQuantity}</span>
+          </div>
         </Link>
       </div>
     </nav>

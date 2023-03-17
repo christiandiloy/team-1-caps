@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import NotFound from "./404";
 import Login from "./login";
 import ForgotPassword from "./forgot-password";
@@ -14,6 +15,7 @@ import ItemPage from "./store/item-page";
 import BoxModKits from "./store/navigation/box-mod-kits";
 import PodKits from "./store/navigation/pod-kits";
 import Profile from "./Profile";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = (props) => {
   try {
@@ -26,6 +28,7 @@ const App = (props) => {
   } catch (error) {}
   return (
     <BrowserRouter>
+    <ToastContainer/>
       <Routes>
         <Route path="/" element={<Store />}>
           <Route path="/item-page/:itemId" element={<ItemPage />} />
@@ -35,7 +38,7 @@ const App = (props) => {
           <Route path="/replacement-coils" element={<ReplacementCoils />} />
           <Route path="/box-mod-kits" element={<BoxModKits />} />
           <Route path="/pod-kits" element={<PodKits />} />
-          <Route path="/store/my-cart" element={<MyCart />} />
+          <Route path="/my-cart" element={<MyCart />} />
           <Route path="/Profile" element={<Profile />} />
         </Route>
         <Route path="/login" element={<Login />} />
