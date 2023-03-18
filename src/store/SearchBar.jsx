@@ -2,19 +2,6 @@ import React, {useEffect, useState} from "react";
 import "./searchbar.css";
 import { FaSearch } from "react-icons/fa";
 
-// const handleSubmit = (e) => e.preventDefault()
-
-// const handSearchChange = (e) => {
-//   if(!e.target.value) return setSearchResults(items)
-
-//   const resultsArray = post.filter(item => item.title.includes(e.target.value) || post.body.includes(e.target.value))
-
-//   setSearchResults(resultsArray)
-
-// }
-
-
-
 const SearchBar = () => {
   const [input, setInput] = useState("");
   const handleChange = (value) => {
