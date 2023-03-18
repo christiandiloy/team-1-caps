@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -108,3 +110,31 @@ export const {
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+export const useCartTotals = () => {
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
+  const { cartTotalAmount, cartTotalQuantity } = useMemo(() => {
+    const { total, quantity } = cartItems.reduce(
+      (cartTotal, cartItem) => {
+        const { price, cartQuantity } = cartItem;
+        const itemTotal = price * cartQuantity;
+
+        cartTotal.total += itemTotal;
+        cartTotal.quantity += cartQuantity;
+
+        return cartTotal;
+      },
+      {
+        total: 0,
+        quantity: 0,
+      }
+    );
+    return {
+      cartTotalQuantity: quantity,
+      cartTotalAmount: total,
+    };
+  }, [cartItems]);
+
+  return { cartTotalAmount, cartTotalQuantity };
+};

@@ -4,10 +4,12 @@ import React, { useEffect, useState } from "react";
 import { fetchUserProfile } from "../Utils/fetch";
 import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
+import { useCartTotals } from "./features/cartSlice";
 
 export default function Navbar(props) {
   const [results, setResults] = useState([]);
-  const { cartTotalQuantity } = useSelector(state => state.cart);
+  const { cartTotalAmount, cartTotalQuantity } = useCartTotals();
+
 
   const logout = () => {
     localStorage.clear();
