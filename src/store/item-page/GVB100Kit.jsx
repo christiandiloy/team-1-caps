@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-b10021700-kit.css";
-import GVB10021700KitIcon2 from '../../assets/images/item-pages-details/b100-02-icon.png';
+import "./css/gv-b100-kit.css";
+import GVB100KitIcon2 from '../../assets/images/item-pages-details/b102-02-icon.png';
 
-function GVB10021700Kit() {
-    const pageName = "GVB10021700Kit";
+function GVB100Kit() {
+    const pageName = "GVB100Kit";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -31,9 +31,9 @@ function GVB10021700Kit() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gb-b10021700-kit",
+        "../../assets/images/gv-b100-kit",
         false,
-        /\.(png|jpe?g|svg)$/
+        /\.(png|jpe?g|svg|webp)$/
         );
         const importedImages = await Promise.all(context.keys().map(context));
         setImages(importedImages);
@@ -128,7 +128,7 @@ function GVB10021700Kit() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVB10021700Kit-vertical-scroller"
+                    className="GVB100Kit-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -193,31 +193,27 @@ function GVB10021700Kit() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-                <div className="container-fluid GVB10021700KitImg">
+                <div className="container-fluid GVB100KitImg">
                     <div className="container-fluid" style={{position:"relative"}}>
-                        <div className="GVB10021700KitDetails" style={{color:"#fff"}}>
-                            <h1><strong>GeekVape B100 21700 Kit</strong></h1>
-                            <h3>Boost Pro for pro experience</h3>
+                        <div className="GVB100KitDetails" style={{color:"#fff"}}>
+                            <h1><strong>GeekVape B100 Kit</strong></h1>
+                            <h3>New Tri-Proof. New Boost Pro.</h3>
                         </div>
                     </div>
                 </div>
 
-                <div className="container-fluid GVB10021700KitImg2">
-                    <div className="container-fluid GVB10021700KitDetails2" style={{position:"relative"}}>
-                            <p className="GVB10021700Kit-p2" style={{color:"#000"}}>
-                            The Boost Pro now comes in 21700.
+                <div className="container-fluid GVB100KitImg2">
+                    <div className="container-fluid GVB100KitDetails2" style={{position:"relative"}}>
+                            <p className="GVB100Kit-p2" style={{color:"#000"}}>
+                            Proudly introducing the new Aegis Boost Pro, a new tri-proof boost-up pro.
                             <br />
-                            An ultimate Quadra Vaping System. An upgraded Gen 2 three-inlet airflow control.
+                            New P Series coil for mind-blowing usage lifespan.
                             <br />
-                            Exceptionally durable body with IP67 water & dust resistance.
-                            <br />
-                            Expectation beyond P Series Coil performs.
-                            <br />
-                            Let Pro do the pro thing.
+                            Double time, double fun!
                             </p>
                             <img
-                            className="GVB10021700KitLogo2"
-                            src={GVB10021700KitIcon2}
+                            className="GVB100KitLogo2"
+                            src={GVB100KitIcon2}
                             alt="" />
                     </div>
                 </div>
@@ -228,4 +224,4 @@ function GVB10021700Kit() {
     );
 }
 
-export default GVB10021700Kit;
+export default GVB100Kit;

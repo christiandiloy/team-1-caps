@@ -1,10 +1,10 @@
-.GVB10021700Kit-vertical-scroller {
+.GVB100Kit-vertical-scroller {
     height: 450px;
     overflow: hidden;
     position: relative;
 }
 
-.GVB10021700Kit-vertical-scroller .d-flex {
+.GVB100Kit-vertical-scroller .d-flex {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,19 +14,19 @@
     overflow-x: scroll;
 }
 
-.GVB10021700Kit-vertical-scroller .d-flex::-webkit-scrollbar {
+.GVB100Kit-vertical-scroller .d-flex::-webkit-scrollbar {
     display: none; /* hide scrollbar for webkit browsers */
 }
 
-.GVB10021700KitImg {
-    background-image: url('/src/assets/images/item-pages-details/b100-01.jpg');
+.GVB100KitImg {
+    background-image: url('/src/assets/images/item-pages-details/b102-01.jpg');
     height: 70vh;
-    background-position: center;
+    background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.GVB10021700KitLogo1 {
+.GVB100KitLogo1 {
     top: 100%;
     align-items: center;
     z-index: 3;
@@ -34,7 +34,7 @@
     width: 100%;
 }
 
-.GVB10021700KitDetails {
+.GVB100KitDetails {
     position: absolute;
     top: 15rem;
     left: 15vh;
@@ -42,15 +42,15 @@
     max-width: 70vw;
 }
 
-.GVB10021700KitImg2 {
+.GVB100KitImg2 {
     background-image: url('/src/assets/images/item-pages-details/aegis-one-02.jpg');
-    height: 60vh;
+    height: 50vh;
     background-position: left;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.GVB10021700KitDetails2 {
+.GVB100KitDetails2 {
     padding-top: 5%;
     padding-bottom: 1%;
     display: flex;
@@ -60,14 +60,14 @@
     max-width: 90vw;
 }
 
-.GVB10021700Kit-p2 {
+.GVB100Kit-p2 {
     color: #fff;
     font-size: 140%;
     text-align: center;
     line-height: 150%;
 }
 
-.GVB10021700KitLogo2 {
+.GVB100KitLogo2 {
     position: absolute;
     top: 100%;
     align-items: center;
@@ -77,20 +77,20 @@
 }
 
 @media (min-width:1200px) and (max-width:1400px){
-    .GVB10021700Kit-vertical-scroller {
+    .GVB100Kit-vertical-scroller {
         height: 390px;
     }
 }
 
 @media (max-width:1199px) {
-    .GVB10021700Kit-vertical-scroller {
+    .GVB100Kit-vertical-scroller {
         height: 340px;
     }
 }
 
 @media (max-width:991px) {
-    .GVB10021700Kit-vertical-scroller {
-        height: 16vh;
+    .GVB100Kit-vertical-scroller {
+        height: 21vh;
         overflow-y: auto;
         overflow-x: scroll;
         white-space: nowrap;
@@ -98,7 +98,7 @@
         flex-wrap: wrap;
     }
 
-    .GVB10021700Kit-vertical-scroller .d-flex {
+    .GVB100Kit-vertical-scroller .d-flex {
         position: absolute;
         top: 0;
         left: 0;
@@ -113,19 +113,19 @@
 }
 
 @media (max-width:767px) {
-    .GVB10021700Kit-vertical-scroller {
-        height: 13vh;
+    .GVB100Kit-vertical-scroller {
+        height: 15vh;
     }
 }
 
 @media (max-width:991px) {
-    .GVB10021700KitDetails {
+    .GVB100KitDetails {
         top: 10rem;
         left: 2%;
         z-index: 1;
         max-width: 70vw;
     }
-    .GVB10021700KitImg {
+    .GVB100KitImg {
         height: 50vh;
         background-position: center;
         background-size: cover;
@@ -133,29 +133,29 @@
         background-attachment: unset;
     }
 
-    .GVB10021700KitLogo1 {
+    .GVB100KitLogo1 {
         top: 100%;
         width: 90%;
     }
 }
 
 @media (max-width:991px){
-    .GVB10021700KitDetails2 {
+    .GVB100KitDetails2 {
         padding-top: 10%;
     }
 
-    .GVB10021700Kit-p2 {
+    .GVB100Kit-p2 {
         font-size: 90%;
     }
 
-    .GVB10021700KitLogo2 {
+    .GVB100KitLogo2 {
         top: 100%;
         width: 100%;
     }
 }
 
 @media (max-width:375px) {
-    .GVB10021700Kit-vertical-scroller {
-        height: 10vh;
+    .GVB100Kit-vertical-scroller {
+        height: 14vh;
     }
 }
