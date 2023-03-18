@@ -2,8 +2,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
 
-import Col from "react-bootstrap/Col";
-
 function TopDeals() {
   const [products, setProducts] = useState([]);
   useEffect(() => {

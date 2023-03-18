@@ -7,7 +7,7 @@ function ReplacementCoils() {
       <div
         className="article rep-pods"
         style={{
-          backgroundImage: `url("../assets/images/Replacement_coil_1728x.jpg")`,
+          backgroundColor: 'gray',
           height: '15vh'
         }}
       >

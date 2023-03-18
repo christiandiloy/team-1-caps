@@ -2,6 +2,7 @@ import React from "react";
 import { SubscriberAPI } from "../Utils/fetch";
 import { useState } from "react";
 import "./footer.css";
+import FooterLogo from "../assets/images/gons-dispo-header.png";
 
 export default function Footer() {
 
@@ -39,7 +40,7 @@ export default function Footer() {
                 <div className="footer-logo">
                   <img
                     className="footer-logo"
-                    src="./assets/images/gons-dispo-header.png"
+                    src={FooterLogo}
                     alt="Gons Dispo Logo"
                   />
                 </div>
@@ -69,12 +70,15 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a href="#twitter" target="_blank">
+                    <a href="https://twitter.com/GonsDispo" target="_blank">
                       <i className="fa-brands fa-twitter text-warning mx-4"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#instagram" target="_blank">
+                    <a
+                      href="https://www.instagram.com/GonsDispo/"
+                      target="_blank"
+                    >
                       <i className="fa-brands fa-instagram text-warning"></i>
                     </a>
                   </li>
