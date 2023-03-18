@@ -44,6 +44,11 @@ function Address() {
       `/api/v2/users/${JSON.parse(
         localStorage.getItem("tempAddress")
       )}/updateAddress`,
+    delete:
+      myExpressURL +
+      `/api/v2/users/${JSON.parse(
+        localStorage.getItem("tempAddress")
+      )}/deleteAddress`,
   };
 
   const updateUserProfile = async (formData) => {
@@ -84,17 +89,21 @@ function Address() {
   //Delete Address
   const [message, setMessage] = useState("");
 
-  function handleDelete() {
+  function handleDelete(addressId) {
     const confirmed = window.confirm(
       "Are you sure you want to delete this address?"
     );
     if (confirmed) {
-      fetch(serverRoutes.DeleteAddress, {
-        method: "DELETE",
-      })
+      fetch(
+        `${myExpressURL}/api/v2/users/${userIdLocal}/deleteAddress/${addressId}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           setMessage(data.message);
+          setAddresses(addresses.filter((address) => address.id !== addressId));
         })
         .catch((error) => {
           console.error("Error deleting address:", error);
@@ -161,7 +170,9 @@ function Address() {
                             {address.full_name}
                             <p className="h6">
                               <a onClick={() => handleEdit(address)}>Edit</a> |{" "}
-                              <a onClick={handleDelete}>Delete</a>
+                              <a onClick={() => handleDelete(address.id)}>
+                                Delete
+                              </a>
                             </p>
                           </div>
                         </Card.Title>
