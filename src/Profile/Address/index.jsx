@@ -6,7 +6,7 @@ import Modal from "react-bootstrap/Modal";
 import "./address.css";
 import { serverRoutes } from "../../Utils/const";
 import { Card, ListGroup } from "react-bootstrap";
-import { updateAddress } from "../../Utils/fetch";
+import { myExpressURL } from "../../Utils/const";
 
 function Address() {
   const userDataId = localStorage.getItem("user");
@@ -34,30 +34,50 @@ function Address() {
   //Edit Address
   const handleEdit = (address) => {
     setSelectedAddress(address);
-    localStorage.removeItem("address");
-    localStorage.setItem("address", JSON.stringify(address));
     setShow(true);
+    localStorage.setItem("tempAddress", address.id);
+  };
+
+  const serverRoutesURL = {
+    update:
+      myExpressURL +
+      `/api/v2/users/${JSON.parse(
+        localStorage.getItem("tempAddress")
+      )}/updateAddress`,
+  };
+
+  const updateUserProfile = async (formData) => {
+    const response = await fetch(serverRoutesURL.update, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    if (data.success) {
+      return data.message;
+    } else {
+      throw new Error(data.message);
+    }
   };
 
   const handleSave = async (event) => {
     event.preventDefault();
-    const fullName = document.getElementById("fullName").value;
-    const contactNo = document.getElementById("contactNo").value;
-    const place = document.getElementById("place").value;
-    const postalCode = document.getElementById("postalCode").value;
-    const houseNo = document.getElementById("houseNo").value;
+    const formData = {
+      fullName: document.getElementById("fullName").value,
+      contactNo: document.getElementById("contactNo").value,
+      place: document.getElementById("place").value,
+      postalCode: document.getElementById("postalCode").value,
+      houseNo: document.getElementById("houseNo").value,
+    };
     try {
-      const message = await updateAddress(
-        fullName,
-        contactNo,
-        place,
-        postalCode,
-        houseNo
-      );
+      const message = await updateUserProfile(formData);
       alert(message);
     } catch (error) {
       console.error("Error updating user profile:", error);
     }
+    localStorage.removeItem("tempAddress");
     setShow(false);
   };
 
@@ -90,13 +110,14 @@ function Address() {
   };
 
   const handleAddAddress = () => {
+    const userID = userIdLocal;
     const fullName = document.getElementById("fullName").value;
     const contactNo = document.getElementById("contactNo").value;
     const place = document.getElementById("place").value;
     const postalCode = document.getElementById("postalCode").value;
     const houseNo = document.getElementById("houseNo").value;
 
-    AddressAPI(fullName, contactNo, place, postalCode, houseNo)
+    AddressAPI(userID, fullName, contactNo, place, postalCode, houseNo)
       .then((result) => {
         return result.json();
       })
@@ -162,7 +183,13 @@ function Address() {
       </div>
 
       {/* Modal */}
-      <Modal show={show} onHide={handleClose}>
+      <Modal
+        show={show}
+        onHide={() => {
+          handleClose();
+          localStorage.removeItem("tempAddress");
+        }}
+      >
         <Modal.Header closeButton>
           <Modal.Title>
             {selectedAddress.id ? "Edit" : "Add"} Address
@@ -217,7 +244,13 @@ function Address() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              handleClose();
+              localStorage.removeItem("tempAddress");
+            }}
+          >
             Close
           </Button>
           {selectedAddress.id ? (
