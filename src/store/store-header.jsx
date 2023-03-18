@@ -2,8 +2,13 @@ import "./store.css";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { fetchUserProfile } from "../Utils/fetch";
+import SearchBar from "./SearchBar";
+import { useSelector } from "react-redux";
 
 export default function Navbar(props) {
+  const [results, setResults] = useState([]);
+  const { cartTotalQuantity } = useSelector(state => state.cart);
+
   const logout = () => {
     localStorage.clear();
     window.location.reload();
@@ -25,6 +30,8 @@ export default function Navbar(props) {
       });
   }, []);
 
+
+
   return (
     <nav className="navbar" id="store-header">
       <div>
@@ -38,18 +45,12 @@ export default function Navbar(props) {
           <img
             className="sh-img"
             src="/assets/images/gons-dispo-header.png"
-            alt="Gons Dispo Logo"
+            alt=""
+            style={{ width: "100%", height: "auto" }}
           />
         </Link>
       </div>
-      <div className="navbar-search">
-        <i className="fas fa-search search-icon"></i>
-        <input
-          type="text"
-          className="i-text"
-          placeholder="Search for products, brands and more"
-        />
-      </div>
+      <SearchBar setResults={setResults} />
       <div className="navbar-cart">
         <div className="dropdown">
           <p className="storeHeader-fullname h4 text-light d-flex">
@@ -74,13 +75,33 @@ export default function Navbar(props) {
           </div>
         </div>
         <Link
-          to="/store/my-cart"
+          to="/my-cart"
+          style={{
+            width: "3rem",
+            height: "3rem",
+            position: "relative",
+            marginTop: "25px",
+          }}
           onClick={() => {
-            props.setCurrentLink("/store/my-cart");
+            props.setCurrentLink("/my-cart");
           }}
           className="page-links nav-link"
         >
           <i className="fas fa-cart-plus nav-icon" id="header-icons"></i>
+          <div
+            className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+            style={{
+              color: "white",
+              width: "1.5rem",
+              height: "1.5rem",
+              position: "absolute",
+              bottom: 0,
+              right: 0,
+              transform: "translate(-15%, -20%)",
+            }}
+          >
+            <span>{cartTotalQuantity}</span>
+          </div>
         </Link>
       </div>
     </nav>

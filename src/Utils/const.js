@@ -13,7 +13,7 @@ export const serverRoutes = {
   UpdatePassword: myExpressURL + `/api/v2/users/${userId}/password`,
   Address: myExpressURL + `/api/v2/address`,
   FindAddress: myExpressURL + `/api/v2/users/${userId}/addresses`,
-  UpdateAddress: myExpressURL + `/api/v2/users/${userAdd}/upAddress`,
+  UpdateAddress: myExpressURL + `/api/v2/users/${userAdd}/address`,
   DeleteAddress: myExpressURL + `/api/v2/users/${userAdd}/delAddress`,
   Subscriber: myExpressURL + "/subscribe",
 };
