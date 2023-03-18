@@ -50,7 +50,7 @@ const cartSlice = createSlice({
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
 
-        toast.info(`Decreased ${action.payload.title} cart quantity`, {
+        toast.error(`Decreased ${action.payload.title} cart quantity`, {
           position: "bottom-left",
         });
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
@@ -93,13 +93,18 @@ const cartSlice = createSlice({
         ...state,
         cartTotalQuantity: quantity,
         cartTotalAmount: total,
-      }
-      
+      };
     },
   },
 });
 
-export const { addToCart, removeFromCart, decreaseCart, clearCart, getTotals, cartTotalItems } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  decreaseCart,
+  clearCart,
+  getTotals,
+  cartTotalItems,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
