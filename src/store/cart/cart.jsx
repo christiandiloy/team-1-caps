@@ -10,6 +10,7 @@ import {
   decreaseCart,
   getTotals,
   removeFromCart,
+  useCartTotals
 } from "../features/cartSlice";
 
 const initialOptions = {
@@ -17,6 +18,7 @@ const initialOptions = {
 };
 
 function MyCart(props) {
+  const { cartTotalAmount, cartTotalQuantity } = useCartTotals();
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -26,7 +28,7 @@ function MyCart(props) {
     }
   }, [cart, dispatch]);
 
-  const ShippingFee = 0.01;
+  const ShippingFee = cartTotalAmount * 0.01;
 
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeFromCart(cartItem));
@@ -103,7 +105,7 @@ function MyCart(props) {
                                   <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                     <h5 class="mb-0">
                                       <i class="fa-solid fa-peso-sign"></i>
-                                      {cartItem.price * cartItem.cartQuantity}
+                                      {(cartItem.price * cartItem.cartQuantity).toFixed(2)}
                                     </h5>
                                   </div>
                                   <div class="col-md-1 col-lg-1 col-xl-1 text-end">
@@ -133,7 +135,7 @@ function MyCart(props) {
                       <span className="text">Subtotal</span>
                       <span className="price">
                         <i class="fa-solid fa-peso-sign"></i>
-                        {cart.cartTotalAmount.toFixed(2)}
+                        {cartTotalAmount.toFixed(2)}
                       </span>
                     </div>
                     <div className="summary-item">
@@ -146,14 +148,14 @@ function MyCart(props) {
                       <span className="text">Shipping</span>
                       <span className="price">
                         <i class="fa-solid fa-peso-sign"></i>
-                        {ShippingFee * cart.cartTotalAmount.toFixed(0)}
+                        {ShippingFee.toFixed(2)}
                       </span>
                     </div>
                     <div className="summary-item">
                       <span className="text">Total</span>
                       <span className="price">
                         <i class="fa-solid fa-peso-sign"></i>
-                        {cart.cartTotalAmount.toFixed(2)}
+                        {(cartTotalAmount + ShippingFee).toFixed(2)}
                       </span>
                     </div>
                     <button
