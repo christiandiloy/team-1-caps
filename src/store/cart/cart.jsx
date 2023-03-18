@@ -2,7 +2,8 @@ import React from "react";
 import "./cart.css";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { serverRoutes } from "../../Utils/const";
 import { Link } from "react-router-dom";
 import {
   addToCart,
@@ -42,6 +43,22 @@ function MyCart(props) {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
+  //Get address from database
+  const [addresses, setAddresses] = useState([]);
+
+  useEffect(() => {
+    fetch(serverRoutes.FindAddress)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setAddresses(data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <>
       <section className="shopping-cart dark">
@@ -65,7 +82,7 @@ function MyCart(props) {
                 <div className="col-md-12 col-lg-8">
                   <div className="items">
                     <div className="product">
-                      <div className="row">
+                      <div className="row justify-content-center">
                         {cart.cartItems?.map((cartItem) => (
                           <div className="cart-item" key={cartItem.id}>
                             <div class="rounded-3 mb-4">
@@ -126,6 +143,12 @@ function MyCart(props) {
                             </div>
                           </div>
                         ))}
+                        <button
+                          className="shopping-btn btn btn-warning text-light w-50 ms-3"
+                          onClick={() => handleClearCart()}
+                        >
+                          Clear Cart
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -160,12 +183,19 @@ function MyCart(props) {
                         {(cartTotalAmount + ShippingFee).toFixed(2)}
                       </span>
                     </div>
-                    <button
-                      className="shopping-btn btn btn-warning btn-lg w-100"
-                      onClick={() => handleClearCart()}
-                    >
-                      Clear Cart
-                    </button>
+                    <div>
+                      <select
+                        className="form-select mt-3"
+                        aria-label="Default select example"
+                      >
+                        <option selected>Select Address</option>
+                        {addresses.map((address) => (
+                          <option key={address.id} value={address.id}>
+                            {address.place}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                     <div className="mt-3 text-center ">
                       <p>Choose payment options:</p>
                     </div>
@@ -178,7 +208,7 @@ function MyCart(props) {
                       <button className="shopping-btn btn btn-warning btn-lg w-100">
                         <i class="fas fa-truck"></i>&nbsp;Cash on Delivery
                       </button>
-                      <div className="continue-shopping">
+                      <div className="continue-shopping d-flex justify-content-center mt-4">
                         <Link
                           to="/"
                           className="anchor"
