@@ -1,0 +1,209 @@
+.GVH45-vertical-scroller {
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.GVH45-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.GVH45-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.GVH45Img {
+    background-image: url('/src/assets/images/item-pages-details/aegis-h45-01.jpg');
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVH45Img2 {
+    background-image: url('/src/assets/images/item-pages-details/aegis-h45-3-5.jpg');
+    height: 80vh;
+    background-position: bottom left 1px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVH45Details {
+    position: absolute;
+    top: 15rem;
+    left: 15vh;
+    z-index: 1;
+    max-width: 70vw;
+}
+
+.GVH45-p {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .GVH45-vertical-scroller {
+        height: 400px;
+    }
+
+    .GVH45Details {
+        position: absolute;
+        top: 16rem;
+        left: 30vh;
+        z-index: 1;
+        box-sizing: border-box;
+        max-width: 50vw;
+    }
+}
+
+@media (max-width:992px) {
+    .GVH45-vertical-scroller {
+        height: 500px;
+    }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+    .GVH45Details {
+        position: absolute;
+        top: 14rem;
+        left: 16vh;
+        z-index: 1;
+        box-sizing: border-box;
+        max-width: 50vw;
+    }
+}
+
+@media (max-width:991px) {
+    .GVH45Img2 {
+        background-image: url('/src/assets/images/item-pages-details/aegis-h45-mob-3-5.jpg');
+        height: 80vh;
+        background-position: center top;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVH45-vertical-scroller {
+        height: 16vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .GVH45-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 200% !important;
+    }
+}
+
+@media (min-width:834px) {
+    .GVH45Details2 {
+        position: absolute;
+        left: 10vw;
+        top: 13rem;
+        z-index: 1;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .GVH45Details {
+        position: absolute;
+        top: 14rem;
+        left: 4vh;
+        z-index: 1;
+    }
+}
+
+@media (max-width:767px) {
+    .GVH45-vertical-scroller {
+        height: 13vh;
+    }
+}
+
+@media (min-width:576px) and (max-width:767px){
+    .GVH45Details {
+        position: absolute;
+        top: 15rem;
+        left: 5vh;
+        z-index: 1;
+    }
+    .GVH45-p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width:500px) and (max-width:575px){
+    .GVH45Details {
+        position: absolute;
+        top: 15rem;
+        left: 4vh;
+        z-index: 1;
+    }
+
+    .GVH45Details > h1 {
+        font-size: 2.5rem;
+    }
+
+    .GVH45-p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width:375px) {
+    .GVH45-vertical-scroller {
+        height: 9vh;
+    }
+}
+
+@media (min-width:321px) and (max-width:499px){
+    .GVH45Img {
+        height: 60vh;
+    }
+
+    .GVH45Details {
+        position: absolute;
+        top: 8rem;
+        left: 3vh;
+        z-index: 1;
+    }
+
+    .GVH45Details > h1 {
+        font-size: 2rem;
+    }
+
+    .GVH45-p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:320px) {
+    .GVH45Img {
+        height: 60vh;
+    }
+
+    .GVH45Details {
+        top: 10rem;
+        left: 3vh;
+    }
+
+    .GVH45-p {
+        font-size: 1.08rem;
+    }
+
+}

@@ -1,0 +1,117 @@
+.GVLegend200-vertical-scroller {
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.GVLegend200-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.GVLegend200-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.GVLegend200Img {
+    background-image: url('/src/assets/images/item-pages-details/aegis-legend2-02.jpg');
+    height: 60vh;
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVLegend200Details {
+    padding-top: 5%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    max-width: 90vw;
+}
+
+.GVLegend200-p {
+    color: #fff;
+    font-size: 140%;
+    text-align: center;
+    line-height: 150%;
+}
+
+.GVLegend200Logo {
+    position: absolute;
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 60%;
+
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .GVLegend200-vertical-scroller {
+        height: 390px;
+    }
+}
+
+@media (max-width:1199px) {
+    .GVLegend200-vertical-scroller {
+        height: 340px;
+    }
+}
+
+@media (max-width:991px) {
+    .GVLegend200-vertical-scroller {
+        height: 16vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .GVLegend200-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 200% !important;
+    }
+}
+
+@media (max-width:767px) {
+    .GVLegend200-vertical-scroller {
+        height: 13vh;
+    }
+}
+
+@media (max-width:540px){
+    .GVLegend200Details {
+        padding-top: 10%;
+    }
+
+    .GVLegend200-p {
+        font-size: 100%;
+    }
+
+    .GVLegend200Logo {
+        top: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width:375px) {
+    .GVLegend200-vertical-scroller {
+        height: 6vh;
+    }
+}

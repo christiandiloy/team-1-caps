@@ -7,3 +7,18 @@
   width: auto;
   height: 40vh;
 }
+
+.address-list-wrapper {
+  height: 40vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.address-editDelete a {
+  color: black;
+  cursor: pointer;
+}
+
+.address-editDelete a:hover {
+  text-decoration: underline !important;
+}

@@ -5,19 +5,64 @@ import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Button } from "bootstrap";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../features/cartSlice";
 
+let searchValue = "";
 function AllProductsCards() {
-
   const [products, setProducts] = useState([]);
-  useEffect(() => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+    navigate.push("/my-cart");
+  };
+
+  const fetchProducts = (value) => {
     fetch("http://localhost:3005/getProduct")
-      .then((response) => response.json())
-      .then(({ products }) => setProducts(products));
+    .then((response) => response.json())
+    .then((result) => {
+      const products = result && result.products ? result.products : result;
+      const filteredProducts =
+        value === ""
+          ? products
+          : products.filter(
+              (product) =>
+                product.title &&
+                product.title.toLowerCase().includes(value.toLowerCase())
+            );
+      setProducts(filteredProducts);
+      })
+      .catch((error) => console.log('fetchProducts error:', error));
+  };
+  useEffect(() => {
+    fetchProducts(searchValue);
+    let searchChecker = setInterval(() => {
+      const searchParams = new URLSearchParams(
+        window.location.href.split("?")[1]
+      );
+      const params = new Proxy(searchParams, {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      if (searchValue !== params.search) {
+        searchValue = params.search;
+        fetchProducts(searchValue);
+      }
+    }, 1000);
+    return () => {
+      clearInterval(searchChecker);
+    };
   }, []);
+
   let aegisItems = products.filter((products) => {
     return products;
   });
-  console.log(aegisItems)
+
+  console.log('products:', products);
+  console.log('aegisItems:', aegisItems);
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
@@ -39,12 +84,19 @@ function AllProductsCards() {
                   <i class="fa-solid fa-peso-sign"></i>
                   {item.price}
                 </Card.Text>
+                <button
+                  type="button"
+                  className="btn btn-success w-100"
+                  id="cart-btn"
+                  onClick={() => handleAddToCart(item)}
+                >
+                  + Add to cart
+                </button>
               </Card.Body>
             </Card>
           </Col>
         );
       })}
-      
     </Row>
   );
 }

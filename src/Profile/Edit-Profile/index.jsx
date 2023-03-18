@@ -1,15 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { fetchUserProfile, updateUserProfile } from "../../Utils/fetch";
 
 function EditProfile() {
-  const data = localStorage.getItem("user");
-  const userData = JSON.parse(data);
-  const [contactNumber, setContactNumber] = useState("");
+  const [userData, setUserData] = useState({
+    username: "",
+    fullName: "",
+    email: "",
+    contactNo: "",
+    gender: "",
+    dateOfBirth: "",
+  });
 
-  const handleContactNumberChange = (event) => {
-    const { value } = event.target;
+  useEffect(() => {
+    fetchUserProfile()
+      .then((data) => {
+        setUserData({
+          username: data.username,
+          fullName: data.full_name,
+          email: data.email,
+          contactNo: data.contact_no,
+          gender: data.gender,
+          dateOfBirth: data.date_of_birth,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching user profile:", error);
+      });
+  }, []);
 
-    const validatedValue = value.replace(/[^0-9]/g, "").substring(0, 11);
-    setContactNumber(validatedValue);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const [genderData, setGenderData] = useState({
+    gender: "male",
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      userData.gender = genderData.gender;
+      const message = await updateUserProfile(userData);
+      alert(message);
+    } catch (error) {
+      console.error("Error updating user profile:", error);
+    }
+  };
+
+  const handleGenderChange = (event) => {
+    setGenderData({
+      gender: event.target.value,
+    });
   };
 
   return (
@@ -30,6 +74,7 @@ function EditProfile() {
               id="input-username"
               disabled
               value={userData.username}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -43,7 +88,9 @@ function EditProfile() {
               type="text"
               className="form-control"
               id="input-fullName"
-              value={userData.full_name}
+              name="fullName"
+              value={userData.fullName}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -57,7 +104,9 @@ function EditProfile() {
               type="email"
               className="form-control"
               id="input-email"
+              name="email"
               value={userData.email}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -71,9 +120,10 @@ function EditProfile() {
               type="text"
               className="form-control w-25"
               id="input-number"
-              value={contactNumber}
               maxLength="11"
-              onChange={handleContactNumberChange}
+              value={userData.contactNo}
+              name="contactNo"
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -83,42 +133,17 @@ function EditProfile() {
             Gender
           </label>
           <div className="col-sm-10">
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineRadio1">
-                Male
-              </label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio2"
-                value="option2"
-              />
-              <label class="form-check-label" for="inlineRadio2">
-                Female
-              </label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="inlineRadioOptions"
-                id="inlineRadio3"
-                value="option3"
-              />
-              <label class="form-check-label" for="inlineRadio3">
-                Other
-              </label>
-            </div>
+            <select
+              className="form-select w-25"
+              id="gender"
+              name="gender"
+              value={genderData.gender}
+              onChange={handleGenderChange}
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
           </div>
         </div>
         {/* Date of Birth */}
@@ -127,12 +152,24 @@ function EditProfile() {
             Date of Birth
           </label>
           <div className="col-sm-10">
-            <input type="date" className="form-control w-25" id="input-birth" />
+            <input
+              type="date"
+              className="form-control w-25"
+              id="input-birth"
+              name="dateOfBirth"
+              value={userData.dateOfBirth}
+              onChange={handleChange}
+            />
           </div>
         </div>
         {/* Save Button */}
         <div className="text-end">
-          <button className="btn btn-warning mt-5 w-25 text-light">Save</button>
+          <button
+            className="btn btn-warning mt-5 w-25 text-light"
+            onClick={handleSubmit}
+          >
+            Save
+          </button>
         </div>
       </div>
     </>

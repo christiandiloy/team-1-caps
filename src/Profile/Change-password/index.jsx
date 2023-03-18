@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function ChangePass() {
-  /////////////////// For Change password
   const [errorMessage, setErrorMessage] = useState("");
   const updatePass = () => {
     const oldPassword = document.getElementById("old-password").value;
@@ -26,13 +25,7 @@ function ChangePass() {
         console.log("error: ", error);
       });
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
 
-  // Get form data
-
-  /////////////////////
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [passwordStrength, setPasswordStrength] = useState("");
   const [passwordStrengthClass, setPasswordStrengthClass] = useState("");
