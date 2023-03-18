@@ -82,7 +82,7 @@
     height: 16vh;
 }
 
-@media (min-width:320px) {
+@media (max-width:320px) {
     .aegisBoostProDetails {
         position: absolute;
         top: 9rem;
@@ -95,7 +95,27 @@
     }
     .aegisBoostProLogo {
         position: absolute;
-        top: 50px;
+        top: 3.3rem;
+        left: 4vh;
+        z-index: 3;
+        height: 9vh;
+    }
+}
+
+@media (min-width:321px) {
+    .aegisBoostProDetails {
+        position: absolute;
+        top: 9rem;
+        left: 4vh;
+        z-index: 1;
+    }
+
+    .aegisBoostPro-p {
+        font-size: 1rem;
+    }
+    .aegisBoostProLogo {
+        position: absolute;
+        top: 3.3rem;
         left: 4vh;
         z-index: 3;
         height: 8vh;
@@ -105,17 +125,22 @@
 @media (min-width:768px) {
     .aegisBoostProDetails {
         position: absolute;
-        top: 10rem;
-        left: 4vh;
+        top: 19rem;
+        left: 9vh;
         z-index: 1;
+    }
+
+    .aegisBoostPro-p {
+        color: #fff;
+        font-size: 1.3rem;
     }
 
     .aegisBoostProLogo {
         position: absolute;
-        top: 50px;
-        left: 4vh;
+        top: 7rem;
+        left: 9vh;
         z-index: 3;
-        height: 12vh;
+        height: 14vh;
     }
 }
 

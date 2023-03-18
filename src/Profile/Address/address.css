@@ -14,10 +14,11 @@
   overflow-x: hidden;
 }
 
-.address-editDelete {
-  margin-right: 1.5em;
-}
-
 .address-editDelete a {
   color: black;
+  cursor: pointer;
+}
+
+.address-editDelete a:hover {
+  text-decoration: underline !important;
 }

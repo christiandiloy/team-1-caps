@@ -1,0 +1,148 @@
+.GVOne-vertical-scroller {
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.GVOne-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.GVOne-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.GVOneImg {
+    background-image: url('/src/assets/images/item-pages-details/aegis-one-01.jpg');
+    height: 70vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVOneDetails {
+    position: absolute;
+    padding-top: 5%;
+    left: 8vh;
+    z-index: 1;
+    max-width: 70vw;
+}
+
+.GVOneImg2 {
+    background-image: url('/src/assets/images/item-pages-details/aegis-one-02.jpg');
+    height: 60vh;
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVOneDetails2 {
+    padding-top: 5%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    max-width: 90vw;
+}
+
+.GVOne-p2 {
+    color: #333333;;
+    font-size: 140%;
+    text-align: center;
+    line-height: 150%;
+}
+
+.GVOneLogo1 {
+    position: absolute;
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 60%;
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .GVOne-vertical-scroller {
+        height: 390px;
+    }
+}
+
+@media (max-width:1199px) {
+    .GVOne-vertical-scroller {
+        height: 340px;
+    }
+}
+
+@media (max-width:991px) {
+    .GVOne-vertical-scroller {
+        height: 32vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .GVOne-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 200% !important;
+    }
+}
+
+@media (max-width:767px) {
+    .GVOne-vertical-scroller {
+        height: 20vh;
+    }
+}
+
+@media (max-width:991px) {
+    .GVOneDetails {
+        top: 2rem;
+        left: 2%;
+        z-index: 1;
+        max-width: 70vw;
+    }
+    .GVOneImg {
+        height: 50vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: unset;
+    }
+}
+
+@media (max-width:991px){
+    .GVOneDetails2 {
+        padding-top: 10%;
+    }
+
+    .GVOne-p2 {
+        font-size: 90%;
+    }
+
+    .GVOneLogo1 {
+        top: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width:375px) {
+    .GVOne-vertical-scroller {
+        height: 18vh;
+    }
+}

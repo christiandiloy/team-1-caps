@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-h45.css";
+import "./css/gv-legend200.css";
+import GVL200Icons from '../../assets/images/item-pages-details/aegis-legend2-02-icon.png';
 
-function GVH45() {
-    const pageName = "GVH45";
+function GVLegend200() {
+    const pageName = "GVLegend200";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -31,7 +32,7 @@ function GVH45() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gv-h45",
+        "../../assets/images/gv-l200-kit",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -128,7 +129,7 @@ function GVH45() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVH45-vertical-scroller"
+                    className="GVLegend200-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -193,23 +194,27 @@ function GVH45() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid GVH45Img">
-                <div className="container-fluid" style={{position:"relative"}}>
-                    <div className="GVH45Details">
-                        <h1 style={{color:"#fff"}}><strong>GeekVape H45</strong></h1>
-                        <h1 style={{color:"#fff"}}>(Aegis Hero2)</h1>
-                        <p className="GVH45-p">
-                        New Tri-proof. New HERO
-                        </p>
+                <div className="container-fluid GVLegend200Img">
+                    <div className="container-fluid GVLegend200Details" style={{position:"relative"}}>
+                            <p className="GVLegend200-p">
+                            Smaller and lighter, Geekvape L200 leaps with pride and honor.
+                            <br />
+                            Geekvape Tri-proof Technology upgrades to the second generation.
+                            <br />
+                            A-Lock, a new way to protect from accident.
+                            <br />
+                            The 2nd generation of Aegis Design with new 1.08-inch full screen.
+                            <br />
+                            Charging port with flipping cover, easier to fuel your vape.
+                            <br />
+                            Geekvape Z Sub-ohm 2021 Tank, larger air inflow & better performance.
+                            </p>
+                            <img
+                        className="GVLegend200Logo"
+                        src={GVL200Icons}
+                        alt="" />
                     </div>
                 </div>
-            </div>
-
-            <div className="container-fluid GVH45Img2">
-                <div className="container-fluid" style={{position:"relative"}}>
-                </div>
-            </div>
-
             </div>
         </>
         )}
@@ -217,4 +222,4 @@ function GVH45() {
     );
 }
 
-export default GVH45;
+export default GVLegend200;

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-h45.css";
+import "./css/aegis-xgvz-kit.css";
+import AegisXGVZKitIcon1 from '../../assets/images/item-pages-details/aegisx-03-icon1.png';
+import AegisXGVZKitIcon2 from '../../assets/images/item-pages-details/aegisx-03-icon2.png';
+import AegisXGVZKitIcon3 from '../../assets/images/item-pages-details/aegisx-03-icon3.png';
 
-function GVH45() {
-    const pageName = "GVH45";
+function AegisXGVZKit() {
+    const pageName = "AegisXGVZKit";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -31,7 +33,7 @@ function GVH45() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gv-h45",
+        "../../assets/images/aegis-xgvz-kit",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -128,7 +130,7 @@ function GVH45() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVH45-vertical-scroller"
+                    className="AegisXGVZKit-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -193,22 +195,41 @@ function GVH45() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid GVH45Img">
-                <div className="container-fluid" style={{position:"relative"}}>
-                    <div className="GVH45Details">
-                        <h1 style={{color:"#fff"}}><strong>GeekVape H45</strong></h1>
-                        <h1 style={{color:"#fff"}}>(Aegis Hero2)</h1>
-                        <p className="GVH45-p">
-                        New Tri-proof. New HERO
-                        </p>
+                <div className="container-fluid AegisXGVZKitImg">
+                    <div className="container-fluid" style={{position:"relative"}}>
+                        <div className="AegisXGVZKitDetails1">
+                            <h3>IP67 Water Resistant,
+                                <img src={AegisXGVZKitIcon1} alt="" />
+                            </h3>
+                            <p>
+                                IP67 waterproof, able to withstand immersion for up to 30
+                                <br />
+                                minutes and at a depth of up to 1 meter.
+                            </p>
+                        </div>
+                        <div className="AegisXGVZKitDetails2">
+                            <h3>Shock Resitant,
+                                <img src={AegisXGVZKitIcon2} alt="" />
+                            </h3>
+                            <p>
+                                Shock resistant, no need to worry about
+                                <br />
+                                breaking by accident!
+                            </p>
+                        </div>
+                        <div className="AegisXGVZKitDetails3">
+                            <h3>IP67 Dust Resitant,
+                                <img src={AegisXGVZKitIcon3} alt="" />
+                            </h3>
+                            <p>
+                                Dustproof (IP67), able to withstand dirty environment and
+                                <br />
+                                can be easily cleaned.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="container-fluid GVH45Img2">
-                <div className="container-fluid" style={{position:"relative"}}>
-                </div>
-            </div>
 
             </div>
         </>
@@ -217,4 +238,4 @@ function GVH45() {
     );
 }
 
-export default GVH45;
+export default AegisXGVZKit;
