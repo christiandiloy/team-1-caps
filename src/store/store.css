@@ -6,7 +6,8 @@
 
 .store-warning {
   background-color: orange;
-  width: 100%;
+  width: auto;
+
   box-sizing: border-box;
   text-align: center;
   color: #08002a;
@@ -15,11 +16,27 @@
 }
 .store-warning p {
   border: 1px solid #08002a;
-  width: 800px;
+  width: auto;
+  max-width: 600px;
   margin: 0 auto 30px auto;
+}
+.store-warning-content {
+  padding: 3px;
 }
 .store-warning span {
   font-weight: bold;
+}
+@media only screen and (max-width: 725px) {
+  .store-warning {
+    height: 150px;
+  }
+  .store-warning p {
+    width: 90%;
+  }
+  .store-warning p span {
+    padding: 10px;
+    margin: 10px;
+  }
 }
 /* Head Reminder */
 
@@ -350,6 +367,28 @@ a {
   padding-left: 10%;
   padding-right: 10%;
   background-color: #08002a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-icon {
+  display: block;
+}
+.cart-cart {
+  color: white;
+  font-size: 30px;
+}
+.cart-cart:hover {
+  color: orange;
+}
+.header-profile {
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 834px) {
+  .sh-img {
+    align-items: center;
+  }
 }
 
 /* Header */

@@ -53,13 +53,13 @@ function TopDeals() {
             <div>
               <div className="card-body">
                 <img
-                  className="slider-image"
+                  className="img-fluid"
                   src={item.url}
                   alt="product"
                   variant="top"
                 />
                 <h5 className="card-title">{item.title}</h5>
-                <p className="card-text">
+                <p className="card-text text-muted">
                   <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
                   <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
                   <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
