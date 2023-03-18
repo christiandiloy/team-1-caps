@@ -26,6 +26,7 @@ import GVB60 from "./store/item-page/GVB60";
 import GVB10021700Kit from "./store/item-page/GVB10021700Kit";
 import GVB100Kit from "./store/item-page/GVB100Kit";
 import GVE100E100iKit from "./store/item-page/GVE100E100iKit";
+import GVL200Classic from "./store/item-page/GVL200Classic";
 import BoxModKits from "./store/navigation/box-mod-kits";
 import PodKits from "./store/navigation/pod-kits";
 import Profile from "./Profile";
@@ -60,6 +61,7 @@ const App = (props) => {
         <Route path="/item-page/GVB10021700Kit" element={<GVB10021700Kit />} />
         <Route path="/item-page/GVB100Kit" element={<GVB100Kit />} />
         <Route path="/item-page/GVE100E100iKit" element={<GVE100E100iKit />} />
+        <Route path="/item-page/GVL200Classic" element={<GVL200Classic />} />
           <Route path="/all-products" element={<AllProducts />} />
           <Route path="/box-mods" element={<BoxMod />} />
           <Route path="/replacement-pods" element={<ReplacementPods />} />
