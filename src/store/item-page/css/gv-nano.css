@@ -1,0 +1,162 @@
+.GVNano-vertical-scroller {
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.GVNano-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.GVNano-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.GVNanoImg {
+    background-image: url('/src/assets/images/item-pages-details/aegis-nano-01.jpg');
+    height: 70vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.GVNanoLogo1 {
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 100%;
+}
+
+.GVNanoDetails {
+    position: absolute;
+    top: 15rem;
+    left: 15vh;
+    z-index: 1;
+    max-width: 70vw;
+}
+
+.GVNanoImg2 {
+    background-image: url('/src/assets/images/item-pages-details/aegis-legend2-02.jpg');
+    height: 60vh;
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVNanoDetails2 {
+    padding-top: 5%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    max-width: 90vw;
+}
+
+.GVNano-p2 {
+    color: #fff;
+    font-size: 140%;
+    text-align: center;
+    line-height: 150%;
+}
+
+.GVNanoLogo2 {
+    position: absolute;
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 60%;
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .GVNano-vertical-scroller {
+        height: 390px;
+    }
+}
+
+@media (max-width:1199px) {
+    .GVNano-vertical-scroller {
+        height: 340px;
+    }
+}
+
+@media (max-width:991px) {
+    .GVNano-vertical-scroller {
+        height: 16vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .GVNano-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 200% !important;
+    }
+}
+
+@media (max-width:767px) {
+    .GVNano-vertical-scroller {
+        height: 13vh;
+    }
+}
+
+@media (max-width:991px) {
+    .GVNanoDetails {
+        top: 11rem;
+        left: 2%;
+        z-index: 1;
+        max-width: 70vw;
+    }
+    .GVNanoImg {
+        height: 50vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: unset;
+    }
+
+    .GVNanoLogo1 {
+        top: 100%;
+        width: 90%;
+    }
+}
+
+@media (max-width:991px){
+    .GVNanoDetails2 {
+        padding-top: 10%;
+    }
+
+    .GVNano-p2 {
+        font-size: 90%;
+    }
+
+    .GVNanoLogo2 {
+        top: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width:375px) {
+    .GVNano-vertical-scroller {
+        height: 6vh;
+    }
+}

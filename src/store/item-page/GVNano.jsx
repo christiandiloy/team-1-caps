@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-h45.css";
+import "./css/gv-nano.css";
+import GVNanoIcon1 from '../../assets/images/item-pages-details/aegis-nano-01-icon.png';
+import GVNanoIcon2 from '../../assets/images/item-pages-details/aegis-legend2-02-icon.png';
 
-function GVH45() {
-    const pageName = "GVH45";
+function GVNano() {
+    const pageName = "GVNano";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -31,7 +33,7 @@ function GVH45() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gv-h45",
+        "../../assets/images/gv-nano",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -128,7 +130,7 @@ function GVH45() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVH45-vertical-scroller"
+                    className="GVNano-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -193,23 +195,38 @@ function GVH45() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid GVH45Img">
-                <div className="container-fluid" style={{position:"relative"}}>
-                    <div className="GVH45Details">
-                        <h1 style={{color:"#fff"}}><strong>GeekVape H45</strong></h1>
-                        <h1 style={{color:"#fff"}}>(Aegis Hero2)</h1>
-                        <p className="GVH45-p">
-                        New Tri-proof. New HERO
-                        </p>
+                <div className="container-fluid GVNanoImg">
+                    <div className="container-fluid" style={{position:"relative"}}>
+                        <div className="GVNanoDetails">
+                            <img
+                            className="GVNanoLogo1"
+                            src={GVNanoIcon1}
+                            alt="" />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="container-fluid GVH45Img2">
-                <div className="container-fluid" style={{position:"relative"}}>
+                <div className="container-fluid GVNanoImg2">
+                    <div className="container-fluid GVNanoDetails2" style={{position:"relative"}}>
+                            <p className="GVNano-p2">
+                            The little monster of Geekvape, Geekvape Nano gains Bravo with macro features.
+                            <br />
+                            Industry-leading Geekvape tri-proof technology.
+                            <br />
+                            With handy portability, it provides up to 30W output with adjustable airflow switch.
+                            <br />
+                            Auto Output Adjustment for Refillable Pod with Magnetic Click.
+                            <br />
+                            Top filling port lets you fill up your day with ease.
+                            <br />
+                            Bring Geekvape Nano by hanging on the neck with stylish chains.
+                            </p>
+                            <img
+                            className="GVNanoLogo2"
+                            src={GVNanoIcon2}
+                            alt="" />
+                    </div>
                 </div>
-            </div>
-
             </div>
         </>
         )}
@@ -217,4 +234,4 @@ function GVH45() {
     );
 }
 
-export default GVH45;
+export default GVNano;

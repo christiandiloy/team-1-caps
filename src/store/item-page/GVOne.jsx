@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-h45.css";
+import "./css/gv-one.css";
+import GVOneIcon1 from '../../assets/images/item-pages-details/aegis-one-02-icon.png';
 
-function GVH45() {
-    const pageName = "GVH45";
+function GVOne() {
+    const pageName = "GVOne";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function GVH45() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gv-h45",
+        "../../assets/images/gv-one",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -128,7 +128,7 @@ function GVH45() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVH45-vertical-scroller"
+                    className="GVOne-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -193,23 +193,33 @@ function GVH45() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid GVH45Img">
-                <div className="container-fluid" style={{position:"relative"}}>
-                    <div className="GVH45Details">
-                        <h1 style={{color:"#fff"}}><strong>GeekVape H45</strong></h1>
-                        <h1 style={{color:"#fff"}}>(Aegis Hero2)</h1>
-                        <p className="GVH45-p">
-                        New Tri-proof. New HERO
-                        </p>
+                <div className="container-fluid GVOneImg">
+                    <div className="container-fluid" style={{position:"relative"}}>
+                        <div className="GVOneDetails">
+                            <h1><span style={{color:"#333333"}}>GeekVape ONE</span></h1>
+                            <br />
+                            <h2><span style={{color:"#333333"}}>First Vape Pen with New Aegis Design</span></h2>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="container-fluid GVH45Img2">
-                <div className="container-fluid" style={{position:"relative"}}>
+                <div className="container-fluid GVOneImg2">
+                    <div className="container-fluid GVOneDetails2" style={{position:"relative"}}>
+                            <p className="GVOne-p2">
+                            Geekvape ONE, 2 days use after fully charged!
+                            <br />
+                            Smooth MTL flavor with optimized airway. Hallmarked drop performance.
+                            <br />
+                            Leakproof top-fill pod. And a multi-purpose button.
+                            <br />
+                            The long-lasting ONE is getting ready.
+                            </p>
+                            <img
+                            className="GVOneLogo1"
+                            src={GVOneIcon1}
+                            alt="" />
+                    </div>
                 </div>
-            </div>
-
             </div>
         </>
         )}
@@ -217,4 +227,4 @@ function GVH45() {
     );
 }
 
-export default GVH45;
+export default GVOne;
