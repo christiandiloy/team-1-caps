@@ -10,7 +10,7 @@ import {
   decreaseCart,
   getTotals,
   removeFromCart,
-  useCartTotals
+  useCartTotals,
 } from "../features/cartSlice";
 
 const initialOptions = {
@@ -52,7 +52,7 @@ function MyCart(props) {
           {cart.cartItems.length === 0 ? (
             <div className="cart-empty">
               <p>Your cart is empty.</p>
-              <div className="start-shopping">
+              <div className="start-shopping d-flex justify-content-center">
                 <Link to="/" className="anchor">
                   <i class="fa-solid fa-arrow-left"></i>
                   <span className="span">Shop now!</span>
@@ -105,7 +105,9 @@ function MyCart(props) {
                                   <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                     <h5 class="mb-0">
                                       <i class="fa-solid fa-peso-sign"></i>
-                                      {(cartItem.price * cartItem.cartQuantity).toFixed(2)}
+                                      {(
+                                        cartItem.price * cartItem.cartQuantity
+                                      ).toFixed(2)}
                                     </h5>
                                   </div>
                                   <div class="col-md-1 col-lg-1 col-xl-1 text-end">
