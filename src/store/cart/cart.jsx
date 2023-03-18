@@ -4,13 +4,19 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { addToCart, clearCart, decreaseCart, getTotals, removeFromCart } from "../features/cartSlice";
+import {
+  addToCart,
+  clearCart,
+  decreaseCart,
+  getTotals,
+  removeFromCart,
+} from "../features/cartSlice";
 
 const initialOptions = {
   "client-id": `${process.env.REACT_APP_PAYPAL_KEY}`,
 };
 
-function MyCart() {
+function MyCart(props) {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -19,7 +25,7 @@ function MyCart() {
       dispatch(getTotals());
     }
   }, [cart, dispatch]);
-  
+
   const ShippingFee = 0.01;
 
   const handleRemoveFromCart = (cartItem) => {
@@ -78,9 +84,7 @@ function MyCart() {
                                   <div class="col-md-3 col-lg-3 col-xl-2 d-flex cart-product-quantity">
                                     <button
                                       class="cart-product-quantity-button"
-                                      onClick={() =>
-                                        handleDecrement(cartItem)
-                                      }
+                                      onClick={() => handleDecrement(cartItem)}
                                     >
                                       -
                                     </button>
@@ -91,9 +95,7 @@ function MyCart() {
 
                                     <button
                                       class=" cart-product-quantity-button"
-                                      onClick={() =>
-                                        handleIncrement(cartItem)
-                                      }
+                                      onClick={() => handleIncrement(cartItem)}
                                     >
                                       +
                                     </button>
@@ -137,8 +139,7 @@ function MyCart() {
                     <div className="summary-item">
                       <span className="text">Discount</span>
                       <span className="price">
-                        <i class="fa-solid fa-peso-sign"></i>
-                        0
+                        <i class="fa-solid fa-peso-sign"></i>0
                       </span>
                     </div>
                     <div className="summary-item">
@@ -155,7 +156,10 @@ function MyCart() {
                         {cart.cartTotalAmount.toFixed(2)}
                       </span>
                     </div>
-                    <button className="shopping-btn btn btn-warning btn-lg w-100" onClick={()=>handleClearCart()}>
+                    <button
+                      className="shopping-btn btn btn-warning btn-lg w-100"
+                      onClick={() => handleClearCart()}
+                    >
                       Clear Cart
                     </button>
                     <div className="mt-3 text-center ">
@@ -171,7 +175,13 @@ function MyCart() {
                         <i class="fas fa-truck"></i>&nbsp;Cash on Delivery
                       </button>
                       <div className="continue-shopping">
-                        <Link to="/" className="anchor">
+                        <Link
+                          to="/"
+                          className="anchor"
+                          onClick={() => {
+                            props.setCurrentLink("/");
+                          }}
+                        >
                           <i class="fa-solid fa-arrow-left"></i>
                           <span className="span">Continue shopping</span>
                         </Link>

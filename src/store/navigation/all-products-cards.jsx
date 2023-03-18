@@ -5,38 +5,54 @@ import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Button } from "bootstrap";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../features/cartSlice";
 
 let searchValue = "";
 function AllProductsCards() {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+    navigate.push("/my-cart");
+  };
+
   const fetchProducts = (value) => {
     fetch("http://localhost:3005/getProduct")
-        .then((response) => response.json())
-        .then ((result) => {
-          const products = (result && result.products) ? result.products : result
-          const results = value === "" ? products : products.filter((products) => {
-            return (value && products.title && products.title.toLowerCase().includes(value));
-          });
-          setProducts(results);
-        })
-  }
-  useEffect(
-      () => {
-        let searchChecker = setInterval(() => {
-          const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-          });
-          if(searchValue !== params.search){
-            searchValue = params.search
-            fetchProducts(searchValue)
-          }
-        },1000);
-        return () => {
-          clearInterval(searchChecker);
-        };
-      },
-      []
-  );
+      .then((response) => response.json())
+      .then((result) => {
+        const products = result && result.products ? result.products : result;
+        const results =
+          value === ""
+            ? products
+            : products.filter((products) => {
+                return (
+                  value &&
+                  products.title &&
+                  products.title.toLowerCase().includes(value)
+                );
+              });
+        setProducts(results);
+      });
+  };
+  useEffect(() => {
+    let searchChecker = setInterval(() => {
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      if (searchValue !== params.search) {
+        searchValue = params.search;
+        fetchProducts(searchValue);
+      }
+    }, 1000);
+    return () => {
+      clearInterval(searchChecker);
+    };
+  }, []);
 
   let aegisItems = products.filter((products) => {
     return products;
@@ -62,16 +78,19 @@ function AllProductsCards() {
                   <i class="fa-solid fa-peso-sign"></i>
                   {item.price}
                 </Card.Text>
-                <button type="button" className="btn btn-success"  id="cart-btn">
-                    Add to cart
-                    <i className="fas fa-cart-plus nav-icon"></i>
-                  </button>
+                <Button
+                  type="button"
+                  className="btn btn-success w-100"
+                  id="cart-btn"
+                  onClick={() => handleAddToCart(item)}
+                >
+                  + Add to cart
+                </Button>
               </Card.Body>
             </Card>
           </Col>
         );
       })}
-      
     </Row>
   );
 }
