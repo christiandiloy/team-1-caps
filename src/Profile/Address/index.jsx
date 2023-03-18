@@ -29,7 +29,7 @@ function Address() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [addresses]);
 
   //Edit Address
   const handleEdit = (address) => {
@@ -134,6 +134,7 @@ function Address() {
         if (result.success) {
           alert("Address successfully added.");
           setShow(false);
+          setAddresses(result.data);
         } else {
           alert(result.message);
         }
