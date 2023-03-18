@@ -1,5 +1,4 @@
 import { RegisterAPI } from "../Utils/fetch";
-import { CheckUserAPI } from "../Utils/fetch";
 import React, { useState } from "react";
 function SignUp() {
   let isUserLoggedIn = false;
