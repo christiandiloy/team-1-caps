@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-b10021700-kit.css";
-import GVB10021700KitIcon2 from '../../assets/images/item-pages-details/b100-02-icon.png';
+import "./css/gv-e100e100i-kit.css";
+import GVE100E100iKitIcon2 from '../../assets/images/item-pages-details/e100-02x-icon.png';
 
-function GVB10021700Kit() {
-    const pageName = "GVB10021700Kit";
+function GVE100E100iKit() {
+    const pageName = "GVE100E100iKit";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function GVB10021700Kit() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gv-b10021700-kit",
+        "../../assets/images/gv-e100e100i-kit",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -128,7 +128,7 @@ function GVB10021700Kit() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVB10021700Kit-vertical-scroller"
+                    className="GVE100E100iKit-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -193,31 +193,26 @@ function GVB10021700Kit() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-                <div className="container-fluid GVB10021700KitImg">
+                <div className="container-fluid GVE100E100iKitImg">
                     <div className="container-fluid" style={{position:"relative"}}>
-                        <div className="GVB10021700KitDetails" style={{color:"#fff"}}>
-                            <h1><strong>GeekVape B100 21700 Kit</strong></h1>
-                            <h3>Boost Pro for pro experience</h3>
+                        <div className="GVE100E100iKitDetails" style={{color:"#fff"}}>
+                        <h1>GeekVape E100 & E1OOi Kit</h1>
                         </div>
                     </div>
                 </div>
 
-                <div className="container-fluid GVB10021700KitImg2">
-                    <div className="container-fluid GVB10021700KitDetails2" style={{position:"relative"}}>
-                            <p className="GVB10021700Kit-p2" style={{color:"#000"}}>
-                            The Boost Pro now comes in 21700.
+                <div className="container-fluid GVE100E100iKitImg2">
+                    <div className="container-fluid GVE100E100iKitDetails2" style={{position:"relative"}}>
+                            <p className="GVE100E100iKit-p2" style={{color:"#000"}}>
+                            Equipped with the leakproof pod with top airflow,
                             <br />
-                            An ultimate Quadra Vaping System. An upgraded Gen 2 three-inlet airflow control.
+                            Eteno is strikingly IP68-rating durable. The built-in 3000mAh battery version performs stably and lasts remarkably long.
                             <br />
-                            Exceptionally durable body with IP67 water & dust resistance.
-                            <br />
-                            Expectation beyond P Series Coil performs.
-                            <br />
-                            Let Pro do the pro thing.
+                            Try Eteno and enjoy the eternal fun!
                             </p>
                             <img
-                            className="GVB10021700KitLogo2"
-                            src={GVB10021700KitIcon2}
+                            className="GVE100E100iKitLogo2"
+                            src={GVE100E100iKitIcon2}
                             alt="" />
                     </div>
                 </div>
@@ -228,4 +223,4 @@ function GVB10021700Kit() {
     );
 }
 
-export default GVB10021700Kit;
+export default GVE100E100iKit;
