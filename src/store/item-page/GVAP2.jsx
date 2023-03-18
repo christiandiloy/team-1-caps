@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/aegis-1fc-pod-kit.css";
+import "./css/gv-ap2.css";
 
-function Aegis1FCPodKit() {
-    const pageName = "Aegis1FCPodKit";
+function GVAP2() {
+    const pageName = "GVAP2";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -30,7 +30,7 @@ function Aegis1FCPodKit() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/aegis-1fc-pod-kit",
+        "../../assets/images/gv-ap2",
         false,
         /\.(png|jpe?g|svg|webp)$/
         );
@@ -127,7 +127,7 @@ function Aegis1FCPodKit() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="Aegis1FCPK-vertical-scroller"
+                    className="GVAP2-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -192,12 +192,15 @@ function Aegis1FCPodKit() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-            <div className="container-fluid Aegis1FCPKImg">
+            <div className="container-fluid GVAP2Img">
                 <div className="container-fluid" style={{position:"relative"}}>
-                    <div className="Aegis1FCPKDetails">
-                        <h1 style={{color:"#333333"}}><strong>GEEKVAPE 1FC</strong></h1>
-                        <p className="Aegis1FCPK-p">
-                        World's First Fast Charging Vape Pen
+                    <div className="GVAP2Details">
+                        <h2 style={{color:"#fff"}}><strong>Smallest & Toughest New Tri-proof Pod Vape</strong></h2>
+                        <h3 style={{color:"#fff"}}><strong>Enhanced Shield for Better Protection.</strong></h3>
+                        <p className="GVAP2-p">
+                        Thanks to the Geekvape New tri-proof Technology, <br />
+                        Geekvape AP2 is compact and more durable now featuring an <br />
+                        upgraded metallic shell that is more resistant to shock and scratches.
                         </p>
                     </div>
                 </div>
@@ -210,4 +213,4 @@ function Aegis1FCPodKit() {
     );
 }
 
-export default Aegis1FCPodKit;
+export default GVAP2;

@@ -21,6 +21,7 @@ import GVLegend200 from "./store/item-page/GVLegend200";
 import GVNano from "./store/item-page/GVNano";
 import GVOne from "./store/item-page/GVOne";
 import AegisXGVZKit from "./store/item-page/AegisXGVZKit";
+import GVAP2 from "./store/item-page/GVAP2";
 import BoxModKits from "./store/navigation/box-mod-kits";
 import PodKits from "./store/navigation/pod-kits";
 import Profile from "./Profile";
@@ -50,6 +51,7 @@ const App = (props) => {
         <Route path="/item-page/GVNano" element={<GVNano />} />
         <Route path="/item-page/GVOne" element={<GVOne />} />
         <Route path="/item-page/AegisXGVZKit" element={<AegisXGVZKit />} />
+        <Route path="/item-page/GVAP2" element={<GVAP2 />} />
           <Route path="/all-products" element={<AllProducts />} />
           <Route path="/box-mods" element={<BoxMod />} />
           <Route path="/replacement-pods" element={<ReplacementPods />} />

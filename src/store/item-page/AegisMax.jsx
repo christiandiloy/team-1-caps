@@ -199,15 +199,15 @@ const handleSmallImageClick = (index) => {
                 IP67 Rate, Perfect for Extreme Outdoor Activities</h2>
                 <br />
               <p>
-                <img className="aegisMaxIcons" src={AegisMaxIcon1}/>
+                <img className="aegisMaxIcons" src={AegisMaxIcon1} alt=""/>
                 IP67 Water Resistant,<br/>
                 can be submerged in up to 1 meter for up to 30 minutes.</p>
               <p>
-                <img className="aegisMaxIcons" src={AegisMaxIcon2}/>
+                <img className="aegisMaxIcons" src={AegisMaxIcon2} alt=""/>
                 Shock Resistant,&nbsp;<br/>
                 no need to worry about breaking by accident.</p>
               <p>
-                <img className="aegisMaxIcons" src={AegisMaxIcon3}/>
+                <img className="aegisMaxIcons" src={AegisMaxIcon3} alt=""/>
                 IP67 Dust Resistant,<br/>
                 able to withstand dirty environment.and can be easily cleaned.</p>
             </div>
