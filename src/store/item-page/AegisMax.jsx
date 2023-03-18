@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/aegis-max.css';
 import AegisMaxIcon1 from '../../assets/images/item-pages-details/aegis-max-03-icon1.png';
