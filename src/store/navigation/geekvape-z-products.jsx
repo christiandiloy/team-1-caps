@@ -2,7 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
 
-function TopDeals() {
+function GeekvapeZProducts() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3005/getProduct")
@@ -10,7 +10,7 @@ function TopDeals() {
       .then(({ products }) => setProducts(products));
   }, []);
   let aegisItems = products.filter((products) => {
-    return products.category === "Aegis";
+    return products.category === "Geekvape Z";
   });
   console.log(aegisItems);
 
@@ -34,7 +34,7 @@ function TopDeals() {
   };
   return (
     <div>
-      <h1 className="slider-h1">Top Deals</h1>
+      <h1 className="slider-h1">Geekvape Z</h1>
       <Carousel responsive={responsive}>
       {aegisItems.map((item) => {
         return (
@@ -64,4 +64,4 @@ function TopDeals() {
     </div>
   );
 }
-export default TopDeals;
+export default GeekvapeZProducts;

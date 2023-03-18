@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/gv-h45.css";
+import GVH45Icon1 from "../../assets/images/item-pages-details/aegis-hero-01-icon.png";
 
 function GVH45() {
     const pageName = "GVH45";
@@ -195,6 +196,10 @@ function GVH45() {
             <p>{item.item_desc}</p>
             <div className="container-fluid GVH45Img">
                 <div className="container-fluid" style={{position:"relative"}}>
+                    {/* <img
+                    className="GVH45Logo"
+                    src={GVH45Icon1}
+                    alt="" /> */}
                     <div className="GVH45Details">
                         <h1 style={{color:"#fff"}}><strong>GeekVape H45</strong></h1>
                         <h1 style={{color:"#fff"}}>(Aegis Hero2)</h1>

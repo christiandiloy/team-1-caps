@@ -1,23 +1,13 @@
 import React from "react";
 import "../store.css";
 import { useState, useEffect } from "react";
-import { Button } from "bootstrap";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addToCart } from "../features/cartSlice";
 
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 function PodKitsCards() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
-  const handleAddToCart = (item) => {
-    dispatch(addToCart(item));
-    navigate.push("/my-cart");
-  };
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3005/getProduct")
@@ -25,9 +15,9 @@ function PodKitsCards() {
       .then(({ products }) => setProducts(products));
   }, []);
   let aegisItems = products.filter((products) => {
-    return products.category === "Pod_Kits";
+    return products.category === "PodKits";
   });
-  console.log(aegisItems);
+  console.log(aegisItems)
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
@@ -49,19 +39,12 @@ function PodKitsCards() {
                   <i class="fa-solid fa-peso-sign"></i>
                   {item.text}
                 </Card.Text>
-                <Button
-                  type="button"
-                  className="btn btn-success w-100"
-                  id="cart-btn"
-                  onClick={() => handleAddToCart(item)}
-                >
-                  + Add to cart
-                </Button>
               </Card.Body>
             </Card>
           </Col>
         );
       })}
+      
     </Row>
   );
 }

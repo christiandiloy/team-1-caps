@@ -90,13 +90,14 @@ function Address() {
   };
 
   const handleAddAddress = () => {
+    const userID = userIdLocal;
     const fullName = document.getElementById("fullName").value;
     const contactNo = document.getElementById("contactNo").value;
     const place = document.getElementById("place").value;
     const postalCode = document.getElementById("postalCode").value;
     const houseNo = document.getElementById("houseNo").value;
 
-    AddressAPI(fullName, contactNo, place, postalCode, houseNo)
+    AddressAPI(userID, fullName, contactNo, place, postalCode, houseNo)
       .then((result) => {
         return result.json();
       })
