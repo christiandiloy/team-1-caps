@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/gv-legend200.css";
-import GVL200Icons from '../../assets/images/item-pages-details/aegis-legend2-02-icon.png';
+import "./css/gv-m100-kit.css";
+import GVM100KitIcons from '../../assets/images/item-pages-details/m100-02-icon.png';
 
-function GVLegend200() {
-    const pageName = "GVLegend200";
+function GVM100Kit() {
+    const pageName = "GVM100Kit";
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function GVLegend200() {
 
     const importImages = async () => {
         const context = require.context(
-        "../../assets/images/gv-l200-kit",
+        "../../assets/images/gv-m100-kit",
         false,
         /\.(png|jpe?g|svg)$/
         );
@@ -117,8 +117,7 @@ function GVLegend200() {
                 <div className="col-lg-6 order-sm-1 order-lg-2">
                     <div className="row">
                     <div className="col-12 mb-4">
-                        <img
-                        style={{padding:"1%"}}
+                        <img style={{padding:"1%"}}
                         className="border rounded ratio ratio-1x1 img-fluid"
                         alt=""
                         src={images[currentImage]}
@@ -129,7 +128,7 @@ function GVLegend200() {
 
                 <div className="d-lg-block col-lg-1 order-sm-2 order-xs-2 order-lg-1 ">
                     <div
-                    className="GVLegend200-vertical-scroller"
+                    className="GVM100Kit-vertical-scroller"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     >
@@ -194,24 +193,22 @@ function GVLegend200() {
                 <h4 className="mb-0">Overview</h4>
                 <hr />
             <p>{item.item_desc}</p>
-                <div className="container-fluid GVLegend200Img">
-                    <div className="container-fluid GVLegend200Details" style={{position:"relative"}}>
-                            <p className="GVLegend200-p">
-                            Smaller and lighter, Geekvape L200 leaps with pride and honor.
+                <div className="container-fluid GVM100KitImg">
+                    <div className="container-fluid GVM100KitDetails" style={{position:"relative"}}>
+                            <p className="GVM100Kit-p">
+                            Meet the new mini with new tri-proof.
                             <br />
-                            Geekvape Tri-proof Technology upgrades to the second generation.
+                            Industry-leading IP68 rating water & dust resistance. Ground-breaking shock-resistance.
                             <br />
-                            A-Lock, a new way to protect from accident.
+                            An all-time stable output system. Built-in 2500mAh battery.
                             <br />
-                            The 2nd generation of Aegis Design with new 1.08-inch full screen.
+                            Accidental press protection. Bigger screen with new UI.
                             <br />
-                            Charging port with flipping cover, easier to fuel your vape.
-                            <br />
-                            Geekvape Z Sub-ohm 2021 Tank, larger air inflow & better performance.
+                            And Geekvape Z Nano 2 Tank. Let's see how they can be the Mini.
                             </p>
                             <img
-                        className="GVLegend200Logo"
-                        src={GVL200Icons}
+                        className="GVM100KitLogo"
+                        src={GVM100KitIcons}
                         alt="" />
                     </div>
                 </div>
@@ -222,4 +219,4 @@ function GVLegend200() {
     );
 }
 
-export default GVLegend200;
+export default GVM100Kit;
