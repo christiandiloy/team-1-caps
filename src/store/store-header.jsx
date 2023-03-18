@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { fetchUserProfile } from "../Utils/fetch";
 import SearchBar from "./SearchBar";
-import { useSelector } from "react-redux";
 import { useCartTotals } from "./features/cartSlice";
 import { FaShoppingCart } from "react-icons/fa";
 
