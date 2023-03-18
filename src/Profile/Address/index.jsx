@@ -134,7 +134,6 @@ function Address() {
         if (result.success) {
           alert("Address successfully added.");
           setShow(false);
-          setAddresses(result.data);
         } else {
           alert(result.message);
         }
