@@ -1,8 +1,9 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./store.css";
 import { addToCart } from "./features/cartSlice";
 
@@ -22,53 +23,83 @@ function TopDeals() {
       .then(({ products }) => setProducts(products));
   }, []);
   let aegisItems = products.filter((products) => {
-    return products;
+    return products.category === "Aegis";
   });
   console.log(aegisItems);
-
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
+  
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <div>
       <h1 className="slider-h1">Top Deals</h1>
-      <Carousel responsive={responsive}>
+      <Slider {...settings}>
         {aegisItems.map((item) => {
           return (
             <div>
               <div className="card-body">
                 <img
-                  className="slider-image"
+                  className="img-fluid"
                   src={item.url}
                   alt="product"
                   variant="top"
                 />
                 <h5 className="card-title">{item.title}</h5>
-                <p className="card-text">
-                  <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
-                  <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
-                  <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
-                  <i class="fa-solid fa-star" style={{ color: "orange" }}></i>
-                  <i class="fa-solid fa-star" style={{ color: "orange" }}></i>(
-                  {item.star})
+                <p className="card-text text-muted">
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "orange" }}
+                  ></i>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "orange" }}
+                  ></i>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "orange" }}
+                  ></i>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "orange" }}
+                  ></i>
+                  <i
+                    className="fa-solid fa-star"
+                    style={{ color: "orange" }}
+                  ></i>
+                  ({item.star})
                 </p>
                 <div className="card-price">
-                  <i class="fa-solid fa-peso-sign"></i>
+                  <i className="fa-solid fa-peso-sign"></i>
                   {item.price}
                 </div>
                 <button
@@ -83,8 +114,9 @@ function TopDeals() {
             </div>
           );
         })}
-      </Carousel>
+      </Slider>
     </div>
   );
 }
+
 export default TopDeals;
