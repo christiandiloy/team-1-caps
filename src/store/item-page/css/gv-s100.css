@@ -1,0 +1,280 @@
+.GVS100-vertical-scroller {
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.GVS100-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.GVS100-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.GVS100Img {
+    background-image: url('/src/assets/images/item-pages-details/s100-03.jpg');
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVS100Logo1 {
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 100%;
+}
+
+.GVS100Details {
+    position: absolute;
+    top: 13rem;
+    left: 4vh;
+    z-index: 1;
+    max-width: 20vw;
+}
+
+.GVS100Details h1 {
+    color: #fff;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 3.3vw;
+}
+.GVS100Img2 {
+    background-image: url('/src/assets/images/item-pages-details/s100-02.jpg');
+    height: 50vh;
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVS100Details2 {
+    padding-top: 5%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    max-width: 90vw;
+}
+
+.GVS100-p2 {
+    color: #fff;
+    font-size: 140%;
+    text-align: center;
+    line-height: 150%;
+}
+
+.GVS100Logo2 {
+    position: absolute;
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 60%;
+}
+
+@media (max-width:1440px) {
+    .GVS100Details {
+        top: 12rem;
+        max-width: 30vw;
+    }
+
+    .GVS100Details h1  {
+        font-size: 5vw;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .GVS100-vertical-scroller {
+        height: 390px;
+    }
+}
+
+@media (max-width:1199px) {
+    .GVS100-vertical-scroller {
+        height: 340px;
+    }
+}
+
+@media (max-width:1024px) {
+    .GVS100Details {
+        top: 10rem;
+        max-width: 35vw;
+    }
+
+    .GVS100Details h1  {
+        font-size: 5vw;
+    }
+}
+
+@media (max-width:991px){
+    .GVS100Details {
+        top: 7rem;
+        left: 2%;
+        z-index: 1;
+        max-width: 50vw;
+    }
+
+    .GVS100Details h1  {
+        font-size: 7vw;
+    }
+
+    .GVS100Img {
+        height: 50vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: unset;
+    }
+
+    .GVS100Logo1 {
+        top: 100%;
+        width: 90%;
+    }
+
+    .GVS100Details2 {
+        padding-top: 10%;
+    }
+
+    .GVS100-p2 {
+        font-size: 90%;
+    }
+
+    .GVS100Logo2 {
+        top: 100%;
+        width: 100%;
+    }
+
+    .GVS100-vertical-scroller {
+        height: 15vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .GVS100-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 200% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .GVS100Details {
+        top: 4rem;
+        max-width: 35vw;
+    }
+
+    .GVS100-vertical-scroller {
+        height: 15vh;
+    }
+
+    .GVS100Details {
+        top: 13vw;
+    }
+
+    .GVS100Details h1  {
+        font-size: 7vw;
+    }
+}
+
+@media (max-width:767px) {
+    .GVS100-vertical-scroller {
+        height: 10vh;
+    }
+
+    .GVS100Img {
+        background-image: url('/src/assets/images/item-pages-details/s100-mob-03.jpg');
+        height: 90vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVS100Details {
+        top: 4rem;
+        max-width: 70vw;
+    }
+
+    .GVS100Details h1  {
+        font-size: 8vw;
+    }
+}
+
+@media (max-width:425px) {
+    .GVS100Img {
+        background-image: url('/src/assets/images/item-pages-details/s100-mob-03.jpg');
+        height: 70vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVS100Details {
+        top: 4rem;
+        max-width: 70vw;
+    }
+
+    .GVS100Details h1  {
+        font-size: 10vw;
+    }
+}
+
+@media (max-width:375px) {
+    .GVS100-vertical-scroller {
+        height: 8vh;
+    }
+
+    .GVS100Img {
+        background-image: url('/src/assets/images/item-pages-details/s100-mob-03.jpg');
+        height: 60vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVS100Details {
+        top: 2rem;
+        max-width: 70vw;
+    }
+
+    .GVS100Details h1  {
+        font-size: 10vw;
+    }
+}
+
+@media (max-width:320px) {
+    .GVS100Img {
+        background-image: url('/src/assets/images/item-pages-details/s100-mob-03.jpg');
+        height: 50vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVS100Details {
+        top: 3rem;
+    }
+
+    .GVS100Details h1  {
+        font-size: 10vw;
+    }
+}
