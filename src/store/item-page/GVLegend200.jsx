@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/gv-legend200.css";
 import GVL200Icons from '../../assets/images/item-pages-details/aegis-legend2-02-icon.png';
@@ -119,6 +118,7 @@ function GVLegend200() {
                     <div className="row">
                     <div className="col-12 mb-4">
                         <img
+                        style={{padding:"1%"}}
                         className="border rounded ratio ratio-1x1 img-fluid"
                         alt=""
                         src={images[currentImage]}

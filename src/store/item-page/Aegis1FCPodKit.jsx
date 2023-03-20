@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/aegis-1fc-pod-kit.css";
-import Aegis1FCPKIcon1 from "../../assets/images/item-pages-details/aegis-hero-01-icon.png";
 
 function Aegis1FCPodKit() {
     const pageName = "Aegis1FCPodKit";

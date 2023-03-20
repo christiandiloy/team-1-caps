@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/aegis-boost-pro.css";
 import AegisBoostProIcon1 from "../../assets/images/item-pages-details/aegis-boost-pro-01-icon.png";
