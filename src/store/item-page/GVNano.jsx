@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/gv-nano.css";
 import GVNanoIcon1 from '../../assets/images/item-pages-details/aegis-nano-01-icon.png';
