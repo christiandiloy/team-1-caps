@@ -1,9 +1,25 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { addToCart } from "../features/cartSlice";
+import { useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/gv-one.css";
 import GVOneIcon1 from '../../assets/images/item-pages-details/aegis-one-02-icon.png';
 
 function GVOne() {
+    const dispatch = useDispatch();
+
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:3005/getProduct")
+        .then((response) => response.json())
+        .then(({ products }) => setProducts(products));
+    }, []);
+
+    const handleAddToCart = (productId) => {
+        const productToAdd = products.find(product => product.id === productId);
+        dispatch(addToCart(productToAdd));
+    };
+
     const pageName = "GVOne";
     const [item, setItem] = useState({});
 
@@ -162,13 +178,8 @@ function GVOne() {
                     <br />
                     <div className="row g-3 mb-4">
                         <div className="col">
-                        <button className="btn btn-outline-dark py-2 w-100">
+                        <button className="btn customBtn py-2 w-100" onClick={() => handleAddToCart(9)}>
                             Add to cart
-                        </button>
-                        </div>
-                        <div className="col">
-                        <button className="btn btn-dark py-2 w-100">
-                            Buy now
                         </button>
                         </div>
                     </div>

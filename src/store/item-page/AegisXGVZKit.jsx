@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { addToCart } from "../features/cartSlice";
+import { useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/aegis-xgvz-kit.css";
 import AegisXGVZKitIcon1 from '../../assets/images/item-pages-details/aegisx-03-icon1.png';
@@ -6,6 +8,20 @@ import AegisXGVZKitIcon2 from '../../assets/images/item-pages-details/aegisx-03-
 import AegisXGVZKitIcon3 from '../../assets/images/item-pages-details/aegisx-03-icon3.png';
 
 function AegisXGVZKit() {
+    const dispatch = useDispatch();
+
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:3005/getProduct")
+        .then((response) => response.json())
+        .then(({ products }) => setProducts(products));
+    }, []);
+
+    const handleAddToCart = (productId) => {
+        const productToAdd = products.find(product => product.id === productId);
+        dispatch(addToCart(productToAdd));
+    };
+
     const pageName = "AegisXGVZKit";
     const [item, setItem] = useState({});
 
@@ -164,13 +180,8 @@ function AegisXGVZKit() {
                     <br />
                     <div className="row g-3 mb-4">
                         <div className="col">
-                        <button className="btn btn-outline-dark py-2 w-100">
+                        <button className="btn customBtn py-2 w-100" onClick={() => handleAddToCart(10)}>
                             Add to cart
-                        </button>
-                        </div>
-                        <div className="col">
-                        <button className="btn btn-dark py-2 w-100">
-                            Buy now
                         </button>
                         </div>
                     </div>

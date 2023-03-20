@@ -309,3 +309,11 @@
         font-size: 5vw;
     }
 }
+
+.customBtn {
+    background-color: orange;
+}
+
+.customBtn:hover {
+    background-color: rgba(255, 166, 0, 0.822)
+}

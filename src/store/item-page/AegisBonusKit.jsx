@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { addToCart } from "../features/cartSlice";
+import { useDispatch } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/aegis-bonus-kit.css';
 import aegisBKIcon from '../../assets/images/item-pages-details/aegis-boost-01-icon.png';
@@ -6,6 +8,19 @@ import powerLogo from '../../assets/images/item-pages-details/power-icon.png';
 
 
 function AegisBonusKit() {
+  const dispatch = useDispatch();
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3005/getProduct")
+      .then((response) => response.json())
+      .then(({ products }) => setProducts(products));
+  }, []);
+
+  const handleAddToCart = (productId) => {
+    const productToAdd = products.find(product => product.id === productId);
+    dispatch(addToCart(productToAdd));
+  };
   const pageName = "AegisBonusKit";
   const [item, setItem] = useState({});
 
@@ -30,19 +45,19 @@ function AegisBonusKit() {
   }, [pageName]);
 
 
-const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);
 
-const importImages = async () => {
-  const context = require.context('../../assets/images/aegis-boost-le-bonus-kit', false, /\.(png|jpe?g|svg)$/);
-  const importedImages = await Promise.all(
-    context.keys().map(context)
-  );
-  setImages(importedImages);
-}
+  const importImages = async () => {
+    const context = require.context('../../assets/images/aegis-boost-le-bonus-kit', false, /\.(png|jpe?g|svg)$/);
+    const importedImages = await Promise.all(
+      context.keys().map(context)
+    );
+    setImages(importedImages);
+  }
 
-useEffect(() => {
-  importImages();
-}, []);
+  useEffect(() => {
+    importImages();
+  }, []);
 
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -76,7 +91,7 @@ useEffect(() => {
       }
     }
   };
-  
+
   const handleScrollHorizontal = () => {
     if (containerRef.current && isHovered) {
       const container = containerRef.current;
@@ -159,12 +174,9 @@ const handleSmallImageClick = (index) => {
                 <br />
                 <div className="row g-3 mb-4">
                 <div className="col">
-                    <button className="btn btn-outline-dark py-2 w-100">
+                    <button className="btn customBtn py-2 w-100" onClick={() => handleAddToCart(1)}>
                       Add to cart
                     </button>
-                  </div>
-                  <div className="col">
-                    <button className="btn btn-dark py-2 w-100">Buy now</button>
                   </div>
                 </div>
                 <h4 className="mb-0">Details</h4>
