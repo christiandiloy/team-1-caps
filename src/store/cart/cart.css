@@ -110,6 +110,8 @@
 .start-shopping {
   margin-top: 1rem;
   font-size: 1.2rem;
+  justify-content: center;
+  display: flex;
 }
 .continue-shopping .anchor,
 .start-shopping > .anchor {
