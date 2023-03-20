@@ -134,7 +134,7 @@ function MyCart(props) {
           {cart.cartItems.length === 0 ? (
             <div className="cart-empty">
               <p>Your cart is empty.</p>
-              <div className="start-shopping d-flex justify-content-center">
+              <div className="start-shopping">
                 <Link to="/" className="anchor">
                   <i class="fa-solid fa-arrow-left"></i>
                   <span className="span">Shop now!</span>
