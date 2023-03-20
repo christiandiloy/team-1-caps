@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { serverRoutes } from "../../Utils/const";
 
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
@@ -32,6 +33,24 @@ const cartSlice = createSlice({
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+
+      fetch(serverRoutes.saveItem, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ items: cartItems }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to save items to the database");
+          }
+          console.log("Items saved to the database");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
     removeFromCart(state, action) {
       const nextCartItems = state.cartItems.filter(
