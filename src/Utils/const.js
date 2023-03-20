@@ -12,4 +12,5 @@ export const serverRoutes = {
   FindAddress: myExpressURL + `/api/v2/users/${userId}/addresses`,
   Subscriber: myExpressURL + "/subscribe",
   saveItem: myExpressURL + "/api/cart",
+  saveOrder: myExpressURL + "/api/orders",
 };

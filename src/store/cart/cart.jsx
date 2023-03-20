@@ -77,6 +77,53 @@ function MyCart(props) {
       });
   }, []);
 
+  //Orders to Database
+  const [selectedAddress, setSelectedAddress] = useState("");
+  function handleAddressChange(event) {
+    setSelectedAddress(event.target.value);
+  }
+
+  const handleSubmitOrder = async (event) => {
+    event.preventDefault();
+
+    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+
+    // Create an array of items with their id and quantity
+    const items = cartItems.map((item) => {
+      return {
+        id: item.id,
+        quantity: item.quantity,
+      };
+    });
+
+    const userID = JSON.parse(localStorage.getItem("user")).id;
+    const total = cartTotalAmount.toFixed(2);
+    const orderID = Date.now();
+    const address = selectedAddress;
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(serverRoutes.saveOrder, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          userID,
+          orderID,
+          items,
+          address,
+          total,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      dispatch(clearCart());
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <section className="shopping-cart dark">
@@ -205,6 +252,8 @@ function MyCart(props) {
                       <select
                         className="form-select mt-3"
                         aria-label="Default select example"
+                        value={selectedAddress}
+                        onChange={handleAddressChange}
                       >
                         <option selected>Select Address</option>
                         {addresses.map((address) => (
@@ -242,6 +291,7 @@ function MyCart(props) {
                               alert(
                                 `Transaction completed by ${userData.fullName}`
                               );
+                              handleSubmitOrder(); //Save orders to database
                               handleClearCart();
                               //Code for go to Order
                             });
