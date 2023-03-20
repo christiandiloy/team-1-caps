@@ -2,8 +2,10 @@ import React from "react";
 import "./cart.css";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { serverRoutes } from "../../Utils/const";
+import { fetchUserProfile } from "../../Utils/fetch";
+import { json, Link } from "react-router-dom";
 import {
   addToCart,
   clearCart,
@@ -12,10 +14,6 @@ import {
   removeFromCart,
   useCartTotals,
 } from "../features/cartSlice";
-
-const initialOptions = {
-  "client-id": `${process.env.REACT_APP_PAYPAL_KEY}`,
-};
 
 function MyCart(props) {
   const { cartTotalAmount, cartTotalQuantity } = useCartTotals();
@@ -42,6 +40,90 @@ function MyCart(props) {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
+  //Get address from database
+  const [addresses, setAddresses] = useState([]);
+
+  useEffect(() => {
+    fetch(serverRoutes.FindAddress)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setAddresses(data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  //Paypal Payment
+  const initialOptions = {
+    "client-id": `${process.env.REACT_APP_PAYPAL_KEY}`,
+  };
+
+  const [userData, setUserData] = useState({
+    fullName: "",
+  });
+
+  useEffect(() => {
+    fetchUserProfile()
+      .then((data) => {
+        setUserData({
+          fullName: data.full_name,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching user profile:", error);
+      });
+  }, []);
+
+  //Orders to Database
+  const [selectedAddress, setSelectedAddress] = useState("");
+  function handleAddressChange(event) {
+    setSelectedAddress(event.target.value);
+  }
+
+  const handleSubmitOrder = async (event) => {
+    event.preventDefault();
+
+    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+
+    // Create an array of items with their id and quantity
+    const items = cartItems.map((item) => {
+      return {
+        id: item.id,
+        quantity: item.quantity,
+      };
+    });
+
+    const userID = JSON.parse(localStorage.getItem("user")).id;
+    const total = cartTotalAmount.toFixed(2);
+    const orderID = Date.now();
+    const address = selectedAddress;
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(serverRoutes.saveOrder, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          userID,
+          orderID,
+          items,
+          address,
+          total,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      dispatch(clearCart());
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <section className="shopping-cart dark">
@@ -53,13 +135,7 @@ function MyCart(props) {
             <div className="cart-empty">
               <p>Your cart is empty.</p>
               <div className="start-shopping">
-                <Link
-                  to="/"
-                  className="anchor"
-                  onClick={() => {
-                    props.setCurrentLink("/");
-                  }}
-                >
+                <Link to="/" className="anchor">
                   <i class="fa-solid fa-arrow-left"></i>
                   <span className="span">Shop now!</span>
                 </Link>
@@ -71,7 +147,7 @@ function MyCart(props) {
                 <div className="col-md-12 col-lg-8">
                   <div className="items">
                     <div className="product">
-                      <div className="row">
+                      <div className="row justify-content-center">
                         {cart.cartItems?.map((cartItem) => (
                           <div className="cart-item" key={cartItem.id}>
                             <div class="rounded-3 mb-4">
@@ -132,6 +208,12 @@ function MyCart(props) {
                             </div>
                           </div>
                         ))}
+                        <button
+                          className="shopping-btn btn btn-warning text-light w-50 ms-3"
+                          onClick={() => handleClearCart()}
+                        >
+                          Clear Cart
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -166,25 +248,58 @@ function MyCart(props) {
                         {(cartTotalAmount + ShippingFee).toFixed(2)}
                       </span>
                     </div>
-                    <button
-                      className="shopping-btn btn btn-warning btn-lg w-100"
-                      onClick={() => handleClearCart()}
-                    >
-                      Clear Cart
-                    </button>
+                    <div>
+                      <select
+                        className="form-select mt-3"
+                        aria-label="Default select example"
+                        value={selectedAddress}
+                        onChange={handleAddressChange}
+                      >
+                        <option selected>Select Address</option>
+                        {addresses.map((address) => (
+                          <option key={address.id} value={address.id}>
+                            {address.house_no} {address.place}
+                            {", "}
+                            {address.postal_code}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                     <div className="mt-3 text-center ">
                       <p>Choose payment options:</p>
                     </div>
                     {/* Paypal Checkout */}
                     <div className="container">
                       <PayPalScriptProvider options={initialOptions}>
-                        <PayPalButtons />
+                        <PayPalButtons
+                          createOrder={(data, actions) => {
+                            return actions.order.create({
+                              purchase_units: [
+                                {
+                                  amount: {
+                                    value: cartTotalAmount.toFixed(2),
+                                  },
+                                },
+                              ],
+                              application_context: {
+                                shipping_preference: "NO_SHIPPING",
+                              },
+                            });
+                          }}
+                          onApprove={(data, actions) => {
+                            return actions.order.capture().then((details) => {
+                              alert(
+                                `Transaction completed by ${userData.fullName}`
+                              );
+                              handleSubmitOrder(); //Save orders to database
+                              handleClearCart();
+                              //Code for go to Order
+                            });
+                          }}
+                        />
                       </PayPalScriptProvider>
                       <p className="text-center">or</p>
-                      <button className="shopping-btn btn btn-warning btn-lg w-100">
-                        <i class="fas fa-truck"></i>&nbsp;Cash on Delivery
-                      </button>
-                      <div className="continue-shopping">
+                      <div className="continue-shopping d-flex justify-content-center">
                         <Link
                           to="/"
                           className="anchor"
