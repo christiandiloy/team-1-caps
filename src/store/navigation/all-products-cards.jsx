@@ -1,6 +1,7 @@
 import React from "react";
 import "../store.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
@@ -23,21 +24,22 @@ function AllProductsCards() {
 
   const fetchProducts = (value) => {
     fetch("http://localhost:3005/getProduct")
-    .then((response) => response.json())
-    .then((result) => {
-      const products = result && result.products ? result.products : result;
-      const filteredProducts =
-        value === ""
-          ? products
-          : products.filter(
-              (product) =>
-                product.title &&
-                product.title.toLowerCase().includes(value.toLowerCase())
-            );
-      setProducts(filteredProducts);
+      .then((response) => response.json())
+      .then((result) => {
+        const products = result && result.products ? result.products : result;
+        const filteredProducts =
+          value === ""
+            ? products
+            : products.filter(
+                (product) =>
+                  product.title &&
+                  product.title.toLowerCase().includes(value.toLowerCase())
+              );
+        setProducts(filteredProducts);
       })
-      .catch((error) => console.log('fetchProducts error:', error));
+      .catch((error) => console.log("fetchProducts error:", error));
   };
+
   useEffect(() => {
     fetchProducts(searchValue);
     let searchChecker = setInterval(() => {
@@ -61,8 +63,11 @@ function AllProductsCards() {
     return products;
   });
 
-  console.log('products:', products);
-  console.log('aegisItems:', aegisItems);
+  console.log("products:", products);
+  console.log("aegisItems:", aegisItems);
+
+  //Item page links
+  const itemURL = "http://localhost:3000/item-page/";
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
@@ -70,9 +75,20 @@ function AllProductsCards() {
         return (
           <Col key={item.id} id="aegis-col">
             <Card id="aegis-cards">
-              <Card.Img variant="top" src={item.url} />
+              <Link
+                to={`${itemURL}AegisBonusKit`} //link of page_name: Change AegisBonusKit
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <Card.Img variant="top" src={item.url} />
+                <Card.Title
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
+                  {item.title}
+                </Card.Title>
+              </Link>
               <Card.Body style={{ textAlign: "center" }}>
-                <Card.Title>{item.title}</Card.Title>
                 <Card.Text>
                   <i class="fa-solid fa-star star"></i>
                   <i class="fa-solid fa-star star"></i>

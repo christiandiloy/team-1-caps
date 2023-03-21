@@ -34,13 +34,14 @@ const cartSlice = createSlice({
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+      const cartUser = JSON.parse(localStorage.getItem("user"));
 
       fetch(serverRoutes.saveItem, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ items: cartItems }),
+        body: JSON.stringify({ items: cartItems, userID: cartUser.id }),
       })
         .then((response) => {
           if (!response.ok) {
