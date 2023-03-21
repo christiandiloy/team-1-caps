@@ -76,7 +76,7 @@ function AllProductsCards() {
           <Col key={item.id} id="aegis-col">
             <Card id="aegis-cards">
               <Link
-                to={`${itemURL}AegisBonusKit`} //link of page_name: Change AegisBonusKit
+                to={`${itemURL}${item.page_name}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <Card.Img variant="top" src={item.url} />
