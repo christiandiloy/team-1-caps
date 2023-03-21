@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Notable&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Notable&display=swap");
 
 /* Head Reminder */
 .storeHeader-fullname :hover {
@@ -146,6 +146,10 @@ a {
 }
 #aegis-cards {
   border: none;
+}
+
+.card-image-height {
+  height: 430.66px;
 }
 #header-icons {
   color: white;
@@ -354,8 +358,6 @@ a {
 
 /* Page title */
 
-
-
 /* Cards */
 
 .star {
@@ -410,7 +412,6 @@ a {
 .slick-list {
   min-height: 500px;
   height: auto;
-  
 }
 
 .slick-title {
@@ -440,11 +441,13 @@ a {
 
 /* Slick arrows */
 
-.slick-next:before, .slick-prev:before {
+.slick-next:before,
+.slick-prev:before {
   color: black !important;
 }
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
   z-index: 1;
 }
 
@@ -456,7 +459,4 @@ a {
   right: 10px;
 }
 
-
-
 /* Slick arrows */
-

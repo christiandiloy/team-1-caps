@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./store.css";
 import { addToCart } from "./features/cartSlice";
 
-function TopDeals() {
+function TopDeals(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -61,21 +61,32 @@ function TopDeals() {
     ],
   };
 
+  //Item page links
+  const itemURL = "http://localhost:3000/item-page/";
+
   return (
-    <div className="slider-container">
+    <div className="slider-container py-3">
       <h2 className="slick-title">Best Selling</h2>
       <Slider {...settings}>
         {aegisItems.map((item) => {
           return (
             <div>
               <div className="card-body">
-                <img
-                  className="img-fluid"
-                  src={item.url}
-                  alt="product"
-                  variant="top"
-                />
-                <h5 className="card-title">{item.title}</h5>
+                <Link
+                  to={`${itemURL}${item.page_name}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                  onClick={() => {
+                    props.setCurrentLink("/pod-kits");
+                  }}
+                >
+                  <img
+                    className="img-fluid"
+                    src={item.url}
+                    alt="product"
+                    variant="top"
+                  />
+                  <h5 className="card-title">{item.title}</h5>
+                </Link>
                 <p className="card-text text-muted">
                   <i
                     className="fa-solid fa-star"
@@ -101,12 +112,11 @@ function TopDeals() {
                 </p>
                 <div className="card-price">
                   <del>
-                  <span className="price-rsp text-muted">
-                    <i className="fa-solid fa-peso-sign"></i>
-                    {item.rsp}
-                  </span>
-                  </del>
-                  {" "}
+                    <span className="price-rsp text-muted">
+                      <i className="fa-solid fa-peso-sign"></i>
+                      {item.rsp}
+                    </span>
+                  </del>{" "}
                   <i className="fa-solid fa-peso-sign"></i>
                   {item.price}
                 </div>

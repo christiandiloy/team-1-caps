@@ -3,7 +3,7 @@ import "../store.css";
 import { useState, useEffect } from "react";
 import { Button } from "bootstrap";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { addToCart } from "../features/cartSlice";
 
 import Card from "react-bootstrap/Card";
@@ -29,15 +29,30 @@ function ReplacementPodsCards() {
   });
   console.log(aegisItems);
 
+  //Item page links
+  const itemURL = "http://localhost:3000/item-page/";
+
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
       {aegisItems.map((item) => {
         return (
           <Col key={item.id} class="aegis-col">
             <Card id="aegis-cards">
-              <Card.Img variant="top" src={item.url} />
+              <Link
+                to={`${itemURL}${item.page_name}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <Card.Img
+                  className="img-fluid"
+                  variant="top"
+                  src={item.url}
+                  style={{ minHeight: "415px" }}
+                />
+                <Card.Title style={{ textAlign: "center" }}>
+                  {item.title}
+                </Card.Title>
+              </Link>
               <Card.Body style={{ textAlign: "center" }}>
-                <Card.Title>{item.title}</Card.Title>
                 <Card.Text>
                   <i class="fa-solid fa-star star"></i>
                   <i class="fa-solid fa-star star"></i>
