@@ -79,7 +79,12 @@ function AllProductsCards() {
                 to={`${itemURL}${item.page_name}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <Card.Img variant="top" src={item.url} />
+                <Card.Img
+                  className="img-fluid"
+                  variant="top"
+                  src={item.url}
+                  style={{ minHeight: "415px" }}
+                />
                 <Card.Title
                   style={{
                     textAlign: "center",
