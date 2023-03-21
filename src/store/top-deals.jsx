@@ -26,7 +26,7 @@ function TopDeals() {
     return products.category === "Aegis";
   });
   console.log(aegisItems);
-  
+
   const settings = {
     dots: false,
     infinite: true,
@@ -60,9 +60,10 @@ function TopDeals() {
       },
     ],
   };
+
   return (
-    <div>
-      <h1 className="slider-h1">Top Deals</h1>
+    <div className="slider-container">
+      <h2 className="slick-title">Best Selling</h2>
       <Slider {...settings}>
         {aegisItems.map((item) => {
           return (
@@ -99,6 +100,13 @@ function TopDeals() {
                   ({item.star})
                 </p>
                 <div className="card-price">
+                  <del>
+                  <span className="price-rsp text-muted">
+                    <i className="fa-solid fa-peso-sign"></i>
+                    {item.rsp}
+                  </span>
+                  </del>
+                  {" "}
                   <i className="fa-solid fa-peso-sign"></i>
                   {item.price}
                 </div>

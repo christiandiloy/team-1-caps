@@ -25,8 +25,8 @@ function StoreNavBar(props) {
     window.location.href = "http://localhost:3000/login";
   }
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="navbar-container">
+      <Container className="justify-content-center">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
