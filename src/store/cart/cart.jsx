@@ -135,7 +135,9 @@ function MyCart(props) {
             <div className="cart-empty">
               <p>Your cart is empty.</p>
               <div className="start-shopping">
-                <Link to="/" className="anchor">
+                <Link to="/" className="anchor" onClick={() => {
+                            props.setCurrentLink("/");
+                          }}>
                   <i class="fa-solid fa-arrow-left"></i>
                   <span className="span">Shop now!</span>
                 </Link>
