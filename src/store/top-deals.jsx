@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./store.css";
 import { addToCart } from "./features/cartSlice";
 
-function TopDeals() {
+function TopDeals(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -61,6 +61,9 @@ function TopDeals() {
     ],
   };
 
+  //Item page links
+  const itemURL = "http://localhost:3000/item-page/";
+
   return (
     <div className="slider-container">
       <h2 className="slick-title">Best Selling</h2>
@@ -69,6 +72,12 @@ function TopDeals() {
           return (
             <div>
               <div className="card-body">
+              <Link
+                to={`${itemURL}${item.page_name}`}
+                style={{ textDecoration: "none", color: "black" }}
+                onClick={() => {
+                  props.setCurrentLink("/pod-kits");
+                }}>
                 <img
                   className="img-fluid"
                   src={item.url}
@@ -76,6 +85,7 @@ function TopDeals() {
                   variant="top"
                 />
                 <h5 className="card-title">{item.title}</h5>
+                </Link>
                 <p className="card-text text-muted">
                   <i
                     className="fa-solid fa-star"
