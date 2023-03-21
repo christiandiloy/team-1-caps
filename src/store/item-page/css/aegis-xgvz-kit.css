@@ -383,3 +383,11 @@
         height: 600px;
     }
 }
+
+.customBtn {
+    background-color: orange;
+}
+
+.customBtn:hover {
+    background-color: rgba(255, 166, 0, 0.822)
+}
