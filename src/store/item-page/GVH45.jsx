@@ -1,9 +1,24 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { addToCart } from "../features/cartSlice";
+import { useDispatch } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/gv-h45.css";
 
 function GVH45() {
+    const dispatch = useDispatch();
+
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+    fetch("http://localhost:3005/getProduct")
+        .then((response) => response.json())
+        .then(({ products }) => setProducts(products));
+    }, []);
+
+    const handleAddToCart = (productId) => {
+    const productToAdd = products.find(product => product.id === productId);
+    dispatch(addToCart(productToAdd));
+    };
+
     const pageName = "GVH45";
     const [item, setItem] = useState({});
 
@@ -162,13 +177,8 @@ function GVH45() {
                     <br />
                     <div className="row g-3 mb-4">
                         <div className="col">
-                        <button className="btn btn-outline-dark py-2 w-100">
+                        <button className="btn customBtn py-2 w-100" onClick={() => handleAddToCart(5)}>
                             Add to cart
-                        </button>
-                        </div>
-                        <div className="col">
-                        <button className="btn btn-dark py-2 w-100">
-                            Buy now
                         </button>
                         </div>
                     </div>

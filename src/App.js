@@ -21,6 +21,16 @@ import GVLegend200 from "./store/item-page/GVLegend200";
 import GVNano from "./store/item-page/GVNano";
 import GVOne from "./store/item-page/GVOne";
 import AegisXGVZKit from "./store/item-page/AegisXGVZKit";
+import GVAP2 from "./store/item-page/GVAP2";
+import GVB60 from "./store/item-page/GVB60";
+import GVB10021700Kit from "./store/item-page/GVB10021700Kit";
+import GVB100Kit from "./store/item-page/GVB100Kit";
+import GVE100E100iKit from "./store/item-page/GVE100E100iKit";
+import GVL200Classic from "./store/item-page/GVL200Classic";
+import GVM100Kit from "./store/item-page/GVM100Kit";
+import GVS100 from "./store/item-page/GVS100";
+import GVT200 from "./store/item-page/GVT200";
+import DigiUKit from "./store/item-page/DigiUKit";
 import BoxModKits from "./store/navigation/box-mod-kits";
 import PodKits from "./store/navigation/pod-kits";
 import Profile from "./Profile";
@@ -50,6 +60,16 @@ const App = (props) => {
         <Route path="/item-page/GVNano" element={<GVNano />} />
         <Route path="/item-page/GVOne" element={<GVOne />} />
         <Route path="/item-page/AegisXGVZKit" element={<AegisXGVZKit />} />
+        <Route path="/item-page/GVAP2" element={<GVAP2 />} />
+        <Route path="/item-page/GVB60" element={<GVB60 />} />
+        <Route path="/item-page/GVB10021700Kit" element={<GVB10021700Kit />} />
+        <Route path="/item-page/GVB100Kit" element={<GVB100Kit />} />
+        <Route path="/item-page/GVE100E100iKit" element={<GVE100E100iKit />} />
+        <Route path="/item-page/GVL200Classic" element={<GVL200Classic />} />
+        <Route path="/item-page/GVM100Kit" element={<GVM100Kit />} />
+        <Route path="/item-page/GVS100" element={<GVS100 />} />
+        <Route path="/item-page/GVT200" element={<GVT200 />} />
+        <Route path="/item-page/DigiUKit" element={<DigiUKit />} />
           <Route path="/all-products" element={<AllProducts />} />
           <Route path="/box-mods" element={<BoxMod />} />
           <Route path="/replacement-pods" element={<ReplacementPods />} />
