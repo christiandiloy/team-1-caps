@@ -1,0 +1,288 @@
+.GVL200Classic-vertical-scroller {
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.GVL200Classic-vertical-scroller .d-flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: scroll;
+}
+
+.GVL200Classic-vertical-scroller .d-flex::-webkit-scrollbar {
+    display: none; /* hide scrollbar for webkit browsers */
+}
+
+.GVL200ClassicImg {
+    background-image: url('/src/assets/images/item-pages-details/l200-01.jpg');
+    height: 60vh;
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.GVL200ClassicLogo1 {
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 100%;
+}
+
+.GVL200ClassicDetails {
+    position: absolute;
+    top: 13rem;
+    left: 4vh;
+    z-index: 1;
+    max-width: 20vw;
+}
+
+.GVL200ClassicDetails h1 {
+    color: #fff;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 3.3vw;
+}
+.GVL200ClassicImg2 {
+    background-image: url('/src/assets/images/item-pages-details/aegis-one-02.jpg');
+    height: 50vh;
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.GVL200ClassicDetails2 {
+    padding-top: 5%;
+    padding-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    max-width: 90vw;
+}
+
+.GVL200Classic-p2 {
+    color: #fff;
+    font-size: 140%;
+    text-align: center;
+    line-height: 150%;
+}
+
+.GVL200ClassicLogo2 {
+    position: absolute;
+    top: 100%;
+    align-items: center;
+    z-index: 3;
+    height: auto;
+    width: 60%;
+}
+
+@media (max-width:1440px) {
+    .GVL200ClassicDetails {
+        top: 12rem;
+        max-width: 30vw;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 5vw;
+    }
+}
+
+@media (min-width:1200px) and (max-width:1400px){
+    .GVL200Classic-vertical-scroller {
+        height: 390px;
+    }
+}
+
+@media (max-width:1199px) {
+    .GVL200Classic-vertical-scroller {
+        height: 400px;
+    }
+}
+
+@media (max-width:1024px) {
+    .GVL200ClassicDetails {
+        top: 10rem;
+        max-width: 35vw;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 5vw;
+    }
+}
+
+@media (max-width:991px){
+    .GVL200ClassicDetails {
+        top: 7rem;
+        left: 2%;
+        z-index: 1;
+        max-width: 50vw;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 7vw;
+    }
+
+    .GVL200ClassicImg {
+        height: 50vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: unset;
+    }
+
+    .GVL200ClassicLogo1 {
+        top: 100%;
+        width: 90%;
+    }
+
+    .GVL200ClassicDetails2 {
+        padding-top: 10%;
+    }
+
+    .GVL200Classic-p2 {
+        font-size: 90%;
+    }
+
+    .GVL200ClassicLogo2 {
+        top: 100%;
+        width: 100%;
+    }
+
+    .GVL200Classic-vertical-scroller {
+        height: 30vh;
+        overflow-y: auto;
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .GVL200Classic-vertical-scroller .d-flex {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .scrollingImages{
+        flex-direction: row !important;
+        width: 200% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .GVL200ClassicDetails {
+        top: 4rem;
+        max-width: 35vw;
+    }
+
+    .GVL200Classic-vertical-scroller {
+        height: 33vh;
+    }
+
+    .GVL200ClassicDetails {
+        top: 13vw;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 7vw;
+    }
+}
+
+@media (max-width:767px) {
+    .GVL200Classic-vertical-scroller {
+        height: 23vh;
+    }
+
+    .GVL200ClassicImg {
+        background-image: url('/src/assets/images/item-pages-details/l200-mob-01.jpg');
+        height: 90vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVL200ClassicDetails {
+        top: 4rem;
+        max-width: 70vw;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 8vw;
+    }
+}
+
+@media (max-width:425px) {
+    .GVL200ClassicImg {
+        background-image: url('/src/assets/images/item-pages-details/l200-mob-01.jpg');
+        height: 70vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVL200ClassicDetails {
+        top: 4rem;
+        max-width: 70vw;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 10vw;
+    }
+}
+
+@media (max-width:375px) {
+    .GVL200Classic-vertical-scroller {
+        height: 15vh;
+    }
+
+    .GVL200ClassicImg {
+        background-image: url('/src/assets/images/item-pages-details/l200-mob-01.jpg');
+        height: 60vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVL200ClassicDetails {
+        top: 2rem;
+        max-width: 70vw;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 10vw;
+    }
+}
+
+@media (max-width:320px) {
+    .GVL200ClassicImg {
+        background-image: url('/src/assets/images/item-pages-details/l200-mob-01.jpg');
+        height: 50vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .GVL200ClassicDetails {
+        top: 3rem;
+    }
+
+    .GVL200ClassicDetails h1  {
+        font-size: 10vw;
+    }
+}
+
+.customBtn {
+    background-color: orange;
+}
+
+.customBtn:hover {
+    background-color: rgba(255, 166, 0, 0.822)
+}

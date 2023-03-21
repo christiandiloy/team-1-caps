@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Notable&display=swap');
+
 /* Head Reminder */
 .storeHeader-fullname :hover {
   color: orange;
@@ -376,7 +378,7 @@ a {
 }
 .cart-cart {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
 }
 .cart-cart:hover {
   color: orange;
@@ -393,10 +395,36 @@ a {
 
 /* Header */
 
-/* Product Slider */
+/* Button success */
 
-.slider-h1 {
-  text-align: center;
+#cart-btn {
+  font-size: 20px;
+}
+
+/* Button success */
+
+/* Top Deals */
+
+.slick-list {
+  min-height: 500px;
+  height: auto;
+  
+}
+
+.slick-title {
+  background-color: #eaeaea;
+  margin-left: 50px;
+  font-family: "Kanit", sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-decoration: underline;
+  color: orange;
+}
+
+.slider-container {
+  width: 83%;
+  margin: 50px auto 0 auto;
+  background-color: #eaeaea;
 }
 
 .react-multi-carousel-list {
@@ -406,27 +434,4 @@ a {
   text-align: center;
 }
 
-/* Product Slider */
-
-
-.card-img-top:hover{
-  cursor: pointer;
-  transform: scale(1.1,1.1);
-  transition: transform 0.5s ease;
-}
-
-/* Button success */
-
-#cart-btn {
-  font-size: 20px;
-}
-
-/* Button success */
-
-/* Slick arrows */
-
-
-
-
-
-/* Slick arrows */
+/* Top Deals */

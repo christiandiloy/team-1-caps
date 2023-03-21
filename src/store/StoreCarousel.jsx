@@ -8,7 +8,7 @@ let slides = [
     <img src="/assets/images/pod.jpg" alt="4" />  ,
     <img src="/assets/images/wenax.jpg" alt="5" />   ];
 return (
-<Carousel slides={slides} autoplay={true} interval={3000}/>
+<Carousel slides={slides} autoplay={true} interval={3000} dots={true}/>
 )
 }
 export default StoreCarousel;

@@ -111,6 +111,7 @@ export const updateUserProfile = async (formData) => {
   }
 };
 
+//Subscribe Newsletter Automated Email
 export const SubscriberAPI = (email) => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
