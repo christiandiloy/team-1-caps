@@ -1,8 +1,4 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import "./store.css";
 import { useState, useEffect } from "react";
@@ -16,103 +12,81 @@ function StoreNavBar(props) {
     setCurrentLink(location.pathname.substring(1));
   }, [location]);
 
-  let isUserLoggedIn = false;
-  try {
-    isUserLoggedIn = JSON.parse(localStorage.getItem("user"));
-    if (isUserLoggedIn && isUserLoggedIn.id) {
-      // do nothing, continue lang
-    } else {
-      localStorage.clear();
-      window.location.href = "http://localhost:3000/login";
-    }
-  } catch (error) {
-    localStorage.clear();
-    window.location.href = "http://localhost:3000/login";
-  }
   return (
-    <Navbar
-      collapseOnSelect
-      expand="lg"
-      bg="dark"
-      variant="dark"
-      className="navbar-container"
-    >
-      <Container className="justify-content-center">
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto justify-content-center">
-            <Nav.Link>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid justify-content-center">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
               <Link
+                class="nav-link"
                 to="/all-products"
-                className="navbar-components"
                 onClick={() => {
                   props.setCurrentLink("/all-products");
                 }}
               >
                 All Products
               </Link>
-            </Nav.Link>
-            <Nav.Link>
+            </li>
+            <li class="nav-item">
               <Link
+                class="nav-link"
                 to="/box-mods"
-                className="navbar-components"
                 onClick={() => {
                   props.setCurrentLink("/box-mods");
                 }}
               >
                 Box Mods
               </Link>
-            </Nav.Link>
-            <Nav.Link>
+            </li>
+            <li class="nav-item">
               <Link
+                class="nav-link"
                 to="/replacement-pods"
-                className="navbar-components"
                 onClick={() => {
                   props.setCurrentLink("/replacement-pods");
                 }}
               >
                 Replacement Pods
               </Link>
-            </Nav.Link>
-            <Nav.Link>
+            </li>
+            <li class="nav-item">
               <Link
+                class="nav-link"
                 to="/replacement-coils"
-                className="navbar-components"
                 onClick={() => {
                   props.setCurrentLink("/replacement-coils");
                 }}
               >
                 Replacement Coils
               </Link>
-            </Nav.Link>
-            <NavDropdown title="Vape Kits" id="collasible-nav-dropdown">
-              <NavDropdown.Item>
-                <Link
-                  to="/box-mod-kits"
-                  className="navbar-components-dropdown"
-                  onClick={() => {
-                    props.setCurrentLink("/box-mod-kits");
-                  }}
-                >
-                  Box mod kits
-                </Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link
-                  to="/pod-kits"
-                  className="navbar-components-dropdown"
-                  onClick={() => {
-                    props.setCurrentLink("/pod-kits");
-                  }}
-                >
-                  Pod Kits
-                </Link>
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            </li>
+            <li>
+              <Link
+                class="nav-link"
+                to="/box-mod-kits"
+                onClick={() => {
+                  props.setCurrentLink("/box-mod-kits");
+                }}
+              >
+                Pod and Box mod Kits
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 

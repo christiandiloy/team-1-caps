@@ -22,16 +22,18 @@ function PodKitsCards() {
   useEffect(() => {
     fetch("http://localhost:3005/getProduct")
       .then((response) => response.json())
-      .then(({ products }) => setProducts(products));
+      .then(({ products }) => {
+        console.log(products);
+        setProducts(products);
+      });
   }, []);
-  let aegisItems = products.filter((products) => {
-    return products.category === "Pod_Kits";
+  let podKits = products.filter((products) => {
+    return products.id === "PodVapes";
   });
-  console.log(aegisItems);
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
-      {aegisItems.map((item) => {
+      {podKits.map((item) => {
         return (
           <Col key={item.id} id="aegis-col">
             <Card id="aegis-cards">

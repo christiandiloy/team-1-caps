@@ -153,6 +153,9 @@ a {
 #header-icons:hover {
   color: orange;
 }
+#navbarNav li a:hover {
+  color: orange;
+}
 @media only screen and (min-width: 470px) {
   .btn {
     padding: 0.5rem 1rem;
