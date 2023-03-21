@@ -38,14 +38,16 @@ function ReplacementPodsCards() {
         return (
           <Col key={item.id} class="aegis-col">
             <Card id="aegis-cards">
-            <Link
+              <Link
                 to={`${itemURL}${item.page_name}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
-              <Card.Img variant="top" src={item.url} />
-                <Card.Title style={{textAlign:"center"}}>{item.title}</Card.Title>
-                </Link>
-                <Card.Body style={{ textAlign: "center" }}>
+                <Card.Img className="img-fluid" variant="top" src={item.url} />
+                <Card.Title style={{ textAlign: "center" }}>
+                  {item.title}
+                </Card.Title>
+              </Link>
+              <Card.Body style={{ textAlign: "center" }}>
                 <Card.Text>
                   <i class="fa-solid fa-star star"></i>
                   <i class="fa-solid fa-star star"></i>

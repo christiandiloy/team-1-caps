@@ -65,26 +65,27 @@ function TopDeals(props) {
   const itemURL = "http://localhost:3000/item-page/";
 
   return (
-    <div className="slider-container">
+    <div className="slider-container py-3">
       <h2 className="slick-title">Best Selling</h2>
       <Slider {...settings}>
         {aegisItems.map((item) => {
           return (
             <div>
               <div className="card-body">
-              <Link
-                to={`${itemURL}${item.page_name}`}
-                style={{ textDecoration: "none", color: "black" }}
-                onClick={() => {
-                  props.setCurrentLink("/pod-kits");
-                }}>
-                <img
-                  className="img-fluid"
-                  src={item.url}
-                  alt="product"
-                  variant="top"
-                />
-                <h5 className="card-title">{item.title}</h5>
+                <Link
+                  to={`${itemURL}${item.page_name}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                  onClick={() => {
+                    props.setCurrentLink("/pod-kits");
+                  }}
+                >
+                  <img
+                    className="img-fluid"
+                    src={item.url}
+                    alt="product"
+                    variant="top"
+                  />
+                  <h5 className="card-title">{item.title}</h5>
                 </Link>
                 <p className="card-text text-muted">
                   <i
@@ -111,12 +112,11 @@ function TopDeals(props) {
                 </p>
                 <div className="card-price">
                   <del>
-                  <span className="price-rsp text-muted">
-                    <i className="fa-solid fa-peso-sign"></i>
-                    {item.rsp}
-                  </span>
-                  </del>
-                  {" "}
+                    <span className="price-rsp text-muted">
+                      <i className="fa-solid fa-peso-sign"></i>
+                      {item.rsp}
+                    </span>
+                  </del>{" "}
                   <i className="fa-solid fa-peso-sign"></i>
                   {item.price}
                 </div>
