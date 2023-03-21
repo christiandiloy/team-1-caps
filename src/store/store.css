@@ -367,11 +367,9 @@ a {
 /* Header */
 
 #store-header {
-  padding-left: 10%;
-  padding-right: 10%;
   background-color: #08002a;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 .cart-icon {
@@ -436,3 +434,26 @@ a {
 }
 
 /* Top Deals */
+
+/* Slick arrows */
+
+.slick-next:before, .slick-prev:before {
+  color: black !important;
+}
+
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+
+
+/* Slick arrows */
+

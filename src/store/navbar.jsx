@@ -5,12 +5,17 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import "./store.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function StoreNavBar(props) {
-  const [currentLink, setCurrentLink] = useState(
-    window.location.pathname.substring(1)
-  );
+  const [currentLink, setCurrentLink] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    setCurrentLink(location.pathname.substring(1));
+  }, [location]);
+
   let isUserLoggedIn = false;
   try {
     isUserLoggedIn = JSON.parse(localStorage.getItem("user"));
@@ -25,11 +30,17 @@ function StoreNavBar(props) {
     window.location.href = "http://localhost:3000/login";
   }
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="navbar-container">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="navbar-container"
+    >
       <Container className="justify-content-center">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto justify-content-center">
             <Nav.Link>
               <Link
                 to="/all-products"
