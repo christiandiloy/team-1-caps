@@ -16,7 +16,7 @@ function BoxModCards() {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3005/getProduct")
+    fetch("http://gonsdispovape.shop/getProduct")
       .then((response) => response.json())
       .then(({ products }) => setProducts(products));
   }, []);
@@ -31,7 +31,7 @@ function BoxModCards() {
   };
 
   //Item page links
-  const itemURL = "http://localhost:3000/item-page/";
+  const itemURL = "http://gonsdispovape.shop/item-page/";
 
   return (
     <Row xs={1} md={4} className="g-3" id="cards-container">

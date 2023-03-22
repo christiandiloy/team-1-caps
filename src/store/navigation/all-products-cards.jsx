@@ -23,7 +23,7 @@ function AllProductsCards() {
   };
 
   const fetchProducts = (value) => {
-    fetch("http://localhost:3005/getProduct")
+    fetch("http://gonsdispovape.shop/getProduct")
       .then((response) => response.json())
       .then((result) => {
         const products = result && result.products ? result.products : result;

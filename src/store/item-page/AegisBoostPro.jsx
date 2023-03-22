@@ -10,7 +10,7 @@ function AegisBoostPro() {
 
     const [products, setProducts] = useState([]);
     useEffect(() => {
-    fetch("http://localhost:3005/getProduct")
+    fetch("http://gonsdispovape.shop")
         .then((response) => response.json())
         .then(({ products }) => setProducts(products));
     }, []);
@@ -24,7 +24,7 @@ function AegisBoostPro() {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:3005/store/item-page/${pageName}`)
+        fetch(`http://gonsdispovape.shop/store/item-page/${pageName}`)
         .then((response) => {
             if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

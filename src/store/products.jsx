@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 function Products() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3005/getProduct")
+    fetch("http://gonsdispovape.shop/getProduct")
       .then((response) => response.json())
       .then(({ products }) => setProducts(products));
   }, []);

@@ -22,7 +22,7 @@ function Aegis1FCPodKit() {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:3005/store/item-page/${pageName}`)
+        fetch(`http://gonsdispovape.shop/store/item-page/${pageName}`)
         .then((response) => {
             if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

@@ -20,7 +20,7 @@ function ReplacementPodsCards() {
   };
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3005/getProduct")
+    fetch("http://gonsdispovape.shop/getProduct")
       .then((response) => response.json())
       .then(({ products }) => setProducts(products));
   }, []);
@@ -30,7 +30,7 @@ function ReplacementPodsCards() {
   console.log(aegisItems);
 
   //Item page links
-  const itemURL = "http://localhost:3000/item-page/";
+  const itemURL = "http://gonsdispovape.shop/item-page/";
 
   return (
     <Row xs={1} md={4} className="g-1" id="cards-container">
